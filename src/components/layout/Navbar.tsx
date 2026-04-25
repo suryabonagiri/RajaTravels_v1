@@ -42,7 +42,7 @@ export default function Navbar() {
           >
             <div className="relative w-[180px] h-[48px] md:w-[220px] md:h-[56px] transition-transform duration-300 group-hover:scale-[1.02]">
               <Image
-                src="/Raja_travels_logo.png"
+                src="/Raja_Travels_logo.png"
                 alt="Raja Travels Logo"
                 width={320}
                 height={88}

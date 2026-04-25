@@ -36,7 +36,7 @@ export default function Footer() {
           >
             <div className="mb-6 relative w-[260px] h-[75px] md:w-[320px] md:h-[90px] group">
               <Image
-                src="/Raja_travels_logo.png"
+                src="/Raja_Travels_logo.png"
                 alt="Raja Travels Logo"
                 width={320}
                 height={90}
