@@ -112,8 +112,16 @@ export default function ContactSection() {
               />
             </div>
             <p className="text-xs text-text-light mt-3 text-center">
-              📍 Opp. Pushkar Ghat, Rajahmundry, East Godavari, AP
+              📍 {BUSINESS.address}
             </p>
+            <a 
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Raja Travels (ap tourism authorised) papikondalu tourism 12-21-5, beside sri latha hosipital, Aryapuram, Rajamahendravaram")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 text-xs font-bold text-gold hover:text-primary transition-colors text-center inline-block mx-auto border-b border-gold/30 hover:border-primary/30"
+            >
+              View on Google Maps →
+            </a>
           </motion.div>
         </div>
       </div>

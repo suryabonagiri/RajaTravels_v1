@@ -4,14 +4,14 @@ export const BUSINESS = {
   tagline: "AP Tourism Authorized Agent",
   description:
     "Your trusted partner for exploring the enchanting beauty of Andhra Pradesh. AP Tourism Authorized Tours and Travels company dedicated to providing the most memorable and authentic travel experiences.",
-  phones: ["9397912351", "9397912411", "9492144480", "7013144480"],
+  phones: ["9397912351", "9397912411", "7036572664"],
   primaryPhone: "9397912351",
   whatsappNumber: "919397912351",
-  email: "info@rajatravels.com",
+  email: "rajatravelsbs@yahoo.in",
   address:
-    "D.No: 7-18-4, Opp. Pushkar Ghat, Rajahmundry, East Godavari, Andhra Pradesh - 533101",
+    "12-21-5, beside sri latha hosipital, Aryapuram, Rajamahendravaram, Andhra Pradesh 533104",
   mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.8989!2d81.8040!3d17.0005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRajahmundry!5e0!3m2!1sen!2sin!4v1234567890",
+    "https://maps.google.com/maps?q=Raja%20Travels%20(ap%20tourism%20authorised)%20papikondalu%20tourism%2012-21-5%2C%20beside%20sri%20latha%20hosipital%2C%20Aryapuram%2C%20Rajamahendravaram&t=&z=15&ie=UTF8&iwloc=&output=embed",
   socialLinks: {
     facebook: "https://facebook.com/rajatravels",
     instagram: "https://instagram.com/rajatravels",

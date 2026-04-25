@@ -99,23 +99,29 @@ export default function BookingForm() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3.5 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-gold/60 focus:bg-white/15 transition-all duration-300 text-sm backdrop-blur-sm";
-  const labelClasses = "block text-white/70 text-xs font-medium mb-1.5 tracking-wide uppercase";
+    "w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:border-gold/80 focus:ring-1 focus:ring-gold/50 focus:bg-white/10 transition-all duration-300 text-sm backdrop-blur-md outline-none shadow-inner";
+  const labelClasses = "block text-white/80 text-xs font-semibold mb-2 tracking-wider uppercase";
 
   return (
     <motion.form
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className="glass rounded-3xl p-6 md:p-8 max-w-2xl mx-auto gold-glow"
+      className="relative bg-white/5 backdrop-blur-2xl rounded-3xl p-6 md:p-10 max-w-2xl mx-auto border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden"
       onSubmit={(e) => e.preventDefault()}
     >
-      <div className="text-center mb-6">
-        <h3 className="text-xl md:text-2xl font-bold text-white font-[family-name:var(--font-heading)]">
+      {/* Premium Glow effect */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="text-center mb-10 relative z-10">
+        <span className="inline-block py-1.5 px-4 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
+          Reserve Your Experience
+        </span>
+        <h3 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60 font-[family-name:var(--font-heading)] mb-4 tracking-tight">
           Book Your Journey
         </h3>
-        <p className="text-white/50 text-sm mt-1">
-          Fill in your travel details below
+        <p className="text-white/60 text-sm max-w-md mx-auto leading-relaxed">
+          Experience luxury travel across Andhra Pradesh. Select your service below and let us handle every detail.
         </p>
       </div>
 
@@ -140,10 +146,11 @@ export default function BookingForm() {
             required
           >
             <option value="" className="text-gray-900">Select Service Type</option>
-            <option value="Bus Rental" className="text-gray-900">Bus Rental Services</option>
-            <option value="Papikondalu Package" className="text-gray-900">Papikondalu Tour Package</option>
-            <option value="Maredumilli Package" className="text-gray-900">Maredumilli Tour Package</option>
-            <option value="Other Service" className="text-gray-900">Other Travel Service</option>
+            <option value="Bus Rental" className="text-gray-900">Premium Bus Rental</option>
+            <option value="Papikondalu Package" className="text-gray-900">Papikondalu Luxury Tour</option>
+            <option value="Maredumilli Package" className="text-gray-900">Maredumilli Eco Tour</option>
+            <option value="Bhadrachalam Package" className="text-gray-900">Bhadrachalam Divine Tour</option>
+            <option value="Other Service" className="text-gray-900">Other Custom Travel</option>
           </select>
         </div>
 
@@ -280,24 +287,24 @@ export default function BookingForm() {
           type="button"
           onClick={handleWhatsApp}
           disabled={!isFormValid()}
-          className="flex items-center justify-center gap-2 py-3.5 px-6 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#25D366]/30 disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-sm"
+          className="relative z-10 flex items-center justify-center gap-2 py-4 px-6 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(37,211,102,0.4)] hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 shimmer cursor-pointer text-sm tracking-wide"
         >
-          <FaWhatsapp className="text-lg" />
-          Send via WhatsApp
+          <FaWhatsapp className="text-xl" />
+          WhatsApp Booking
         </button>
 
         <button
           type="button"
           onClick={handleEmail}
           disabled={!isFormValid() || sending}
-          className="flex items-center justify-center gap-2 py-3.5 px-6 bg-gradient-to-r from-primary to-primary-light text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-sm"
+          className="relative z-10 flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 shimmer cursor-pointer text-sm tracking-wide border border-white/10"
         >
           {sending ? (
-            <FaSpinner className="text-lg animate-spin" />
+            <FaSpinner className="text-xl animate-spin" />
           ) : (
-            <FaEnvelope className="text-lg" />
+            <FaEnvelope className="text-xl" />
           )}
-          {emailSent ? "Sent ✓" : "Send via Email"}
+          {emailSent ? "Sent Successfully ✓" : "Email Booking"}
         </button>
       </div>
 
