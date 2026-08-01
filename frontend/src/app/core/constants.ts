@@ -1,4 +1,4 @@
-import { BusinessInfo } from './models';
+import { BusinessInfo, TravelService } from './models';
 
 /**
  * Initial business info shown before /api/business responds,
@@ -35,9 +35,66 @@ export const DEFAULT_BUSINESS: BusinessInfo = {
   ],
 };
 
+/** Fallback services before /api/services responds. */
+export const DEFAULT_SERVICES: TravelService[] = [
+  {
+    id: 'bus-rental',
+    title: 'Premium Bus Rental',
+    description:
+      'Luxury and comfortable buses for all occasions — from family trips to corporate events. Choose from 17 to 49 seater options.',
+    icon: 'bus',
+  },
+  {
+    id: 'papikondalu',
+    title: 'Papikondalu Boat Tourism',
+    description:
+      'Experience the breathtaking Papikondalu hills through scenic boat rides on the Godavari river. AP Tourism authorized packages.',
+    icon: 'boat',
+  },
+  {
+    id: 'maredumilli',
+    title: 'Maredumilli Eco Tourism',
+    description:
+      "Explore the pristine forests, waterfalls, and tribal culture of Maredumilli — Andhra Pradesh's hidden eco paradise.",
+    icon: 'forest',
+  },
+  {
+    id: 'haritha',
+    title: 'Haritha Resorts Booking',
+    description:
+      'Book official AP Tourism Haritha Resorts across Andhra Pradesh. Premium stays at government-approved properties.',
+    icon: 'resort',
+  },
+  {
+    id: 'group-tours',
+    title: 'Group & Family Tours',
+    description:
+      'Customized group tours for families, friends, and communities. Complete trip planning with accommodation and transport.',
+    icon: 'group',
+  },
+  {
+    id: 'corporate',
+    title: 'Corporate & Event Trips',
+    description:
+      'Professional transport solutions for corporate outings, marriage trips, and special events with premium service.',
+    icon: 'corporate',
+  },
+];
+
+/** Journey CTA targets keyed by service id. */
+export const JOURNEY_CTA: Record<string, { href: string; label: string }> = {
+  'bus-rental': { href: 'bus-rental', label: 'View fleet' },
+  papikondalu: { href: 'packages', label: 'See packages' },
+  maredumilli: { href: 'destinations', label: 'Explore destination' },
+  haritha: { href: 'destinations', label: 'View resorts' },
+  'group-tours': { href: 'contact', label: 'Plan a trip' },
+  corporate: { href: 'bus-rental', label: 'Book transport' },
+};
+
 export const NAV_LINKS = [
   { label: 'Home', href: 'home' },
   { label: 'About', href: 'about' },
+  { label: 'Journey', href: 'journey' },
   { label: 'Services', href: 'services' },
   { label: 'Destinations', href: 'destinations' },
   { label: 'Packages', href: 'packages' },

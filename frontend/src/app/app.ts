@@ -9,6 +9,7 @@ import { Destinations } from './sections/destinations';
 import { FaqSection } from './sections/faq';
 import { Hero } from './sections/hero';
 import { Packages } from './sections/packages';
+import { RoadJourney } from './sections/road-journey';
 import { Services } from './sections/services';
 import { Testimonials } from './sections/testimonials';
 
@@ -18,6 +19,7 @@ import { Testimonials } from './sections/testimonials';
     Navbar,
     Hero,
     About,
+    RoadJourney,
     Services,
     Destinations,
     Packages,
@@ -33,6 +35,7 @@ import { Testimonials } from './sections/testimonials';
     <main>
       <app-hero />
       <app-about />
+      <app-road-journey />
       <app-services />
       <app-destinations />
       <app-packages />

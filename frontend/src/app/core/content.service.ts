@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
-import { DEFAULT_BUSINESS } from './constants';
+import { DEFAULT_BUSINESS, DEFAULT_SERVICES } from './constants';
 import {
   BusinessInfo,
   Destination,
@@ -16,7 +16,7 @@ export class ContentService {
   private readonly http = inject(HttpClient);
 
   readonly business = signal<BusinessInfo>(DEFAULT_BUSINESS);
-  readonly services = signal<TravelService[]>([]);
+  readonly services = signal<TravelService[]>(DEFAULT_SERVICES);
   readonly destinations = signal<Destination[]>([]);
   readonly packages = signal<TourPackage[]>([]);
   readonly testimonials = signal<Testimonial[]>([]);
