@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
+import RoadJourneySection from "@/components/sections/RoadJourneySection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import DestinationsSection from "@/components/sections/DestinationsSection";
 import PackagesSection from "@/components/sections/PackagesSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <AboutSection />
+        <RoadJourneySection />
         <ServicesSection />
         <DestinationsSection />
         <PackagesSection />

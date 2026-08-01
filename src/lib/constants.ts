@@ -308,9 +308,32 @@ export const HARITHA_RESORTS = [
   { name: "Srisailam Hotels", location: "Srisailam" },
 ];
 
+/** Scroll-road journey: services only, using full service names. */
+const JOURNEY_SERVICE_META: Record<
+  string,
+  { href: string; ctaLabel: string }
+> = {
+  "bus-rental": { href: "#bus-rental", ctaLabel: "View fleet" },
+  papikondalu: { href: "#packages", ctaLabel: "See packages" },
+  maredumilli: { href: "#destinations", ctaLabel: "Explore destination" },
+  haritha: { href: "#destinations", ctaLabel: "View resorts" },
+  "group-tours": { href: "#contact", ctaLabel: "Plan a trip" },
+  corporate: { href: "#bus-rental", ctaLabel: "Book transport" },
+};
+
+export const JOURNEY_STOPS = SERVICES.map((service) => ({
+  id: service.id,
+  title: service.title,
+  description: service.description,
+  icon: service.icon,
+  href: JOURNEY_SERVICE_META[service.id]?.href ?? "#services",
+  ctaLabel: JOURNEY_SERVICE_META[service.id]?.ctaLabel ?? "Learn more",
+}));
+
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Journey", href: "#journey" },
   { label: "Services", href: "#services" },
   { label: "Destinations", href: "#destinations" },
   { label: "Packages", href: "#packages" },
