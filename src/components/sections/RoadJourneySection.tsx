@@ -7,13 +7,7 @@ import {
   useMotionValueEvent,
   AnimatePresence,
 } from "framer-motion";
-import {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   FaBus,
   FaShip,
@@ -21,14 +15,12 @@ import {
   FaHotel,
   FaUsers,
   FaBriefcase,
-  FaMapMarkedAlt,
   FaArrowRight,
 } from "react-icons/fa";
-import { JOURNEY_STOPS, SERVICES } from "@/lib/constants";
+import { JOURNEY_STOPS } from "@/lib/constants";
 import { cn, smoothScrollTo } from "@/lib/utils";
 
 const iconMap: Record<string, ReactNode> = {
-  map: <FaMapMarkedAlt className="text-xl" />,
   bus: <FaBus className="text-xl" />,
   boat: <FaShip className="text-xl" />,
   forest: <FaTree className="text-xl" />,
@@ -121,15 +113,21 @@ export default function RoadJourneySection() {
         <div className="absolute inset-0 bg-pattern opacity-30" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6">
           <p className="text-gold font-semibold tracking-wide text-sm uppercase mb-3">
-            Our Route
+            Our Services
           </p>
-          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-white mb-4">
-            Services along the road
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-white mb-6">
+            Everything we offer
           </h2>
-          <p className="text-white/70 mb-10 leading-relaxed">
-            An overview of everything Raja Travels provides, then each service
-            in order.
-          </p>
+          <ul className="grid sm:grid-cols-2 gap-3 mb-10">
+            {JOURNEY_STOPS.map((stop, index) => (
+              <li key={stop.id} className="text-sm text-gold-light/90">
+                <span className="text-gold font-mono text-xs mr-2">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {stop.title}
+              </li>
+            ))}
+          </ul>
           <ol className="space-y-8 border-l border-gold/40 pl-6">
             {JOURNEY_STOPS.map((stop) => (
               <li key={stop.id} className="relative">
@@ -140,18 +138,6 @@ export default function RoadJourneySection() {
                 <p className="text-white/65 text-sm leading-relaxed mb-3">
                   {stop.description}
                 </p>
-                {stop.type === "overview" && (
-                  <ul className="grid sm:grid-cols-2 gap-2 mb-3">
-                    {SERVICES.map((service) => (
-                      <li
-                        key={service.id}
-                        className="text-sm text-gold-light/90"
-                      >
-                        {service.title}
-                      </li>
-                    ))}
-                  </ul>
-                )}
                 <button
                   type="button"
                   onClick={() => handleCta(stop.href)}
@@ -181,44 +167,56 @@ export default function RoadJourneySection() {
         <div className="absolute inset-0 bg-pattern opacity-25" />
 
         <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-4 md:pt-24 md:pb-8 flex flex-col">
-          <div className="shrink-0 mb-3 md:mb-6 max-w-2xl">
+          {/* Top: always show all services with full names */}
+          <div className="shrink-0 mb-3 md:mb-5">
             <p className="text-gold font-semibold tracking-[0.18em] text-[10px] md:text-xs uppercase mb-1.5">
               Raja Route
             </p>
-            <h2 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-5xl text-white leading-tight">
-              Follow the road through{" "}
-              <span className="text-gradient-gold">our services</span>
+            <h2 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl text-white leading-tight mb-3 md:mb-4">
+              All services we{" "}
+              <span className="text-gradient-gold">offer</span>
             </h2>
-            <p className="mt-2 text-white/65 text-xs md:text-base max-w-md hidden sm:block">
-              Start with the full overview, then stop at each service as the bus
-              rolls with your scroll.
-            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1.5 md:gap-2">
+              {JOURNEY_STOPS.map((stop, index) => {
+                const isActive = index === activeIndex;
+                return (
+                  <li key={stop.id}>
+                    <button
+                      type="button"
+                      onClick={() => scrollToStop(index)}
+                      className={cn(
+                        "w-full text-left flex items-start gap-2 rounded-lg px-2.5 py-2 border transition-all duration-300",
+                        isActive
+                          ? "bg-gold/15 border-gold/45 text-white"
+                          : "border-white/10 bg-white/[0.03] text-white/70 hover:border-gold/30 hover:text-white",
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          "mt-0.5 font-mono text-[10px] md:text-xs shrink-0",
+                          isActive ? "text-gold" : "text-gold/60",
+                        )}
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span
+                        className={cn(
+                          "text-xs md:text-sm font-medium leading-snug",
+                          isActive && "text-gold-light",
+                        )}
+                      >
+                        {stop.title}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
-          <div className="relative flex-1 min-h-0 grid grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-8">
-            {/* Desktop left detail */}
-            <div className="hidden md:flex items-center min-h-0 overflow-y-auto">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`desk-${activeStop.id}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="w-full max-w-md ml-auto py-2"
-                >
-                  <StopDetail
-                    stop={activeStop}
-                    activeIndex={activeIndex}
-                    stopCount={stopCount}
-                    onCta={() => handleCta(activeStop.href)}
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
+          <div className="relative flex-1 min-h-0 grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr] gap-4 md:gap-10">
             {/* Road */}
-            <div className="relative w-12 sm:w-14 md:w-20 h-full justify-self-center">
+            <div className="relative w-12 sm:w-14 md:w-20 h-full">
               <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-9 sm:w-10 md:w-12 rounded-full bg-[#1a2332] border border-white/10 overflow-hidden shadow-[inset_0_0_20px_rgba(0,0,0,0.45)]">
                 <div className="absolute inset-0 opacity-40 bg-[repeating-linear-gradient(180deg,transparent,transparent_10px,rgba(255,255,255,0.04)_10px,rgba(255,255,255,0.04)_12px)]" />
                 <div className="absolute left-1/2 -translate-x-1/2 top-3 bottom-3 w-0.5 bg-[repeating-linear-gradient(180deg,#FBBF24_0_10px,transparent_10px_22px)] opacity-80" />
@@ -229,7 +227,7 @@ export default function RoadJourneySection() {
               </div>
 
               {JOURNEY_STOPS.map((stop, index) => {
-                const top = `${4 + (index / (stopCount - 1)) * 84}%`;
+                const top = `${4 + (index / Math.max(stopCount - 1, 1)) * 84}%`;
                 const isActive = index === activeIndex;
                 const isPassed = index < activeIndex;
                 return (
@@ -276,167 +274,45 @@ export default function RoadJourneySection() {
               </motion.div>
             </div>
 
-            {/* Right: stop list (desktop) / detail (mobile) */}
-            <div className="min-h-0 flex flex-col justify-center overflow-y-auto">
-              <nav
-                aria-label="Journey stops"
-                className="hidden md:block w-full max-w-xs"
-              >
-                <ul className="space-y-1.5">
-                  {JOURNEY_STOPS.map((stop, index) => {
-                    const isActive = index === activeIndex;
-                    return (
-                      <li key={stop.id}>
-                        <button
-                          type="button"
-                          onClick={() => scrollToStop(index)}
-                          className={cn(
-                            "w-full text-left px-3 py-2 rounded-lg transition-all duration-300 border",
-                            isActive
-                              ? "bg-gold/15 border-gold/40 text-white"
-                              : "border-transparent text-white/45 hover:text-white/75 hover:bg-white/5",
-                          )}
-                        >
-                          <span className="text-[10px] uppercase tracking-wider text-gold/80 block mb-0.5">
-                            {index === 0 ? "Overview" : `Stop ${index}`}
-                          </span>
-                          <span
-                            className={cn(
-                              "text-sm font-medium",
-                              isActive && "text-gold-light",
-                            )}
-                          >
-                            {stop.label}
-                          </span>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
-
-              <div className="md:hidden">
-                <div className="flex gap-2 overflow-x-auto pb-3 mb-1">
-                  {JOURNEY_STOPS.map((stop, index) => (
-                    <button
-                      key={stop.id}
-                      type="button"
-                      onClick={() => scrollToStop(index)}
-                      className={cn(
-                        "shrink-0 text-[11px] px-2.5 py-1 rounded-full border transition-colors",
-                        index === activeIndex
-                          ? "bg-gold text-primary-dark border-gold font-semibold"
-                          : "bg-white/5 text-white/55 border-white/10",
-                      )}
-                    >
-                      {stop.label}
-                    </button>
-                  ))}
-                </div>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`mob-${activeStop.id}`}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            {/* Scroll content: service elaboration only */}
+            <div className="min-h-0 flex items-center overflow-y-auto">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeStop.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="w-full max-w-xl py-1"
+                >
+                  <p className="text-gold/80 text-[10px] md:text-xs font-semibold uppercase tracking-wider mb-2">
+                    Service {activeIndex + 1} of {stopCount}
+                  </p>
+                  <div className="flex items-center gap-3 mb-3 md:mb-4">
+                    <span className="inline-flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-xl bg-gold/15 text-gold border border-gold/30">
+                      {iconMap[activeStop.icon] ?? iconMap.bus}
+                    </span>
+                    <h3 className="font-[family-name:var(--font-heading)] text-xl sm:text-2xl md:text-3xl text-white leading-snug">
+                      {activeStop.title}
+                    </h3>
+                  </div>
+                  <p className="text-white/70 text-sm md:text-base leading-relaxed mb-4 md:mb-6">
+                    {activeStop.description}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => handleCta(activeStop.href)}
+                    className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-primary-dark font-semibold text-sm px-4 py-2 md:px-5 md:py-2.5 rounded-lg transition-colors shimmer"
                   >
-                    <StopDetail
-                      stop={activeStop}
-                      activeIndex={activeIndex}
-                      stopCount={stopCount}
-                      onCta={() => handleCta(activeStop.href)}
-                      compact
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+                    {activeStop.ctaLabel}
+                    <FaArrowRight className="text-xs" />
+                  </button>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function StopDetail({
-  stop,
-  activeIndex,
-  stopCount,
-  onCta,
-  compact = false,
-}: {
-  stop: (typeof JOURNEY_STOPS)[number];
-  activeIndex: number;
-  stopCount: number;
-  onCta: () => void;
-  compact?: boolean;
-}) {
-  return (
-    <div>
-      <div className={cn("flex items-center gap-3", compact ? "mb-2.5" : "mb-4")}>
-        <span
-          className={cn(
-            "inline-flex items-center justify-center rounded-xl bg-gold/15 text-gold border border-gold/30",
-            compact ? "h-10 w-10" : "h-12 w-12",
-          )}
-        >
-          {iconMap[stop.icon] ?? iconMap.map}
-        </span>
-        <div>
-          <p className="text-gold/80 text-[10px] md:text-xs font-semibold uppercase tracking-wider">
-            Stop {activeIndex + 1} of {stopCount}
-          </p>
-          <p className="text-white/50 text-xs md:text-sm">{stop.label}</p>
-        </div>
-      </div>
-
-      <h3
-        className={cn(
-          "font-[family-name:var(--font-heading)] text-white",
-          compact ? "text-xl mb-2" : "text-2xl md:text-3xl mb-3",
-        )}
-      >
-        {stop.title}
-      </h3>
-      <p
-        className={cn(
-          "text-white/70 leading-relaxed",
-          compact ? "text-sm mb-3" : "text-sm md:text-base mb-5",
-        )}
-      >
-        {stop.description}
-      </p>
-
-      {stop.type === "overview" && (
-        <ul
-          className={cn(
-            "grid grid-cols-1 sm:grid-cols-2 gap-x-4",
-            compact ? "gap-y-1.5 mb-4" : "gap-y-2.5 mb-6",
-          )}
-        >
-          {SERVICES.map((service, i) => (
-            <li
-              key={service.id}
-              className="flex items-start gap-2 text-xs md:text-sm text-white/85"
-            >
-              <span className="mt-0.5 text-gold font-mono text-[10px] md:text-xs">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span>{service.title}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <button
-        type="button"
-        onClick={onCta}
-        className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-primary-dark font-semibold text-sm px-4 py-2 md:px-5 md:py-2.5 rounded-lg transition-colors shimmer"
-      >
-        {stop.ctaLabel}
-        <FaArrowRight className="text-xs" />
-      </button>
-    </div>
   );
 }

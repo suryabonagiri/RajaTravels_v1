@@ -308,86 +308,27 @@ export const HARITHA_RESORTS = [
   { name: "Srisailam Hotels", location: "Srisailam" },
 ];
 
-/** Scroll-road journey stops: overview of all services, then each service. */
-export const JOURNEY_STOPS = [
-  {
-    id: "overview",
-    type: "overview" as const,
-    label: "All Services",
-    title: "Everything We Offer",
-    description:
-      "One route through Raja Travels — premium buses, AP Tourism experiences, eco escapes, resorts, and group travel. Scroll to stop at each service.",
-    icon: "map",
-    href: "#services",
-    ctaLabel: "Browse services",
-  },
-  {
-    id: "bus-rental",
-    type: "service" as const,
-    label: "Bus Rental",
-    title: "Premium Bus Rental",
-    description:
-      "Luxury and comfortable buses for family trips, marriages, and corporate events. Choose from 17 to 49 seater options.",
-    icon: "bus",
-    href: "#bus-rental",
-    ctaLabel: "View fleet",
-  },
-  {
-    id: "papikondalu",
-    type: "service" as const,
-    label: "Papikondalu",
-    title: "Papikondalu Boat Tourism",
-    description:
-      "Scenic Godavari boat rides through the Papikondalu hills. AP Tourism authorized packages with meals and transport.",
-    icon: "boat",
-    href: "#packages",
-    ctaLabel: "See packages",
-  },
-  {
-    id: "maredumilli",
-    type: "service" as const,
-    label: "Maredumilli",
-    title: "Maredumilli Eco Tourism",
-    description:
-      "Forests, waterfalls, and tribal culture in Andhra Pradesh's hidden eco paradise — day trips and overnight stays.",
-    icon: "forest",
-    href: "#destinations",
-    ctaLabel: "Explore destination",
-  },
-  {
-    id: "haritha",
-    type: "service" as const,
-    label: "Haritha",
-    title: "Haritha Resorts Booking",
-    description:
-      "Book official AP Tourism Haritha Resorts across the state — beach, hill, and jungle stays at authorized rates.",
-    icon: "resort",
-    href: "#destinations",
-    ctaLabel: "View resorts",
-  },
-  {
-    id: "group-tours",
-    type: "service" as const,
-    label: "Group Tours",
-    title: "Group & Family Tours",
-    description:
-      "Customized trips for families, friends, and communities with complete planning for transport and stays.",
-    icon: "group",
-    href: "#contact",
-    ctaLabel: "Plan a trip",
-  },
-  {
-    id: "corporate",
-    type: "service" as const,
-    label: "Corporate",
-    title: "Corporate & Event Trips",
-    description:
-      "Professional transport for corporate outings, marriage parties, and special events with premium service.",
-    icon: "corporate",
-    href: "#bus-rental",
-    ctaLabel: "Book transport",
-  },
-];
+/** Scroll-road journey: services only, using full service names. */
+const JOURNEY_SERVICE_META: Record<
+  string,
+  { href: string; ctaLabel: string }
+> = {
+  "bus-rental": { href: "#bus-rental", ctaLabel: "View fleet" },
+  papikondalu: { href: "#packages", ctaLabel: "See packages" },
+  maredumilli: { href: "#destinations", ctaLabel: "Explore destination" },
+  haritha: { href: "#destinations", ctaLabel: "View resorts" },
+  "group-tours": { href: "#contact", ctaLabel: "Plan a trip" },
+  corporate: { href: "#bus-rental", ctaLabel: "Book transport" },
+};
+
+export const JOURNEY_STOPS = SERVICES.map((service) => ({
+  id: service.id,
+  title: service.title,
+  description: service.description,
+  icon: service.icon,
+  href: JOURNEY_SERVICE_META[service.id]?.href ?? "#services",
+  ctaLabel: JOURNEY_SERVICE_META[service.id]?.ctaLabel ?? "Learn more",
+}));
 
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
