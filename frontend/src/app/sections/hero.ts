@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { BookingForm } from '../ui/booking-form';
 
 interface HeroSlide {
-  video: string;
+  image: string;
+  alt: string;
   badge: string;
   badgeIcon: string;
   headingLine1: string;
@@ -12,7 +13,8 @@ interface HeroSlide {
 
 const SLIDES: HeroSlide[] = [
   {
-    video: '/videos/bus-hero.mp4',
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=1600&q=70&auto=format',
+    alt: 'Premium travel bus on the road',
     badge: 'Premium Bus Travel',
     badgeIcon: 'fa-solid fa-bus',
     headingLine1: 'Your Journey',
@@ -21,7 +23,8 @@ const SLIDES: HeroSlide[] = [
       'Experience luxury travel across Andhra Pradesh with our premium bus fleet. From corporate events to family celebrations.',
   },
   {
-    video: '/videos/boat-hero.mp4',
+    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1600&q=70&auto=format',
+    alt: 'Scenic boat journey on the Godavari river',
     badge: 'Papikondalu Boat Tourism',
     badgeIcon: 'fa-solid fa-ship',
     headingLine1: 'Explore the',
@@ -44,23 +47,21 @@ const SLIDE_DURATION = 8000;
   imports: [BookingForm],
   template: `
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-dark">
-      <!-- Video backgrounds -->
-      @for (slide of slides; track slide.video; let i = $index) {
+      <!-- Photo backgrounds -->
+      @for (slide of slides; track slide.image; let i = $index) {
         <div
-          class="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
+          class="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
           [style.opacity]="activeSlide() === i ? 1 : 0"
         >
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
+          <img
+            [src]="slide.image"
+            [alt]="slide.alt"
             class="absolute inset-0 w-full h-full object-cover"
             [class.hero-zoom]="activeSlide() === i"
-          >
-            <source [src]="slide.video" type="video/mp4" />
-          </video>
+            [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+            [attr.fetchpriority]="i === 0 ? 'high' : 'low'"
+            decoding="async"
+          />
         </div>
       }
 
@@ -74,7 +75,7 @@ const SLIDE_DURATION = 8000;
 
       <!-- Slide indicators -->
       <div class="absolute bottom-28 md:bottom-20 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        @for (slide of slides; track slide.video; let i = $index) {
+        @for (slide of slides; track slide.image; let i = $index) {
           <button (click)="setSlide(i)" class="group relative cursor-pointer" [attr.aria-label]="'Go to slide ' + (i + 1)">
             <div class="w-12 md:w-16 h-1 rounded-full bg-white/20 overflow-hidden">
               <div
@@ -90,7 +91,6 @@ const SLIDE_DURATION = 8000;
       <!-- Main content -->
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <!-- Left: text content, re-animated on each slide change -->
           <div class="text-center lg:text-left">
             @if (current(); as slide) {
               <div [class]="textVisible() ? 'hero-text hero-text-visible' : 'hero-text'">
@@ -126,14 +126,12 @@ const SLIDE_DURATION = 8000;
             </div>
           </div>
 
-          <!-- Right: booking form -->
           <div>
             <app-booking-form />
           </div>
         </div>
       </div>
 
-      <!-- Bottom fade -->
       <div class="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-white via-white/50 to-transparent z-[2]"></div>
     </section>
   `,
@@ -170,7 +168,6 @@ export class Hero implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Kick off the text entrance and progress bar after first paint
     setTimeout(() => {
       this.textVisible.set(true);
       this.progressRunning.set(true);

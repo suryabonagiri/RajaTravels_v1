@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
+import { catchError, of, timeout } from 'rxjs';
 import { DEFAULT_BUSINESS, DEFAULT_SERVICES } from './constants';
 import {
   BusinessInfo,
@@ -10,6 +11,8 @@ import {
   TourPackage,
   TravelService,
 } from './models';
+
+const API_TIMEOUT_MS = 2500;
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {
@@ -24,12 +27,22 @@ export class ContentService {
   readonly resorts = signal<HarithaResort[]>([]);
 
   constructor() {
-    this.http.get<BusinessInfo>('/api/business').subscribe((b) => this.business.set(b));
-    this.http.get<TravelService[]>('/api/services').subscribe((s) => this.services.set(s));
-    this.http.get<Destination[]>('/api/destinations').subscribe((d) => this.destinations.set(d));
-    this.http.get<TourPackage[]>('/api/packages').subscribe((p) => this.packages.set(p));
-    this.http.get<Testimonial[]>('/api/testimonials').subscribe((t) => this.testimonials.set(t));
-    this.http.get<Faq[]>('/api/faqs').subscribe((f) => this.faqs.set(f));
-    this.http.get<HarithaResort[]>('/api/resorts').subscribe((r) => this.resorts.set(r));
+    this.load('/api/business', this.business, DEFAULT_BUSINESS);
+    this.load('/api/services', this.services, DEFAULT_SERVICES);
+    this.load('/api/destinations', this.destinations, []);
+    this.load('/api/packages', this.packages, []);
+    this.load('/api/testimonials', this.testimonials, []);
+    this.load('/api/faqs', this.faqs, []);
+    this.load('/api/resorts', this.resorts, []);
+  }
+
+  private load<T>(url: string, target: ReturnType<typeof signal<T>>, fallback: T): void {
+    this.http
+      .get<T>(url)
+      .pipe(
+        timeout(API_TIMEOUT_MS),
+        catchError(() => of(fallback)),
+      )
+      .subscribe((value) => target.set(value));
   }
 }

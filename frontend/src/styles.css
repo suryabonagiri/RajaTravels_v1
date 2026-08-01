@@ -269,7 +269,7 @@ textarea:focus {
   }
 }
 
-/* Cinematic zoom for hero videos */
+/* Subtle zoom for hero photos */
 @keyframes heroZoom {
   0% {
     transform: scale(1);

@@ -2,7 +2,6 @@ import {
   Component,
   DestroyRef,
   ElementRef,
-  HostListener,
   OnInit,
   computed,
   inject,
@@ -11,6 +10,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { fromEvent } from 'rxjs';
+import { auditTime } from 'rxjs/operators';
 import { JOURNEY_CTA, smoothScrollTo } from '../core/constants';
 import { ContentService } from '../core/content.service';
 import { TravelService } from '../core/models';
@@ -261,20 +261,16 @@ export class RoadJourney implements OnInit {
     mq.addEventListener('change', syncMotion);
     this.destroyRef.onDestroy(() => mq.removeEventListener('change', syncMotion));
 
+    // Throttle scroll updates to ~60fps to keep the road smooth without overwork.
     fromEvent(window, 'scroll', { passive: true })
-      .pipe(takeUntilDestroyed(this.destroyRef))
+      .pipe(auditTime(16), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => this.updateProgress());
 
     fromEvent(window, 'resize', { passive: true })
-      .pipe(takeUntilDestroyed(this.destroyRef))
+      .pipe(auditTime(100), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => this.updateProgress());
 
     queueMicrotask(() => this.updateProgress());
-  }
-
-  @HostListener('window:load')
-  onLoad(): void {
-    this.updateProgress();
   }
 
   protected pad(n: number): string {
@@ -318,13 +314,18 @@ export class RoadJourney implements OnInit {
 
     const traveled = -rect.top;
     const p = Math.min(1, Math.max(0, traveled / scrollable));
-    this.progress.set(p);
+    if (Math.abs(p - this.progress()) > 0.001) {
+      this.progress.set(p);
+    }
 
     const count = this.stops().length;
     if (count <= 1) {
-      this.activeIndex.set(0);
+      if (this.activeIndex() !== 0) this.activeIndex.set(0);
       return;
     }
-    this.activeIndex.set(Math.min(count - 1, Math.round(p * (count - 1))));
+    const nextIndex = Math.min(count - 1, Math.round(p * (count - 1)));
+    if (nextIndex !== this.activeIndex()) {
+      this.activeIndex.set(nextIndex);
+    }
   }
 }
