@@ -1,84 +1,58 @@
-# Raja Travels - Luxury Tourism Portal
+# Raja Travels
 
-A high-end, modern digital platform built for **Raja Travels**, an AP Tourism Authorized Agent. This web application is engineered to provide a premium, luxury user experience for booking bus rentals and regional tour packages like Papikondalu, Maredumilli, and Bhadrachalam.
+Website for Raja Travels — AP Tourism Authorized Agent in Rajahmundry. Premium bus rentals, Papikondalu boat tourism, Maredumilli eco tours, and Haritha Resort bookings.
 
-## 🌟 Key Features
+## Architecture
 
-- **Premium Design System:** Bespoke UI strictly adhering to the official Raja Travels brand identity (Royal Blue and Golden Yellow) with soft shadows, glassmorphism, and custom geometric shapes (`brand-shape`) inspired by the logo.
-- **Dynamic Booking Engine:** A contextual booking form that adapts to the selected service type, integrated directly with **WhatsApp** and **EmailJS** for instant lead generation.
-- **Fluid Animations:** Powered by `framer-motion`, featuring scroll-reveal animations, dynamic button hover states, and smooth UI transitions.
-- **Responsive Architecture:** Fully optimized for all devices, featuring a dynamic responsive navigation bar and mobile-first container layouts.
-- **SEO & Performance:** Built on Next.js 14+ App Router, utilizing native image optimization, custom metadata, and high-performance server-side rendering architecture.
+| Project | Stack | Purpose |
+|---|---|---|
+| `frontend/` | Angular 21 + Tailwind CSS 4 | Single-page marketing site with booking form |
+| `backend/` | Java 21 + Spring Boot 3 + H2 | REST API for site content and booking inquiries; serves the built frontend |
 
-## 🛠 Tech Stack
+The backend exposes:
 
-- **Framework:** [Next.js](https://nextjs.org/) (App Router, React 18+)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Icons:** `react-icons` (FontAwesome)
-- **Email Integration:** EmailJS
+- `GET /api/business` — business info, phone numbers, bus types, stats
+- `GET /api/services`, `/api/destinations`, `/api/packages`, `/api/testimonials`, `/api/faqs`, `/api/resorts` — site content (seeded into the database on first run)
+- `POST /api/inquiries` — stores booking inquiries submitted from the website
 
----
+Booking inquiries are saved to the database, and the customer is also handed off to WhatsApp with a prefilled message (same flow as before).
 
-## 🚀 Getting Started
+## Build and run (single JAR)
 
-Follow these steps to set up and run the project locally on your machine.
-
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) installed (v18 or higher is recommended).
-
-### 1. Install Dependencies
-Open your terminal, navigate to the project directory, and install the required npm packages:
-```bash
-npm install
-```
-*(If you use `yarn` or `pnpm`, run `yarn install` or `pnpm install` respectively).*
-
-### 2. Configure Environment Variables
-To enable the EmailJS booking functionality, you need to configure your API keys.
-Open `src/lib/constants.ts` and locate the `BUSINESS.emailjs` object:
-```typescript
-emailjs: {
-  serviceId: "YOUR_SERVICE_ID",
-  templateId: "YOUR_TEMPLATE_ID",
-  publicKey: "YOUR_PUBLIC_KEY",
-}
-```
-Replace the placeholder strings with your actual EmailJS dashboard credentials.
-
-### 3. Run the Development Server
-Start the Next.js development server:
-```bash
-npm run dev
-```
-
-### 4. View the App
-Open your browser and navigate to:
-👉 **http://localhost:3000**
-
-You should now see the Raja Travels website running locally! Any changes you make to the code will hot-reload automatically in the browser.
-
----
-
-## 📦 Building for Production
-
-When you are ready to deploy the website to production (e.g., Vercel, Netlify, or a custom server), run the build command to generate an optimized production bundle:
+Requirements: Java 21 and Maven. Node is downloaded automatically by the Maven build.
 
 ```bash
-npm run build
+mvn -f backend/pom.xml package
+java -jar backend/target/rajatravels.jar
 ```
 
-To test the compiled production build locally:
+The full website is then served at http://localhost:8080.
+
+The H2 database file is created at `./data/rajatravels.mv.db` (relative to where you run the JAR). Back this file up to keep booking inquiries. To use MySQL/Postgres instead, change the `spring.datasource.*` properties in `backend/src/main/resources/application.properties` and add the driver dependency.
+
+## Run with Docker
+
 ```bash
-npm run start
+docker build -t rajatravels .
+docker run -p 8080:8080 -v rajatravels-data:/app/data rajatravels
 ```
 
----
+## Development
 
-## 🎨 Design Notes
-- **Logo Adjustments:** The layout is specifically tuned for a tightly cropped, high-resolution transparent PNG logo.
-- **CSS Globals:** Custom luxury border-radius utilities (`.brand-shape` and `.brand-shape-reverse`) are centrally managed in `src/app/globals.css`.
-- **Colors:** The primary brand colors (`primary`: Royal Blue, `gold`: Golden Yellow) are configured globally in `tailwind.config.ts`.
+Run backend and frontend separately with hot reload:
 
-## 📄 License
-Copyright © Raja Travels. All rights reserved.
+```bash
+# Terminal 1 — API on :8080
+mvn -f backend/pom.xml spring-boot:run
+
+# Terminal 2 — Angular dev server on :4200 (proxies /api to :8080)
+cd frontend && npm install && npm start
+```
+
+## Hosting
+
+Any host that runs Java 21 or Docker works (a small VPS, Railway, Render, AWS, etc.):
+
+1. Build the JAR (or the Docker image) as above.
+2. Run it on the server with port 8080 exposed (put Nginx/Caddy or the platform's load balancer in front for HTTPS on your domain).
+3. Persist the `data/` directory so booking inquiries survive restarts.
