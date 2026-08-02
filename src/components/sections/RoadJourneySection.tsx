@@ -149,43 +149,13 @@ export default function RoadJourneySection() {
         <div className="absolute inset-0 bg-pattern opacity-25" />
 
         <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-4 md:pt-24 md:pb-8 flex flex-col">
-          <div className="shrink-0 mb-3 md:mb-5">
+          <div className="shrink-0 mb-4 md:mb-8">
             <p className="text-gold font-semibold tracking-[0.18em] text-[10px] md:text-xs uppercase mb-1.5">
               Raja Route
             </p>
-            <h2 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl text-white leading-tight mb-3 md:mb-4">
-              All services we <span className="text-gradient-gold">offer</span>
+            <h2 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl text-white leading-tight">
+              Scroll to open each <span className="text-gradient-gold">service</span>
             </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1.5 md:gap-2">
-              {stops.map((service, i) => (
-                <li key={service.id}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToStop(i)}
-                    className={`w-full text-left flex items-start gap-2 rounded-lg px-2.5 py-2 border transition-all duration-300 cursor-pointer ${
-                      i === activeIndex
-                        ? "bg-gold/15 border-gold/45 text-white"
-                        : "border-white/10 bg-white/[0.03] text-white/70 hover:border-gold/30 hover:text-white"
-                    }`}
-                  >
-                    <span
-                      className={`mt-0.5 font-mono text-[10px] md:text-xs shrink-0 ${
-                        i === activeIndex ? "text-gold" : "text-gold/60"
-                      }`}
-                    >
-                      {pad(i + 1)}
-                    </span>
-                    <span
-                      className={`text-xs md:text-sm font-medium leading-snug ${
-                        i === activeIndex ? "text-gold-light" : ""
-                      }`}
-                    >
-                      {service.title}
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="relative flex-1 min-h-0 grid grid-cols-[auto_1fr] gap-4 md:gap-10">
