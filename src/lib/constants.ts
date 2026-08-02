@@ -56,9 +56,9 @@ export const SERVICES = [
   },
   {
     id: "haritha",
-    title: "Haritha Resorts Booking",
+    title: "APTDC Haritha Hotels & Resorts",
     description:
-      "Book official AP Tourism Haritha Resorts across Andhra Pradesh. Premium stays at government-approved properties.",
+      "Book official APTDC Haritha Hotels & Resorts across Andhra Pradesh — beaches, hills, jungle stays, and temple towns.",
     icon: "resort",
   },
   {
@@ -105,16 +105,16 @@ export const DESTINATIONS = [
   },
   {
     id: "haritha",
-    title: "Haritha Resorts",
-    subtitle: "AP Tourism Official Stays",
+    title: "APTDC Haritha Stays",
+    subtitle: "Official Andhra Pradesh Tourism hotels & resorts",
     description:
-      "Stay at premium AP Tourism Haritha Resorts across Andhra Pradesh. From beach resorts to hill stations, experience comfort amidst nature.",
+      "Stay at APTDC Haritha Hotels & Resorts across beaches, hill stations, islands, and temple towns — booked through an authorized agent.",
     image:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
     highlights: [
       "Beach Resorts",
       "Hill Stations",
-      "Temple Stays",
+      "Temple Hotels",
       "Jungle Bells",
     ],
   },
@@ -959,7 +959,7 @@ export const PACKAGES: TourPackage[] = [
       "Papikondalu / Godavari options",
       "Maredumilli eco spots",
       "Temple circuits",
-      "Haritha resort stays (on request)",
+      "APTDC Haritha Hotels & Resorts (on request)",
     ],
     facilities: [
       "Trip planning consultation",
@@ -1016,7 +1016,7 @@ export const FAQS = [
   {
     question: "Is Raja Travels an authorized AP Tourism agent?",
     answer:
-      "Yes, Raja Travels is an officially authorized AP Tourism agent based in Rajahmundry. We are certified to provide tourism packages, Haritha Resort bookings, and Papikondalu boat tourism services.",
+      "Yes, Raja Travels is an officially authorized AP Tourism agent based in Rajahmundry. We are certified to provide tourism packages, APTDC Haritha Hotels & Resorts bookings, and Papikondalu boat tourism services.",
   },
   {
     question: "How can I book a bus for my trip?",
@@ -1034,9 +1034,9 @@ export const FAQS = [
       "Absolutely! We specialize in providing premium buses for marriages, corporate trips, family tours, and special events. We offer various seating capacities and can customize as per your requirements.",
   },
   {
-    question: "How do I book Haritha Resorts through Raja Travels?",
+    question: "How do I book APTDC Haritha Hotels & Resorts through Raja Travels?",
     answer:
-      "Simply contact us with your preferred destination, dates, and number of guests. As an authorized AP Tourism agent, we can book any Haritha Resort across Andhra Pradesh at official rates.",
+      "Share your preferred APTDC Haritha property (beach, hill, jungle, island, or temple-town hotel), check-in / check-out dates, and number of guests. As an authorized AP Tourism agent, we help book Andhra Pradesh Tourism Development Corporation (APTDC) Haritha Hotels & Resorts with official-rate guidance and confirmation support.",
   },
   {
     question: "What areas do you cover for bus services?",
@@ -1062,15 +1062,276 @@ export const STATS = [
   { label: "Bus Fleet", value: 25, suffix: "+" },
 ];
 
-export const HARITHA_RESORTS = [
-  { name: "Tyda Haritha Jungle Bells", location: "Tyda" },
-  { name: "Suryalanka Beach Resorts", location: "Suryalanka" },
-  { name: "Berm Park Haritha Hotel", location: "Vijayawada" },
-  { name: "Mypadu Beach Resorts", location: "Mypadu" },
-  { name: "Bhavani Island Resort", location: "Vijayawada" },
-  { name: "Ananthagiri Resort", location: "Ananthagiri" },
-  { name: "Lambasingi Resorts", location: "Lambasingi" },
-  { name: "Srisailam Hotels", location: "Srisailam" },
+export type HarithaResort = {
+  id: string;
+  name: string;
+  shortName: string;
+  location: string;
+  category: "beach" | "hill" | "jungle" | "island" | "hotel";
+  categoryLabel: string;
+  summary: string;
+  highlights: string[];
+  idealFor: string[];
+  notes?: string[];
+  imagePending?: boolean;
+  image?: string;
+  imageCaption?: string;
+};
+
+/** APTDC (Andhra Pradesh Tourism Development Corporation) Haritha Hotels & Resorts */
+export const HARITHA_RESORTS: HarithaResort[] = [
+  {
+    id: "rushikonda-beach",
+    name: "Haritha Beach Resort, Rushikonda",
+    shortName: "Rushikonda Beach",
+    location: "Rushikonda, Visakhapatnam",
+    category: "beach",
+    categoryLabel: "Beach resort",
+    summary:
+      "APTDC seaside stay on Vizag’s Rushikonda stretch — popular for weekend leisure and family beach holidays.",
+    highlights: [
+      "Beachfront APTDC Haritha property",
+      "Ideal Vizag weekend base",
+      "Official government tariff guidance",
+      "Optional cab / bus transfer support",
+    ],
+    idealFor: ["Families", "Couples", "Weekend getaways"],
+    imagePending: true,
+    imageCaption: "Rushikonda Haritha Beach Resort",
+    notes: [
+      "Part of APTDC Haritha Beach Resorts inventory.",
+      "Share check-in / check-out dates and room preference for confirmation.",
+    ],
+  },
+  {
+    id: "suryalanka-beach",
+    name: "Haritha Beach Resort, Suryalanka",
+    shortName: "Suryalanka Beach",
+    location: "Suryalanka, Guntur district",
+    category: "beach",
+    categoryLabel: "Beach resort",
+    summary:
+      "Well-known APTDC beach stay near Bapatla / Guntur — calm Bay of Bengal views for relaxed family trips.",
+    highlights: [
+      "Coastal Haritha Beach Resort",
+      "Popular AP Tourism beach destination",
+      "Suitable for groups and families",
+      "Stay + transport planning available",
+    ],
+    idealFor: ["Families", "Friend groups", "Leisure stays"],
+    imagePending: true,
+    imageCaption: "Suryalanka Haritha Beach Resort",
+  },
+  {
+    id: "mypadu-beach",
+    name: "Haritha Beach Resort, Mypadu",
+    shortName: "Mypadu Beach",
+    location: "Mypadu, Nellore district",
+    category: "beach",
+    categoryLabel: "Beach resort",
+    summary:
+      "APTDC beach resort about 20 km from Nellore — quiet sands and a simple coastal holiday base.",
+    highlights: [
+      "Nellore-region beach stay",
+      "APTDC Haritha Beach Resorts network",
+      "Good for short coastal breaks",
+      "Booking help at official rates guidance",
+    ],
+    idealFor: ["Families", "Couples", "Short breaks"],
+    imagePending: true,
+    imageCaption: "Mypadu Haritha Beach Resort",
+  },
+  {
+    id: "dindi-coconut",
+    name: "Dindi Haritha Coconut Country Resort",
+    shortName: "Dindi Coconut Country",
+    location: "Dindi, East Godavari",
+    category: "beach",
+    categoryLabel: "Backwater / resort",
+    summary:
+      "Scenic Godavari backwater stay under the APTDC Haritha banner — popular for relaxed riverside weekends.",
+    highlights: [
+      "Godavari backwater setting",
+      "APTDC Haritha property at Dindi",
+      "Family-friendly leisure stay",
+      "Pairs well with East Godavari trips",
+    ],
+    idealFor: ["Families", "Couples", "Weekend leisure"],
+    imagePending: true,
+    imageCaption: "Dindi Haritha Coconut Country Resort",
+  },
+  {
+    id: "tyda-jungle-bells",
+    name: "Haritha Jungle Bells, Tyda",
+    shortName: "Tyda Jungle Bells",
+    location: "Tyda (near Araku)",
+    category: "jungle",
+    categoryLabel: "Jungle resort",
+    summary:
+      "Famous APTDC wooden-hut jungle stay near Araku — cool climate, nature walks, and cottage-style rooms.",
+    highlights: [
+      "Signature Jungle Bells cottages",
+      "Near Araku Valley circuit",
+      "Nature & cool-climate escape",
+      "Great with Araku sightseeing",
+    ],
+    idealFor: ["Nature lovers", "Families", "Friends"],
+    imagePending: true,
+    imageCaption: "Tyda Haritha Jungle Bells",
+    notes: ["Often listed as Jungle Bells / Haritha Jungle Bells at Tyda."],
+  },
+  {
+    id: "ananthagiri-hill",
+    name: "Haritha Hill Resort, Ananthagiri",
+    shortName: "Ananthagiri Hills",
+    location: "Ananthagiri (Araku range)",
+    category: "hill",
+    categoryLabel: "Hill resort",
+    summary:
+      "Hill-station APTDC stay in the Araku range — misty mornings and a classic Eastern Ghats weekend base.",
+    highlights: [
+      "Haritha Hill Resorts property",
+      "Araku Valley range location",
+      "Weekend hill getaway favourite",
+      "Stay + sightseeing coordination",
+    ],
+    idealFor: ["Families", "Couples", "Weekend trips"],
+    imagePending: true,
+    imageCaption: "Ananthagiri Haritha Hill Resort",
+  },
+  {
+    id: "araku-valley",
+    name: "Haritha Valley Resort, Araku",
+    shortName: "Araku Valley Resort",
+    location: "Araku Valley",
+    category: "hill",
+    categoryLabel: "Hill resort",
+    summary:
+      "Core APTDC Araku stay for coffee-country climate, tribal culture sightseeing, and valley views.",
+    highlights: [
+      "Araku Valley Haritha property",
+      "Cool-climate hill destination",
+      "Popular AP Tourism stay",
+      "Optional package with local sightseeing",
+    ],
+    idealFor: ["Families", "Groups", "Leisure travellers"],
+    imagePending: true,
+    imageCaption: "Araku Haritha Valley Resort",
+  },
+  {
+    id: "araku-mayuri",
+    name: "Haritha Hill (Mayuri) Resort, Araku",
+    shortName: "Araku Mayuri",
+    location: "Araku Valley",
+    category: "hill",
+    categoryLabel: "Hill resort",
+    summary:
+      "APTDC Mayuri Hill Resort in Araku — another official Haritha option for valley holidays and craft-centre surroundings.",
+    highlights: [
+      "Official APTDC Araku property",
+      "Hill-resort atmosphere",
+      "Good for multi-night Araku plans",
+      "Room type help on booking",
+    ],
+    idealFor: ["Families", "Couples", "Tour groups"],
+    imagePending: true,
+    imageCaption: "Araku Mayuri Haritha Hill Resort",
+  },
+  {
+    id: "lambasingi",
+    name: "Lambasingi Haritha Resort",
+    shortName: "Lambasingi",
+    location: "Lambasingi, Visakhapatnam district",
+    category: "hill",
+    categoryLabel: "Hill resort",
+    summary:
+      "Cool Eastern Ghats destination often called the Kashmir of Andhra — APTDC Haritha stay for misty hill mornings.",
+    highlights: [
+      "Popular cool-climate hill spot",
+      "APTDC Haritha Hill Resorts network",
+      "Ideal winter / monsoon weekend",
+      "Transfer planning from Vizag / Rajahmundry",
+    ],
+    idealFor: ["Couples", "Friends", "Nature escapes"],
+    imagePending: true,
+    imageCaption: "Lambasingi Haritha Resort",
+  },
+  {
+    id: "horsley-hills",
+    name: "Horsley Hills Haritha Resort",
+    shortName: "Horsley Hills",
+    location: "Horsley Hills",
+    category: "hill",
+    categoryLabel: "Hill resort",
+    summary:
+      "Classic APTDC hill resort near the Rayalaseema / Tirupati side circuit — pine views and weekend leisure.",
+    highlights: [
+      "Haritha Hill Resorts property",
+      "Popular AP hill-station stay",
+      "Weekend leisure favourite",
+      "Combine with temple / sightseeing plans",
+    ],
+    idealFor: ["Families", "Couples", "Weekend groups"],
+    imagePending: true,
+    imageCaption: "Horsley Hills Haritha Resort",
+  },
+  {
+    id: "bhavani-island",
+    name: "Bhavani Island Resort, Vijayawada",
+    shortName: "Bhavani Island",
+    location: "Bhavani Island, Vijayawada",
+    category: "island",
+    categoryLabel: "Island resort",
+    summary:
+      "Krishna river island resort in Vijayawada — APTDC leisure stay with gardens, water views, and easy city access.",
+    highlights: [
+      "Island setting on River Krishna",
+      "APTDC leisure resort",
+      "Great for families & day-plus stays",
+      "Near Vijayawada city access",
+    ],
+    idealFor: ["Families", "Couples", "City weekend breaks"],
+    imagePending: true,
+    imageCaption: "Bhavani Island Resort",
+  },
+  {
+    id: "berm-park",
+    name: "Berm Park Haritha Hotel, Vijayawada",
+    shortName: "Berm Park Hotel",
+    location: "Vijayawada",
+    category: "hotel",
+    categoryLabel: "Haritha hotel",
+    summary:
+      "City-side APTDC Haritha Hotel in Vijayawada — convenient base for business, temple circuits, and transit stays.",
+    highlights: [
+      "APTDC Haritha Hotels network",
+      "Vijayawada city convenience",
+      "Useful transit / business stay",
+      "Official booking assistance",
+    ],
+    idealFor: ["Business travellers", "Families", "Transit stays"],
+    imagePending: true,
+    imageCaption: "Vijayawada Berm Park Haritha Hotel",
+  },
+  {
+    id: "srisailam-hotel",
+    name: "Srisailam Haritha Hotel",
+    shortName: "Srisailam Hotel",
+    location: "Srisailam",
+    category: "hotel",
+    categoryLabel: "Temple town hotel",
+    summary:
+      "APTDC Haritha Hotel near the Jyotirlinga / Shakti Peetham temple town — practical stay for pilgrim families.",
+    highlights: [
+      "Temple-town APTDC stay",
+      "Haritha Hotels network",
+      "Pilgrim & family friendly",
+      "Help with dates around festival rush",
+    ],
+    idealFor: ["Pilgrims", "Families", "Group tours"],
+    imagePending: true,
+    imageCaption: "Srisailam Haritha Hotel",
+  },
 ];
 
 export const NAV_LINKS = [

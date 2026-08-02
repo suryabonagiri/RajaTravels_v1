@@ -80,7 +80,7 @@ export default function AboutSection() {
                 At Raja Travels, we specialize in three of Andhra Pradesh&apos;s hidden
                 gems:{" "}
                 <strong className="text-primary">
-                  Papikondalu, Maredumilli, and Haritha Resorts
+                  Papikondalu, Maredumilli, and APTDC Haritha Hotels & Resorts
                 </strong>
                 . These destinations offer a unique blend of natural beauty,
                 cultural richness, and adventure, and we are here to help you

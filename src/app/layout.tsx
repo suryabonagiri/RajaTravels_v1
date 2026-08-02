@@ -17,12 +17,13 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Raja Travels | AP Tourism Authorized Agent | Bus Rental & Papikondalu Tourism",
   description:
-    "Raja Travels - AP Tourism Authorized Tours and Travels in Rajahmundry. Premium bus rental services, Papikondalu boat tourism, Maredumilli eco tours, and Haritha Resort bookings. Book your journey today!",
+    "Raja Travels - AP Tourism Authorized Tours and Travels in Rajahmundry. Premium bus rental services, Papikondalu boat tourism, Maredumilli eco tours, and APTDC Haritha Hotels & Resorts bookings. Book your journey today!",
   keywords: [
     "Raja Travels",
     "AP Tourism",
     "Papikondalu",
     "Maredumilli",
+    "APTDC Haritha Hotels",
     "Haritha Resorts",
     "Bus Rental Rajahmundry",
     "Tourism Andhra Pradesh",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Raja Travels | AP Tourism Authorized Agent",
     description:
-      "Premium bus rental & AP Tourism packages. Papikondalu, Maredumilli, Haritha Resorts. Book now!",
+      "Premium bus rental & AP Tourism packages. Papikondalu, Maredumilli, APTDC Haritha Hotels & Resorts. Book now!",
     type: "website",
     locale: "en_IN",
     siteName: "Raja Travels",

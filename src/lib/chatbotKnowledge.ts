@@ -203,11 +203,11 @@ export function buildKnowledgeBase(): KnowledgeItem[] {
   items.push({
     id: "haritha-list",
     category: "resort",
-    title: "Haritha Resorts we can book",
-    content: `As an AP Tourism authorized agent, we can book Haritha Resorts including: ${HARITHA_RESORTS.map((r) => `${r.name} (${r.location})`).join("; ")}.`,
+    title: "APTDC Haritha Hotels & Resorts we can book",
+    content: `As an authorized AP Tourism agent, we help book APTDC (Andhra Pradesh Tourism Development Corporation) Haritha Hotels & Resorts including: ${HARITHA_RESORTS.map((r) => `${r.name} — ${r.location}`).join("; ")}. More APTDC Haritha properties can be requested on inquiry.`,
     keywords: tokenize(
-      "haritha resort hotel stay accommodation booking",
-      ...HARITHA_RESORTS.flatMap((r) => [r.name, r.location])
+      "haritha resort hotel stay accommodation booking aptdc andhra pradesh tourism development corporation",
+      ...HARITHA_RESORTS.flatMap((r) => [r.name, r.shortName, r.location, r.categoryLabel])
     ),
   });
 

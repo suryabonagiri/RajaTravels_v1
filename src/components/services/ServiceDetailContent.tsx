@@ -15,13 +15,15 @@ import PackageDetailBlock from "@/components/services/PackageDetailBlock";
 import RiverPackageJourney from "@/components/services/RiverPackageJourney";
 import ForestPackageJourney from "@/components/services/ForestPackageJourney";
 import FamilyPackageJourney from "@/components/services/FamilyPackageJourney";
+import HarithaResortJourney from "@/components/services/HarithaResortJourney";
 
-type JourneyTheme = "river" | "forest" | "family";
+type JourneyTheme = "river" | "forest" | "family" | "haritha";
 
 function getJourneyTheme(serviceId: string): JourneyTheme | null {
   if (serviceId === "papikondalu") return "river";
   if (serviceId === "maredumilli") return "forest";
   if (serviceId === "group-tours") return "family";
+  if (serviceId === "haritha") return "haritha";
   return null;
 }
 
@@ -70,6 +72,21 @@ const THEME = {
     heroCopy:
       "Follow the family celebration route below — day outs, weekends, temple trips, and custom group plans.",
     ctaHeading: "Ready to plan a family or group trip?",
+  },
+  haritha: {
+    articleBg: "bg-[#F0FDFA]",
+    heroBg: "bg-[#134E4A]",
+    backLink: "text-[#99F6E4]/85 hover:text-white",
+    eyebrow: "text-[#E8C547]",
+    heroText: "text-[#CCFBF1]/90",
+    ctaSection: "border-[#0F766E]/15 bg-[#D1FAE5]",
+    ctaCard: "border-[#C9A227]/35 bg-white/90",
+    ctaTitle: "text-[#134E4A]",
+    ctaBody: "text-[#5F7A76]",
+    callBtn: "bg-[#0F766E] hover:bg-[#134E4A]",
+    heroCopy:
+      "Explore APTDC Haritha Hotels & Resorts on the stay map below — beaches, hills, jungle cottages, islands, and temple towns.",
+    ctaHeading: "Ready to book an APTDC Haritha stay?",
   },
 } as const;
 
@@ -121,6 +138,12 @@ export default function ServiceDetailContent({
             <div className="absolute inset-0 bg-gradient-to-t from-[#43140F] via-transparent to-[#F4A261]/25" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_15%,rgba(244,162,97,0.28),transparent_45%)]" />
           </>
+        ) : journeyTheme === "haritha" ? (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#134E4A]/92 via-[#0F766E]/68 to-[#14B8A6]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#134E4A] via-transparent to-[#C9A227]/20" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_15%,rgba(232,197,71,0.22),transparent_45%)]" />
+          </>
         ) : (
           <>
             <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/65 to-primary-dark/30" />
@@ -164,8 +187,10 @@ export default function ServiceDetailContent({
             <RiverPackageJourney packages={packages} />
           ) : journeyTheme === "forest" ? (
             <ForestPackageJourney packages={packages} />
-          ) : (
+          ) : journeyTheme === "family" ? (
             <FamilyPackageJourney packages={packages} />
+          ) : (
+            <HarithaResortJourney resorts={resorts} />
           )}
 
           <section className={`border-t ${theme.ctaSection}`}>
@@ -273,19 +298,19 @@ export default function ServiceDetailContent({
               {resorts.length > 0 && (
                 <div>
                   <h2 className="font-[family-name:var(--font-heading)] text-2xl text-primary mb-4">
-                    Haritha resorts we can book
+                    APTDC Haritha Hotels & Resorts we can book
                   </h2>
                   <ul className="grid sm:grid-cols-2 gap-3">
                     {resorts.map((resort) => (
                       <li
-                        key={resort.name}
+                        key={resort.id}
                         className="rounded-xl border border-gray-100 bg-surface px-4 py-3"
                       >
                         <p className="text-sm font-semibold text-primary">
                           {resort.name}
                         </p>
                         <p className="text-xs text-text-secondary mt-1">
-                          {resort.location}
+                          {resort.categoryLabel} · {resort.location}
                         </p>
                       </li>
                     ))}

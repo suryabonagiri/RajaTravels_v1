@@ -28,9 +28,9 @@ export default function AuthorityStrip() {
                 We are an AP Tourism Authorized Agent
               </p>
               <p className="text-xs md:text-sm text-text-secondary mt-0.5 leading-relaxed">
-                Officially certified for Papikondalu boat tourism, Haritha
-                Resort bookings, and AP Tourism packages — {BUSINESS.name},
-                Rajahmundry.
+                Officially certified for Papikondalu boat tourism, APTDC
+                Haritha Hotels & Resorts bookings, and AP Tourism packages —{" "}
+                {BUSINESS.name}, Rajahmundry.
               </p>
             </div>
           </div>

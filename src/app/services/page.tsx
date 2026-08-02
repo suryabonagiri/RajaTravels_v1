@@ -11,7 +11,7 @@ import { BUSINESS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: `Our Services | ${BUSINESS.name}`,
   description:
-    "Explore Raja Travels services — premium bus rental, Papikondalu boat tourism, Maredumilli eco tours, Haritha resorts, group tours, and corporate trips.",
+    "Explore Raja Travels services — premium bus rental, Papikondalu boat tourism, Maredumilli eco tours, APTDC Haritha Hotels & Resorts, group tours, and corporate trips.",
 };
 
 export default function ServicesPage() {

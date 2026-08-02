@@ -128,25 +128,25 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
   },
   {
     id: "haritha",
-    title: "Haritha Resorts Booking",
+    title: "APTDC Haritha Hotels & Resorts",
     description:
-      "Book official AP Tourism Haritha Resorts across Andhra Pradesh. Premium stays at government-approved properties.",
+      "Book official APTDC Haritha Hotels & Resorts across Andhra Pradesh — beaches, hills, jungle cottages, islands, and temple-town hotels.",
     icon: "resort",
-    subtitle: "Official AP Tourism stays",
+    subtitle: "Andhra Pradesh Tourism Development Corporation stays",
     image:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1400&q=80",
     longDescription:
-      "As an authorized AP Tourism agent, Raja Travels helps you book Haritha Resorts across beaches, hill stations, islands, and jungle properties — at official rates with transport add-ons if you need a complete trip.",
+      "Raja Travels is an authorized agent helping you book APTDC (Andhra Pradesh Tourism Development Corporation) Haritha Hotels & Resorts — including Haritha Beach Resorts, Haritha Hill Resorts, Jungle Bells, island stays, and temple-town Haritha Hotels — with guidance on official rates, dates, room types, and optional transport.",
     features: [
-      "Official AP Tourism inventory",
-      "Beach, hill & jungle properties",
+      "Official APTDC Haritha inventory assistance",
+      "Beach, hill, jungle, island & hotel properties",
       "Help with dates & room types",
       "Optional bus / cab transfer",
       "Family and group bookings",
-      "Transparent government rates guidance",
+      "Transparent government-rate guidance",
     ],
     inclusions: [
-      "Resort booking assistance",
+      "APTDC Haritha booking assistance",
       "Confirmation support",
       "Suggested itineraries for the location",
       "Optional pickup & drop",
