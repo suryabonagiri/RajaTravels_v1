@@ -125,28 +125,64 @@ export type TourItineraryStop = {
   detail: string;
 };
 
+export type PackagePricingOption = {
+  label: string;
+  adultPrice: string;
+  childPrice: string;
+  childAgeNote?: string;
+};
+
+export type PackageRoomRate = {
+  label: string;
+  weekday: string;
+  weekend: string;
+};
+
+export type TourDaySchedule = {
+  dayLabel: string;
+  stops: TourItineraryStop[];
+};
+
 export type TourPackage = {
   id: string;
   title: string;
+  shortTitle?: string;
+  summary?: string;
   adultPrice: string;
   childPrice: string;
   childAgeNote?: string;
   duration: string;
   destination: string;
   highlights: string[];
+  reportingPlace?: string;
+  reportingTime?: string;
+  facilities?: string[];
   visitingPlaces?: string[];
   itinerary?: TourItineraryStop[];
+  daySchedules?: TourDaySchedule[];
+  pricingOptions?: PackagePricingOption[];
+  roomRates?: PackageRoomRate[];
+  notes?: string[];
+  /** Set when a real photo will be supplied later */
+  imagePending?: boolean;
+  image?: string;
+  imageCaption?: string;
 };
 
 export const PACKAGES: TourPackage[] = [
   {
     id: "papi-1day",
     title: "Papikondalu 1 Day Tour Package",
+    shortTitle: "Papikondalu 1 Day",
+    summary:
+      "Classic Godavari day cruise from Rajamahendravaram with temple darshan and Papi hills views.",
     adultPrice: "₹1,250",
     childPrice: "₹1,050",
     childAgeNote: "3–10 years",
     duration: "1 Day",
     destination: "Papikondalu",
+    imagePending: true,
+    imageCaption: "Papikondalu boat cruise photo",
     highlights: [
       "Boat ride on Holy River Godavari",
       "Breakfast & vegetarian lunch in the boat",
@@ -208,10 +244,15 @@ export const PACKAGES: TourPackage[] = [
   {
     id: "badra-1day",
     title: "Bhadrachalam 1 Day Tour Package",
+    shortTitle: "Bhadrachalam 1 Day",
+    summary:
+      "Godavari cruise with temple stops, ending with Bhadrachalam temple darshan by evening.",
     adultPrice: "₹2,500",
     childPrice: "₹2,200",
     duration: "1 Day",
     destination: "Bhadrachalam",
+    imagePending: true,
+    imageCaption: "Bhadrachalam temple / boat transfer photo",
     highlights: [
       "Starts every day at 7 AM from Rajamahendravaram",
       "Breakfast & vegetarian lunch in the boat",
@@ -242,13 +283,11 @@ export const PACKAGES: TourPackage[] = [
       },
       {
         time: "3:00 PM",
-        detail:
-          "A/C boat to non A/C boat shifting at Perantapalli Temple",
+        detail: "A/C boat to non A/C boat shifting at Perantapalli Temple",
       },
       {
         time: "After 3:00 PM",
-        detail:
-          "Perantapalli to Pochavaram in non A/C boat (about 1 hour)",
+        detail: "Perantapalli to Pochavaram in non A/C boat (about 1 hour)",
       },
       {
         time: "Road transfer",
@@ -263,17 +302,328 @@ export const PACKAGES: TourPackage[] = [
     ],
   },
   {
+    id: "badra-papi-1day",
+    title: "Bhadrachalam to Papikondalu 1 Day Tour",
+    shortTitle: "Bhadrachalam → Papikondalu",
+    summary:
+      "Start from Bhadrachalam, cruise Papikondalu on Godavari, and return to Bhadrachalam temple the same day.",
+    adultPrice: "On request",
+    childPrice: "On request",
+    duration: "1 Day",
+    destination: "Papikondalu",
+    imagePending: true,
+    imageCaption: "Bhadrachalam to Papikondalu day cruise photo",
+    reportingTime: "7:30 AM",
+    reportingPlace:
+      "Near Sitarama Temple, Opp: Kalyana Mandapam, Bhadrachalam",
+    facilities: [
+      "Breakfast in boat",
+      "Vegetarian lunch in boat",
+      "Evening snacks in boat",
+    ],
+    visitingPlaces: [
+      "Pochavaram",
+      "Papikondalu",
+      "Perantapalli",
+      "Kolluru",
+      "Bhadrachalam",
+    ],
+    highlights: [
+      "Reporting near Sitarama Temple, Bhadrachalam",
+      "Road transfer to Pochavaram boating unit",
+      "Godavari boat cruise via Papikondalu & Perantapalli",
+      "Return drop at Bhadrachalam temple",
+    ],
+    itinerary: [
+      {
+        time: "7:30 AM",
+        detail:
+          "Reporting near Sitarama Temple, Opp: Kalyana Mandapam, Bhadrachalam",
+      },
+      {
+        time: "8:00–8:30 AM",
+        detail:
+          "Assemble and start journey by road. Vehicles up to boating unit, Pochavaram (about 70 km / 1.30 hour) from Bhadrachalam",
+      },
+      {
+        time: "Boat cruise",
+        detail:
+          "Check into boat, then journey on River Godavari (about 60 km / 5 hours). View Papikondalu via Perantalapalli",
+      },
+      {
+        time: "Papikondalu & Perantapalli",
+        detail:
+          "Reach Papikondalu, enjoy scenic beauty, then boat reaches Perantapalli tribal village to visit Rama Krishna Muni Vatam and Swayambu Visweswara Swamy Temple",
+      },
+      {
+        time: "Return",
+        detail:
+          "Check out boat, then road journey by vehicle to Bhadrachalam (about 70 km / 2 hours) and drop at Bhadrachalam temple",
+      },
+    ],
+  },
+  {
     id: "sirivaka-2day",
-    title: "Sirivaka Night Stay 2 Days",
+    title: "Sirivaka Night Stay 2 Days Package",
+    shortTitle: "Sirivaka Night Stay",
+    summary:
+      "Great choice for a 2-day Papikondalu trip — Godavari boat tour with overnight stay at renowned Sirivaka Huts and visits to must-see sights.",
     adultPrice: "₹4,800",
     childPrice: "₹4,500",
+    childAgeNote: "3–9 years",
     duration: "2 Days",
     destination: "Sirivaka",
+    imagePending: true,
+    imageCaption: "Sirivaka huts / wooden cottage photo",
     highlights: [
-      "Tent / Cottage accommodation",
-      "Boat cruise",
-      "All meals included",
-      "Bonfire & entertainment",
+      "Boat tour on River Godavari",
+      "Night stay at Sirivaka Huts",
+      "Wooden cottage or tent options",
+      "Must-see Papikondalu region sights",
+    ],
+    visitingPlaces: [
+      "Papikondalu",
+      "Perantapalli",
+      "Sirivaka Huts",
+      "Godavari River cruise",
+    ],
+    pricingOptions: [
+      {
+        label: "Wooden Cottage (Non AC)",
+        adultPrice: "₹6,000",
+        childPrice: "₹5,500",
+        childAgeNote: "3–9 years",
+      },
+      {
+        label: "Tent Accommodation",
+        adultPrice: "₹4,800",
+        childPrice: "₹4,500",
+        childAgeNote: "3–9 years",
+      },
+    ],
+    facilities: [
+      "Godavari boat tour",
+      "Overnight stay at Sirivaka Huts",
+      "Meals as per selected stay option",
+    ],
+  },
+  {
+    id: "kolluru-2day",
+    title: "Bhadrachalam to Kolluru Huts 2 Days Package",
+    shortTitle: "Kolluru Huts 2 Days",
+    summary:
+      "Boat journey across the Godavari with overnight stay at famous Kolluru Bamboo Huts of Papikondalu, plus all must-see places.",
+    adultPrice: "₹4,500",
+    childPrice: "₹4,000",
+    duration: "2 Days",
+    destination: "Kolluru",
+    imagePending: true,
+    imageCaption: "Kolluru bamboo huts photo",
+    reportingTime: "8:00 AM",
+    reportingPlace:
+      "Near Sitarama Temple, Opp: Kalyana Mandapam, Bhadrachalam",
+    facilities: [
+      "Breakfast",
+      "Vegetarian lunch",
+      "Evening snacks",
+      "Night veg or non-veg dinner",
+      "Accommodation in Bamboo huts",
+      "Next day breakfast, veg or non-veg lunch, and evening snacks",
+    ],
+    visitingPlaces: [
+      "Pochavaram",
+      "Papihills",
+      "Perantapalli",
+      "Kolluru",
+      "Bhadrachalam",
+    ],
+    highlights: [
+      "Overnight stay in Kolluru Bamboo Huts",
+      "Godavari boat journey with Papikondalu views",
+      "Temple visits at Perantapalli",
+      "Optional Rajahmundry drop (extra ₹100)",
+    ],
+    daySchedules: [
+      {
+        dayLabel: "1st Day",
+        stops: [
+          {
+            time: "8:00 AM",
+            detail:
+              "Reporting near Sitarama Temple, Opp: Kalyana Mandapam, Bhadrachalam",
+          },
+          {
+            time: "8:30 AM",
+            detail:
+              "Start journey by road — vehicles up to boating unit, Pochavaram (about 70 km / 1.30 hour) from Bhadrachalam",
+          },
+          {
+            time: "Boat cruise",
+            detail:
+              'Check into boat, journey on River Godavari (about 60 km / 5 hours). View "Papikondalu" and Perantalapalli',
+          },
+          {
+            time: "Papi Hills & Perantapalli",
+            detail:
+              "Enjoy scenic beauty, visit Rama Krishna Muni Vatam and Swayambu Visweswara Swamy Temple, then reach Bamboo huts",
+          },
+          {
+            time: "Night stay",
+            detail:
+              "Check out boat — tourists allotted night stay in Bamboo huts",
+          },
+        ],
+      },
+      {
+        dayLabel: "2nd Day",
+        stops: [
+          {
+            time: "Morning cruise",
+            detail:
+              "Journey on boat from Bamboo Huts to Pochavaram / Koida (about 30 km / 2 hours)",
+          },
+          {
+            time: "Return",
+            detail:
+              "Check out boat, then road journey by vehicle to Bhadrachalam (about 70 km / 2 hours) and drop at Bhadrachalam temple",
+          },
+        ],
+      },
+    ],
+    notes: [
+      "If you want Rajahmundry dropping, we will arrange — extra ₹100/-",
+      "6:30 PM reaches Pattiseema revu / Polavaram revu / Purushothapatnam revu",
+      "7:00 PM to 8:00 PM by road journey to Rajahmundry and dropping to Railway Station",
+    ],
+  },
+  {
+    id: "badra-sirivaka-2day",
+    title: "Bhadrachalam to Sirivaka Huts 2 Days Tour",
+    shortTitle: "Bhadrachalam → Sirivaka",
+    summary:
+      "Travel from Bhadrachalam and stay overnight at Sirivaka wooden cottages / bamboo huts on a 2-day Godavari River tour.",
+    adultPrice: "On request",
+    childPrice: "On request",
+    duration: "2 Days",
+    destination: "Sirivaka",
+    imagePending: true,
+    imageCaption: "Sirivaka overnight stay photo",
+    reportingTime: "8:00 AM",
+    reportingPlace:
+      "Near Sitarama Temple, Opp: Kalyana Mandapam, Bhadrachalam",
+    facilities: [
+      "Breakfast",
+      "Vegetarian lunch",
+      "Evening snacks",
+      "Night veg or non-veg dinner",
+      "Accommodation in Bamboo huts / Sirivaka cottages",
+      "Next day breakfast, veg or non-veg lunch, and evening snacks",
+    ],
+    visitingPlaces: [
+      "Pochavaram",
+      "Papihills",
+      "Perantapalli",
+      "Kolluru",
+      "Bhadrachalam",
+    ],
+    highlights: [
+      "Overnight stay at Sirivaka huts / cottages",
+      "Godavari boat journey with Papikondalu views",
+      "Perantapalli temple visits",
+      "Optional Rajahmundry drop (extra ₹100)",
+    ],
+    daySchedules: [
+      {
+        dayLabel: "1st Day",
+        stops: [
+          {
+            time: "8:00 AM",
+            detail:
+              "Reporting near Sitarama Temple, Opp: Kalyana Mandapam, Bhadrachalam",
+          },
+          {
+            time: "8:30 AM",
+            detail:
+              "Start journey by road — vehicles up to boating unit, Pochavaram (about 70 km / 1.30 hour) from Bhadrachalam",
+          },
+          {
+            time: "Boat cruise",
+            detail:
+              'Check into boat, journey on River Godavari (about 60 km / 5 hours). View "Papikondalu" and Perantalapalli',
+          },
+          {
+            time: "Papi Hills & Perantapalli",
+            detail:
+              "Enjoy scenic beauty, visit Rama Krishna Muni Vatam and Swayambu Visweswara Swamy Temple, then reach Bamboo huts",
+          },
+          {
+            time: "Night stay",
+            detail:
+              "Check out boat — tourists allotted night stay in Bamboo huts / Sirivaka cottages",
+          },
+        ],
+      },
+      {
+        dayLabel: "2nd Day",
+        stops: [
+          {
+            time: "Morning cruise",
+            detail:
+              "Journey on boat from Bamboo Huts to Pochavaram / Koida (about 30 km / 2 hours)",
+          },
+          {
+            time: "Return",
+            detail:
+              "Check out boat, then road journey by vehicle to Bhadrachalam (about 70 km / 2 hours) and drop at Bhadrachalam temple",
+          },
+        ],
+      },
+    ],
+    notes: [
+      "If you want Rajahmundry dropping, we will arrange — extra ₹100/-",
+      "6:30 PM reaches Pattiseema revu / Polavaram revu / Purushothapatnam revu",
+      "7:00 PM to 8:00 PM by road journey to Rajahmundry and dropping to Railway Station",
+    ],
+  },
+  {
+    id: "badra-hotel",
+    title: "Bhadrachalam Hotel — Telangana Tourism",
+    shortTitle: "Bhadrachalam Hotel",
+    summary:
+      "Telangana Tourism hotel/resort in Bhadrachalam, built for pilgrims visiting the famous Rama temple on the banks of the Godavari.",
+    adultPrice: "From ₹1,000",
+    childPrice: "—",
+    duration: "Stay",
+    destination: "Bhadrachalam",
+    imagePending: true,
+    imageCaption: "Bhadrachalam Telangana Tourism hotel photo",
+    highlights: [
+      "Operated by Telangana Tourism",
+      "Ideal for Rama temple pilgrims",
+      "Weekday & weekend room tariffs",
+      "Can be combined with Godavari boat packages",
+    ],
+    roomRates: [
+      {
+        label: "A/C Deluxe",
+        weekday: "₹1,500",
+        weekend: "₹1,750",
+      },
+      {
+        label: "A/C Suite",
+        weekday: "₹2,380",
+        weekend: "₹2,900",
+      },
+      {
+        label: "Non A/C Dormitory (Basement)",
+        weekday: "₹1,600",
+        weekend: "₹1,600",
+      },
+      {
+        label: "Non AC Dormitory 5 Bedded (Basement)",
+        weekday: "₹1,000",
+        weekend: "₹1,000",
+      },
     ],
   },
   {
@@ -302,20 +652,6 @@ export const PACKAGES: TourPackage[] = [
       "Multiple waterfall visits",
       "All meals included",
       "Guided forest trek",
-    ],
-  },
-  {
-    id: "kolluru-2day",
-    title: "Bhadrachalam to Kolluru Huts",
-    adultPrice: "₹4,500",
-    childPrice: "₹4,000",
-    duration: "2 Days",
-    destination: "Kolluru",
-    highlights: [
-      "Hut accommodation",
-      "Boat cruise",
-      "All meals",
-      "Campfire night",
     ],
   },
 ];

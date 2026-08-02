@@ -6,6 +6,16 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import PackageCard from "@/components/ui/PackageCard";
 import { PACKAGES } from "@/lib/constants";
 
+const PAPIKONDALU_PACKAGE_IDS = new Set([
+  "papi-1day",
+  "badra-1day",
+  "badra-papi-1day",
+  "sirivaka-2day",
+  "kolluru-2day",
+  "badra-sirivaka-2day",
+  "badra-hotel",
+]);
+
 export default function PackagesSection() {
   return (
     <section id="packages" className="py-20 md:py-28 relative overflow-hidden">
@@ -43,8 +53,8 @@ export default function PackagesSection() {
               highlights={pkg.highlights}
               index={index}
               href={
-                pkg.id === "papi-1day" || pkg.id === "badra-1day"
-                  ? "/services/papikondalu"
+                PAPIKONDALU_PACKAGE_IDS.has(pkg.id)
+                  ? `/services/papikondalu#package-${pkg.id}`
                   : pkg.destination === "Maredumilli"
                     ? "/services/maredumilli"
                     : undefined

@@ -109,35 +109,77 @@ export function buildKnowledgeBase(): KnowledgeItem[] {
   }
 
   for (const pkg of PACKAGES) {
-    const visiting =
-      pkg.visitingPlaces?.length
-        ? ` Visiting places: ${pkg.visitingPlaces.join(", ")}.`
+    const visiting = pkg.visitingPlaces?.length
+      ? ` Visiting places: ${pkg.visitingPlaces.join(", ")}.`
+      : "";
+    const facilities = pkg.facilities?.length
+      ? ` Facilities: ${pkg.facilities.join("; ")}.`
+      : "";
+    const reporting =
+      pkg.reportingPlace || pkg.reportingTime
+        ? ` Reporting: ${[pkg.reportingTime, pkg.reportingPlace].filter(Boolean).join(" · ")}.`
         : "";
-    const itinerary =
-      pkg.itinerary?.length
-        ? ` Tour information: ${pkg.itinerary
-            .map((stop) => `${stop.time} — ${stop.detail}`)
-            .join(" | ")}.`
-        : "";
+    const itinerary = pkg.itinerary?.length
+      ? ` Tour information: ${pkg.itinerary
+          .map((stop) => `${stop.time} — ${stop.detail}`)
+          .join(" | ")}.`
+      : "";
+    const daySchedule = pkg.daySchedules?.length
+      ? ` Schedule: ${pkg.daySchedules
+          .map(
+            (day) =>
+              `${day.dayLabel}: ${day.stops
+                .map((s) => `${s.time} ${s.detail}`)
+                .join("; ")}`
+          )
+          .join(" || ")}.`
+      : "";
+    const pricingOpts = pkg.pricingOptions?.length
+      ? ` Options: ${pkg.pricingOptions
+          .map(
+            (o) =>
+              `${o.label} Adult ${o.adultPrice} Child ${o.childPrice}${
+                o.childAgeNote ? ` (${o.childAgeNote})` : ""
+              }`
+          )
+          .join("; ")}.`
+      : "";
+    const rooms = pkg.roomRates?.length
+      ? ` Rooms: ${pkg.roomRates
+          .map(
+            (r) =>
+              `${r.label} weekday ${r.weekday} weekend ${r.weekend}`
+          )
+          .join("; ")}.`
+      : "";
+    const notes = pkg.notes?.length ? ` Notes: ${pkg.notes.join("; ")}.` : "";
     const childNote = pkg.childAgeNote
       ? ` Child price applies for ages ${pkg.childAgeNote}.`
       : "";
+    const summary = pkg.summary ? ` ${pkg.summary}` : "";
 
     items.push({
       id: `package-${pkg.id}`,
       category: "package",
       title: pkg.title,
-      content: `${pkg.title} (${pkg.duration}) to ${pkg.destination}. Adult ${pkg.adultPrice}, Child ${pkg.childPrice}.${childNote} Includes: ${pkg.highlights.join("; ")}.${visiting}${itinerary}`,
+      content: `${pkg.title} (${pkg.duration}) to ${pkg.destination}.${summary} Adult ${pkg.adultPrice}, Child ${pkg.childPrice}.${childNote} Includes: ${pkg.highlights.join("; ")}.${reporting}${facilities}${visiting}${itinerary}${daySchedule}${pricingOpts}${rooms}${notes}`,
       keywords: tokenize(
         pkg.title,
+        pkg.shortTitle || "",
         pkg.destination,
         pkg.duration,
         pkg.adultPrice,
         pkg.childPrice,
-        "package tour price cost itinerary schedule places",
+        "package tour price cost itinerary schedule places sirivaka kolluru bhadrachalam hotel",
         ...pkg.highlights,
         ...(pkg.visitingPlaces ?? []),
-        ...(pkg.itinerary?.flatMap((s) => [s.time, s.detail]) ?? [])
+        ...(pkg.facilities ?? []),
+        ...(pkg.itinerary?.flatMap((s) => [s.time, s.detail]) ?? []),
+        ...(pkg.daySchedules?.flatMap((d) =>
+          d.stops.flatMap((s) => [d.dayLabel, s.time, s.detail])
+        ) ?? []),
+        ...(pkg.pricingOptions?.map((o) => o.label) ?? []),
+        ...(pkg.roomRates?.map((r) => r.label) ?? [])
       ),
     });
   }

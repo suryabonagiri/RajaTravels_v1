@@ -83,7 +83,15 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
       "Group outings",
       "First-time Godavari visitors",
     ],
-    relatedPackageIds: ["papi-1day", "badra-1day", "sirivaka-2day", "kolluru-2day"],
+    relatedPackageIds: [
+      "papi-1day",
+      "badra-1day",
+      "badra-papi-1day",
+      "sirivaka-2day",
+      "kolluru-2day",
+      "badra-sirivaka-2day",
+      "badra-hotel",
+    ],
   },
   {
     id: "maredumilli",
