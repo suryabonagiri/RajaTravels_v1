@@ -6,7 +6,7 @@ import { DESTINATIONS } from "@/lib/constants";
 
 export default function DestinationsSection() {
   return (
-    <section id="destinations" className="py-20 md:py-28 bg-white">
+    <section id="destinations" className="scroll-mt-[calc(4.5rem+env(safe-area-inset-top,0px))] py-16 sm:py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Explore"

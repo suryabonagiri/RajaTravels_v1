@@ -1,0 +1,997 @@
+{
+  "papi-1day": {
+    "page": "https://www.aptourismrajahmundry.com/papikondalu-packages/papikondalu-1-day-tour",
+    "images": [
+      {
+        "file": "images/from-aptourism/papi-1day/01.png",
+        "bytes": 134421,
+        "source": "https://static.wixstatic.com/media/19c797_8eef3beae7c146bf929478b2741e5271~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/02.jpeg",
+        "bytes": 101430,
+        "source": "https://static.wixstatic.com/media/19c797_cceb901184f94bb895ade1585c1da833~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/03.png",
+        "bytes": 88890,
+        "source": "https://static.wixstatic.com/media/19c797_0c9996d06b37483da63d087685672f05~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/04.png",
+        "bytes": 197806,
+        "source": "https://static.wixstatic.com/media/19c797_3c2cd5d6fd8d4bd49e0b185ef1fe31fd~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/05.png",
+        "bytes": 272931,
+        "source": "https://static.wixstatic.com/media/19c797_45f9cd8a098d40a59259889abcdad58f~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/06.png",
+        "bytes": 60533,
+        "source": "https://static.wixstatic.com/media/19c797_278772fbedb943068fa9a3132253ff67~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/07.png",
+        "bytes": 65321,
+        "source": "https://static.wixstatic.com/media/19c797_a9415e98e05f403d9a08b1ab302e8430~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/08.png",
+        "bytes": 73859,
+        "source": "https://static.wixstatic.com/media/19c797_d8426b3ce36242998a75468d8dd7352d~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/09.png",
+        "bytes": 82861,
+        "source": "https://static.wixstatic.com/media/19c797_54ea6a904ec14f0cbf6de9c648486eae~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/10.jpeg",
+        "bytes": 68721,
+        "source": "https://static.wixstatic.com/media/19c797_3857bb74d3d24ac4a710f9b0486945ec~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/11.jpeg",
+        "bytes": 200738,
+        "source": "https://static.wixstatic.com/media/19c797_3fe1a8b84915454981008babfdcb076e~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/12.jpeg",
+        "bytes": 143442,
+        "source": "https://static.wixstatic.com/media/19c797_4f3e2d2fdf5b4236a99fbf001924bf48~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/13.jpeg",
+        "bytes": 130280,
+        "source": "https://static.wixstatic.com/media/19c797_06775dccf20445b48020350953c6e03d~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/14.jpeg",
+        "bytes": 138349,
+        "source": "https://static.wixstatic.com/media/19c797_e1d81a4a081b4a41ae40305f0672b2cf~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/15.jpeg",
+        "bytes": 201579,
+        "source": "https://static.wixstatic.com/media/19c797_cf0da4ade8a44fb6a76d302b30a7ff63~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/16.jpeg",
+        "bytes": 190791,
+        "source": "https://static.wixstatic.com/media/19c797_ca88b54f2f1b4641b5c8cdd183370cb5~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/17.jpeg",
+        "bytes": 99067,
+        "source": "https://static.wixstatic.com/media/19c797_19b572da3db84619a5052e2657c00f56~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/18.jpeg",
+        "bytes": 42571,
+        "source": "https://static.wixstatic.com/media/19c797_cc8350f899964a8db7aa91a4f1bd5f20~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/19.jpeg",
+        "bytes": 124778,
+        "source": "https://static.wixstatic.com/media/19c797_6411f3faee9c4307bab42f276b92f7be~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/20.jpeg",
+        "bytes": 139816,
+        "source": "https://static.wixstatic.com/media/19c797_914537ecc58a406a8f20164ed5dc294f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/21.jpeg",
+        "bytes": 145623,
+        "source": "https://static.wixstatic.com/media/19c797_b0df5079fffa4acab4ac3f2e7672ddb6~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/22.jpeg",
+        "bytes": 165502,
+        "source": "https://static.wixstatic.com/media/19c797_c46a80e94fd445ae93b417c44abbea0b~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/23.jpeg",
+        "bytes": 123733,
+        "source": "https://static.wixstatic.com/media/19c797_e5f63a871d1b41f4b85c3f28b11385c4~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/24.jpeg",
+        "bytes": 178419,
+        "source": "https://static.wixstatic.com/media/19c797_869b06c8cf384d34a4870defeedefd0c~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/papi-1day/25.jpeg",
+        "bytes": 44603,
+        "source": "https://static.wixstatic.com/media/19c797_2f952877079541fdbd81d4dff4449409~mv2.jpeg"
+      }
+    ]
+  },
+  "badra-1day": {
+    "page": "https://www.aptourismrajahmundry.com/papikondalu-packages/badrachalam-1-day-tour",
+    "images": [
+      {
+        "file": "images/from-aptourism/badra-1day/01.png",
+        "bytes": 75805,
+        "source": "https://static.wixstatic.com/media/19c797_55ff3f0fe1434120b52e8b3e179a0053~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-1day/02.jpg",
+        "bytes": 504661,
+        "source": "https://static.wixstatic.com/media/19c797_3dfa2d6516614b6495426f62c9850774~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/badra-1day/03.png",
+        "bytes": 76345,
+        "source": "https://static.wixstatic.com/media/19c797_2a7b56e80e4f46a4918ed747aff80046~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-1day/04.png",
+        "bytes": 79263,
+        "source": "https://static.wixstatic.com/media/19c797_f374359c644c46b89d41f174900798f9~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-1day/05.png",
+        "bytes": 106951,
+        "source": "https://static.wixstatic.com/media/19c797_b4f5b18c33c8414b842044ce67096412~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-1day/06.png",
+        "bytes": 105014,
+        "source": "https://static.wixstatic.com/media/19c797_0c0bce30aeaf464eb6430fc5721d1990~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-1day/07.png",
+        "bytes": 97781,
+        "source": "https://static.wixstatic.com/media/19c797_1b0604123e1440aaa1606db8342ecc1f~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-1day/08.png",
+        "bytes": 84358,
+        "source": "https://static.wixstatic.com/media/19c797_d79d936d7741420488b19e3f41e4349a~mv2.png"
+      }
+    ]
+  },
+  "badra-papi-1day": {
+    "page": "https://www.aptourismrajahmundry.com/papikondalu-packages/badrachalam-to-papikondalu-1-day-tour",
+    "images": [
+      {
+        "file": "images/from-aptourism/badra-papi-1day/01.png",
+        "bytes": 79263,
+        "source": "https://static.wixstatic.com/media/19c797_f374359c644c46b89d41f174900798f9~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/02.png",
+        "bytes": 99640,
+        "source": "https://static.wixstatic.com/media/19c797_d9a6990d71f84c12a275e77c5d711d4d~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/03.png",
+        "bytes": 97781,
+        "source": "https://static.wixstatic.com/media/19c797_1b0604123e1440aaa1606db8342ecc1f~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/04.png",
+        "bytes": 75805,
+        "source": "https://static.wixstatic.com/media/19c797_55ff3f0fe1434120b52e8b3e179a0053~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/05.png",
+        "bytes": 105014,
+        "source": "https://static.wixstatic.com/media/19c797_0c0bce30aeaf464eb6430fc5721d1990~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/06.png",
+        "bytes": 84358,
+        "source": "https://static.wixstatic.com/media/19c797_d79d936d7741420488b19e3f41e4349a~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/07.png",
+        "bytes": 76345,
+        "source": "https://static.wixstatic.com/media/19c797_2a7b56e80e4f46a4918ed747aff80046~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/08.jpg",
+        "bytes": 504661,
+        "source": "https://static.wixstatic.com/media/19c797_3dfa2d6516614b6495426f62c9850774~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/09.png",
+        "bytes": 106951,
+        "source": "https://static.wixstatic.com/media/19c797_b4f5b18c33c8414b842044ce67096412~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/10.jpeg",
+        "bytes": 42817,
+        "source": "https://static.wixstatic.com/media/19c797_d526e390a12943f487e0cf5bffe3a8bd~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/11.jpeg",
+        "bytes": 44603,
+        "source": "https://static.wixstatic.com/media/19c797_2f952877079541fdbd81d4dff4449409~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/12.jpeg",
+        "bytes": 178419,
+        "source": "https://static.wixstatic.com/media/19c797_869b06c8cf384d34a4870defeedefd0c~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/13.jpeg",
+        "bytes": 123733,
+        "source": "https://static.wixstatic.com/media/19c797_e5f63a871d1b41f4b85c3f28b11385c4~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/14.jpeg",
+        "bytes": 165502,
+        "source": "https://static.wixstatic.com/media/19c797_c46a80e94fd445ae93b417c44abbea0b~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/15.jpeg",
+        "bytes": 145623,
+        "source": "https://static.wixstatic.com/media/19c797_b0df5079fffa4acab4ac3f2e7672ddb6~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/16.jpeg",
+        "bytes": 139816,
+        "source": "https://static.wixstatic.com/media/19c797_914537ecc58a406a8f20164ed5dc294f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/17.jpeg",
+        "bytes": 124778,
+        "source": "https://static.wixstatic.com/media/19c797_6411f3faee9c4307bab42f276b92f7be~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/18.jpeg",
+        "bytes": 42571,
+        "source": "https://static.wixstatic.com/media/19c797_cc8350f899964a8db7aa91a4f1bd5f20~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/19.jpeg",
+        "bytes": 99067,
+        "source": "https://static.wixstatic.com/media/19c797_19b572da3db84619a5052e2657c00f56~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/20.jpeg",
+        "bytes": 190791,
+        "source": "https://static.wixstatic.com/media/19c797_ca88b54f2f1b4641b5c8cdd183370cb5~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/21.jpeg",
+        "bytes": 201579,
+        "source": "https://static.wixstatic.com/media/19c797_cf0da4ade8a44fb6a76d302b30a7ff63~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/22.jpeg",
+        "bytes": 138349,
+        "source": "https://static.wixstatic.com/media/19c797_e1d81a4a081b4a41ae40305f0672b2cf~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/23.jpeg",
+        "bytes": 130280,
+        "source": "https://static.wixstatic.com/media/19c797_06775dccf20445b48020350953c6e03d~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/24.jpeg",
+        "bytes": 143442,
+        "source": "https://static.wixstatic.com/media/19c797_4f3e2d2fdf5b4236a99fbf001924bf48~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-papi-1day/25.jpeg",
+        "bytes": 200738,
+        "source": "https://static.wixstatic.com/media/19c797_3fe1a8b84915454981008babfdcb076e~mv2.jpeg"
+      }
+    ]
+  },
+  "sirivaka-2day": {
+    "page": "https://www.aptourismrajahmundry.com/papikondalu-packages/sirivaka-night-stay-2-days-package",
+    "images": [
+      {
+        "file": "images/from-aptourism/sirivaka-2day/01.jpeg",
+        "bytes": 338208,
+        "source": "https://static.wixstatic.com/media/19c797_febd9ff9bf94491691ec03c32d09a2ff~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/02.jpeg",
+        "bytes": 302601,
+        "source": "https://static.wixstatic.com/media/19c797_33560806d6c44bfbb453fe5236e9d829~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/03.jpeg",
+        "bytes": 276534,
+        "source": "https://static.wixstatic.com/media/19c797_3047350357e04b10a1fddc439306b11b~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/04.jpeg",
+        "bytes": 324317,
+        "source": "https://static.wixstatic.com/media/19c797_857740b4eb4445cba394c238d7537be6~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/05.jpeg",
+        "bytes": 212447,
+        "source": "https://static.wixstatic.com/media/19c797_0cf441314e524171908c6dfc73453304~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/06.jpeg",
+        "bytes": 201854,
+        "source": "https://static.wixstatic.com/media/19c797_7efee238832d45d2aa173736574e43f1~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/07.jpeg",
+        "bytes": 194148,
+        "source": "https://static.wixstatic.com/media/19c797_b1a36eb333a14f8fb8d0574925c2c31f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/08.jpeg",
+        "bytes": 207231,
+        "source": "https://static.wixstatic.com/media/19c797_fbf2fa97a3d34a9bbde2908560ab794f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/09.jpeg",
+        "bytes": 221255,
+        "source": "https://static.wixstatic.com/media/19c797_aaf5e2a69f8948fea0d78e34999b400f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/sirivaka-2day/10.jpeg",
+        "bytes": 204684,
+        "source": "https://static.wixstatic.com/media/19c797_ebaa878b40fe49d890300fbf60fde8b8~mv2.jpeg"
+      }
+    ]
+  },
+  "kolluru-2day": {
+    "page": "https://www.aptourismrajahmundry.com/papikondalu-packages/badrachalam-to-kolluru-huts-2-days-package",
+    "images": [
+      {
+        "file": "images/from-aptourism/kolluru-2day/01.png",
+        "bytes": 82549,
+        "source": "https://static.wixstatic.com/media/19c797_d8b2ce75b0ab4f0c81cd500425ef44df~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/kolluru-2day/02.png",
+        "bytes": 84050,
+        "source": "https://static.wixstatic.com/media/19c797_e93f676db0c64f00bc8b75fe5045dcf9~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/kolluru-2day/03.png",
+        "bytes": 94931,
+        "source": "https://static.wixstatic.com/media/19c797_4478df6a74484ad1a5cd86cfe4be5e18~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/kolluru-2day/04.png",
+        "bytes": 77135,
+        "source": "https://static.wixstatic.com/media/19c797_690820e4aa574b06981a49dcad7cc4f3~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/kolluru-2day/05.png",
+        "bytes": 61610,
+        "source": "https://static.wixstatic.com/media/19c797_c0f18abfb9dc45df8eaa277ff00c0763~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/kolluru-2day/06.png",
+        "bytes": 67845,
+        "source": "https://static.wixstatic.com/media/19c797_b442e8daad4a4c37b01d5779b754f1cf~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/kolluru-2day/07.png",
+        "bytes": 102402,
+        "source": "https://static.wixstatic.com/media/19c797_c0c57ff4e4634756878f32a2d6ff5be9~mv2.png"
+      }
+    ]
+  },
+  "badra-hotel": {
+    "page": "https://www.aptourismrajahmundry.com/papikondalu-packages/badrachalam-hotel---telangana-tourism",
+    "images": [
+      {
+        "file": "images/from-aptourism/badra-hotel/01.jpeg",
+        "bytes": 373458,
+        "source": "https://static.wixstatic.com/media/19c797_e47e3b1fd0434c51b2855f0fac8d5bf4~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-hotel/02.jpeg",
+        "bytes": 45189,
+        "source": "https://static.wixstatic.com/media/19c797_260fbddda7aa42228840eb217dc98584~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-hotel/03.jpeg",
+        "bytes": 76901,
+        "source": "https://static.wixstatic.com/media/19c797_fbf720208400498a909a6487b2bde887~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-hotel/04.jpeg",
+        "bytes": 282983,
+        "source": "https://static.wixstatic.com/media/19c797_4d6223189bf74e1c8611f794ca9166d2~mv2.jpeg"
+      }
+    ]
+  },
+  "badra-sirivaka-2day": {
+    "page": "https://www.aptourismrajahmundry.com/papikondalu-packages/bhadrachalam-to-sirivaka-huts-2-days-tour",
+    "images": [
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/01.png",
+        "bytes": 99640,
+        "source": "https://static.wixstatic.com/media/19c797_d9a6990d71f84c12a275e77c5d711d4d~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/02.png",
+        "bytes": 97781,
+        "source": "https://static.wixstatic.com/media/19c797_1b0604123e1440aaa1606db8342ecc1f~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/03.png",
+        "bytes": 75805,
+        "source": "https://static.wixstatic.com/media/19c797_55ff3f0fe1434120b52e8b3e179a0053~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/04.png",
+        "bytes": 105014,
+        "source": "https://static.wixstatic.com/media/19c797_0c0bce30aeaf464eb6430fc5721d1990~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/05.png",
+        "bytes": 84358,
+        "source": "https://static.wixstatic.com/media/19c797_d79d936d7741420488b19e3f41e4349a~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/06.png",
+        "bytes": 76345,
+        "source": "https://static.wixstatic.com/media/19c797_2a7b56e80e4f46a4918ed747aff80046~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/07.jpg",
+        "bytes": 504661,
+        "source": "https://static.wixstatic.com/media/19c797_3dfa2d6516614b6495426f62c9850774~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/08.png",
+        "bytes": 79263,
+        "source": "https://static.wixstatic.com/media/19c797_f374359c644c46b89d41f174900798f9~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/09.png",
+        "bytes": 106951,
+        "source": "https://static.wixstatic.com/media/19c797_b4f5b18c33c8414b842044ce67096412~mv2.png"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/10.jpeg",
+        "bytes": 204684,
+        "source": "https://static.wixstatic.com/media/19c797_ebaa878b40fe49d890300fbf60fde8b8~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/11.jpeg",
+        "bytes": 221255,
+        "source": "https://static.wixstatic.com/media/19c797_aaf5e2a69f8948fea0d78e34999b400f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/12.jpeg",
+        "bytes": 207231,
+        "source": "https://static.wixstatic.com/media/19c797_fbf2fa97a3d34a9bbde2908560ab794f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/13.jpeg",
+        "bytes": 194148,
+        "source": "https://static.wixstatic.com/media/19c797_b1a36eb333a14f8fb8d0574925c2c31f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/14.jpeg",
+        "bytes": 201854,
+        "source": "https://static.wixstatic.com/media/19c797_7efee238832d45d2aa173736574e43f1~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/15.jpeg",
+        "bytes": 212447,
+        "source": "https://static.wixstatic.com/media/19c797_0cf441314e524171908c6dfc73453304~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/16.jpeg",
+        "bytes": 338208,
+        "source": "https://static.wixstatic.com/media/19c797_febd9ff9bf94491691ec03c32d09a2ff~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/17.jpeg",
+        "bytes": 324317,
+        "source": "https://static.wixstatic.com/media/19c797_857740b4eb4445cba394c238d7537be6~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/18.jpeg",
+        "bytes": 276534,
+        "source": "https://static.wixstatic.com/media/19c797_3047350357e04b10a1fddc439306b11b~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/badra-sirivaka-2day/19.jpeg",
+        "bytes": 302601,
+        "source": "https://static.wixstatic.com/media/19c797_33560806d6c44bfbb453fe5236e9d829~mv2.jpeg"
+      }
+    ]
+  },
+  "mare-1day": {
+    "page": "https://www.aptourismrajahmundry.com/maredumilli-resorts/maredumilli-1-day-tour-package",
+    "images": [
+      {
+        "file": "images/from-aptourism/mare-1day/01.jpeg",
+        "bytes": 49933,
+        "source": "https://static.wixstatic.com/media/19c797_9f638ea40e7d46d1bb79916df74aff1e~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/02.jpeg",
+        "bytes": 51853,
+        "source": "https://static.wixstatic.com/media/19c797_4f463975bf6146d5b9f3c01d8964cb35~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/03.jpeg",
+        "bytes": 96623,
+        "source": "https://static.wixstatic.com/media/19c797_553b7656843848e1bbc40a76ef20ccfd~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/04.jpeg",
+        "bytes": 106573,
+        "source": "https://static.wixstatic.com/media/19c797_75834f4467054971b68d5940cb45e2f0~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/05.jpeg",
+        "bytes": 86751,
+        "source": "https://static.wixstatic.com/media/19c797_aeee25890bbc4968b9b386c6ec164bfb~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/06.jpeg",
+        "bytes": 92029,
+        "source": "https://static.wixstatic.com/media/19c797_1179432f82ad49f9bf1c3a97d9c9168d~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/07.jpeg",
+        "bytes": 88148,
+        "source": "https://static.wixstatic.com/media/19c797_a60cc94409ab4923b1cf945e308eed7c~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/08.jpeg",
+        "bytes": 107085,
+        "source": "https://static.wixstatic.com/media/19c797_e3e29deab4ea4fe083d0975f9aeefe34~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/09.jpeg",
+        "bytes": 45597,
+        "source": "https://static.wixstatic.com/media/19c797_b3642c401861437bb2aa906268ccd8ff~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/10.jpeg",
+        "bytes": 63593,
+        "source": "https://static.wixstatic.com/media/19c797_feb2321a105b4e269aef4ea0cb4830ad~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/11.jpeg",
+        "bytes": 51221,
+        "source": "https://static.wixstatic.com/media/19c797_dee79ca32b284d4b88e8b1c0c43eab4e~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/12.jpeg",
+        "bytes": 60582,
+        "source": "https://static.wixstatic.com/media/19c797_dd812a2133d748b1bbe53165d97d945f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/13.jpeg",
+        "bytes": 77358,
+        "source": "https://static.wixstatic.com/media/19c797_0101d12510a6463081cd6a4b5e6e74ba~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/14.jpeg",
+        "bytes": 62395,
+        "source": "https://static.wixstatic.com/media/19c797_63407bbe450f47d7b7f5202a264ebb59~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/15.jpeg",
+        "bytes": 36629,
+        "source": "https://static.wixstatic.com/media/19c797_9e8592ee3d3c47f3af2521ae5463c4ad~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/16.jpeg",
+        "bytes": 73745,
+        "source": "https://static.wixstatic.com/media/19c797_859674299a5446f0951500aa02727e94~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-1day/17.jpeg",
+        "bytes": 34401,
+        "source": "https://static.wixstatic.com/media/19c797_65699868f0ff4b1aaa53b81b649c4ef5~mv2.jpeg"
+      }
+    ]
+  },
+  "mare-2day": {
+    "page": "https://www.aptourismrajahmundry.com/maredumilli-resorts/maredumilli-2-days-tour-package",
+    "images": [
+      {
+        "file": "images/from-aptourism/mare-2day/01.jpg",
+        "bytes": 9560366,
+        "source": "https://static.wixstatic.com/media/11062b_3fc359f913684410be4ae78e0b3f350f~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/02.jpeg",
+        "bytes": 34401,
+        "source": "https://static.wixstatic.com/media/19c797_65699868f0ff4b1aaa53b81b649c4ef5~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/03.jpeg",
+        "bytes": 73745,
+        "source": "https://static.wixstatic.com/media/19c797_859674299a5446f0951500aa02727e94~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/04.jpeg",
+        "bytes": 36629,
+        "source": "https://static.wixstatic.com/media/19c797_9e8592ee3d3c47f3af2521ae5463c4ad~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/05.jpeg",
+        "bytes": 62395,
+        "source": "https://static.wixstatic.com/media/19c797_63407bbe450f47d7b7f5202a264ebb59~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/06.jpeg",
+        "bytes": 77358,
+        "source": "https://static.wixstatic.com/media/19c797_0101d12510a6463081cd6a4b5e6e74ba~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/07.jpeg",
+        "bytes": 60582,
+        "source": "https://static.wixstatic.com/media/19c797_dd812a2133d748b1bbe53165d97d945f~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/08.jpeg",
+        "bytes": 51221,
+        "source": "https://static.wixstatic.com/media/19c797_dee79ca32b284d4b88e8b1c0c43eab4e~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/09.jpeg",
+        "bytes": 63593,
+        "source": "https://static.wixstatic.com/media/19c797_feb2321a105b4e269aef4ea0cb4830ad~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/10.jpeg",
+        "bytes": 45597,
+        "source": "https://static.wixstatic.com/media/19c797_b3642c401861437bb2aa906268ccd8ff~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/11.jpeg",
+        "bytes": 107085,
+        "source": "https://static.wixstatic.com/media/19c797_e3e29deab4ea4fe083d0975f9aeefe34~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/12.jpeg",
+        "bytes": 88148,
+        "source": "https://static.wixstatic.com/media/19c797_a60cc94409ab4923b1cf945e308eed7c~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/13.jpeg",
+        "bytes": 92029,
+        "source": "https://static.wixstatic.com/media/19c797_1179432f82ad49f9bf1c3a97d9c9168d~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/14.jpeg",
+        "bytes": 86751,
+        "source": "https://static.wixstatic.com/media/19c797_aeee25890bbc4968b9b386c6ec164bfb~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/15.jpeg",
+        "bytes": 106573,
+        "source": "https://static.wixstatic.com/media/19c797_75834f4467054971b68d5940cb45e2f0~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/16.jpeg",
+        "bytes": 96623,
+        "source": "https://static.wixstatic.com/media/19c797_553b7656843848e1bbc40a76ef20ccfd~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/17.jpeg",
+        "bytes": 51853,
+        "source": "https://static.wixstatic.com/media/19c797_4f463975bf6146d5b9f3c01d8964cb35~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-2day/18.jpeg",
+        "bytes": 49933,
+        "source": "https://static.wixstatic.com/media/19c797_9f638ea40e7d46d1bb79916df74aff1e~mv2.jpeg"
+      }
+    ]
+  },
+  "tyda-jungle-bells": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/tyda-haritha-jungle-bells",
+    "images": [
+      {
+        "file": "images/from-aptourism/tyda-jungle-bells/01.jpeg",
+        "bytes": 39748,
+        "source": "https://static.wixstatic.com/media/19c797_d71de8f6eded427c9f2ebbdd41a3f5b2~mv2.jpeg"
+      }
+    ]
+  },
+  "suryalanka-beach": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/suryalanka%2C-haritha-beach-resorts",
+    "images": []
+  },
+  "berm-park": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/berm-park-haritha-hotel-vijayawada",
+    "images": [
+      {
+        "file": "images/from-aptourism/berm-park/01.jpg",
+        "bytes": 33118,
+        "source": "https://static.wixstatic.com/media/19c797_2d28f6bc9ad44f04885568908d71b1a2~mv2.jpg"
+      }
+    ]
+  },
+  "mypadu-beach": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/mypadu%2C-beach-resorts-",
+    "images": []
+  },
+  "bhavani-island": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/bhavani-island-haritha-resort-vijayawada",
+    "images": [
+      {
+        "file": "images/from-aptourism/bhavani-island/01.jpg",
+        "bytes": 20167,
+        "source": "https://static.wixstatic.com/media/19c797_1dfdfdb5c98b41d2b8722f9f826bcfc5~mv2.jpg"
+      }
+    ]
+  },
+  "ananthagiri-hill": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/ananthagiri-haritha-resort",
+    "images": [
+      {
+        "file": "images/from-aptourism/ananthagiri-hill/01.jpeg",
+        "bytes": 27129,
+        "source": "https://static.wixstatic.com/media/19c797_27a780926d4b44f5a8d7b8fc44b3f717~mv2.jpeg"
+      }
+    ]
+  },
+  "lambasingi": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/lambasingi%2C-haritha-resorts-",
+    "images": []
+  },
+  "srisailam-hotel": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/srisailam%2C-haritha-hotels-",
+    "images": []
+  },
+  "araku-mayuri": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/araku-mayuri-haritha-hill-resort",
+    "images": [
+      {
+        "file": "images/from-aptourism/araku-mayuri/01.jpg",
+        "bytes": 141667,
+        "source": "https://static.wixstatic.com/media/19c797_85ec27d000544620a2e8904660b97286~mv2.jpg"
+      }
+    ]
+  },
+  "araku-valley": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/araku-haritha-valley-resort",
+    "images": [
+      {
+        "file": "images/from-aptourism/araku-valley/01.jpeg",
+        "bytes": 68368,
+        "source": "https://static.wixstatic.com/media/19c797_2baf49b69ae045eaafaa710a8e91befe~mv2.jpeg"
+      }
+    ]
+  },
+  "horsley-hills": {
+    "page": "https://www.aptourismrajahmundry.com/haritha-resorts/horsely-hills%2C-haritha-hill-resorts",
+    "images": []
+  },
+  "mare-extra-sana": {
+    "page": "https://www.aptourismrajahmundry.com/maredumilli-resorts/sana-resorts",
+    "images": [
+      {
+        "file": "images/from-aptourism/mare-extra-sana/01.jpeg",
+        "bytes": 252671,
+        "source": "https://static.wixstatic.com/media/19c797_9baecfe43b104b5bad7fd67e6dbf5eb0~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/02.jpeg",
+        "bytes": 238543,
+        "source": "https://static.wixstatic.com/media/19c797_00eba8b97dec4ab883f304c4dfd8d6e3~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/03.jpeg",
+        "bytes": 290344,
+        "source": "https://static.wixstatic.com/media/19c797_308b92bcce134deea106e7f083bc0657~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/04.jpeg",
+        "bytes": 26134,
+        "source": "https://static.wixstatic.com/media/19c797_556966d8782c4ed695f416938eb850ea~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/05.jpeg",
+        "bytes": 230419,
+        "source": "https://static.wixstatic.com/media/19c797_ce674c47482e4cfa88d34d2d4169245a~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/06.jpeg",
+        "bytes": 178810,
+        "source": "https://static.wixstatic.com/media/19c797_62e36262adf64db784089ec8bb790028~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/07.jpeg",
+        "bytes": 213773,
+        "source": "https://static.wixstatic.com/media/19c797_3e177762c3a94785b154d13e70666fae~mv2.jpeg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/08.jpg",
+        "bytes": 52929,
+        "source": "https://static.wixstatic.com/media/19c797_49a77560e98a400cbfc80561447dc6c1~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/09.jpg",
+        "bytes": 55326,
+        "source": "https://static.wixstatic.com/media/19c797_6f51e5f833b24910831a3a3345173c54~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/10.jpg",
+        "bytes": 64982,
+        "source": "https://static.wixstatic.com/media/19c797_8b76d90894ba4affb9eaeffb21050061~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/11.jpg",
+        "bytes": 41106,
+        "source": "https://static.wixstatic.com/media/19c797_fa1a4c60094b4579ba07c02dff96f89f~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/12.jpg",
+        "bytes": 60085,
+        "source": "https://static.wixstatic.com/media/19c797_fcbda1b891724a38918fca8335f48e1e~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/13.jpg",
+        "bytes": 55033,
+        "source": "https://static.wixstatic.com/media/19c797_a51005cb9b2a4d7eaf32d1f7986807e3~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/14.jpg",
+        "bytes": 48106,
+        "source": "https://static.wixstatic.com/media/19c797_2c9587699fe540f3b333b4ac2f17bb7b~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/15.jpg",
+        "bytes": 44443,
+        "source": "https://static.wixstatic.com/media/19c797_a39cda77da554d698c14006b1c74fdb1~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/16.jpg",
+        "bytes": 32506,
+        "source": "https://static.wixstatic.com/media/19c797_6f94225e2b874cea8164062d99898b6a~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/17.jpg",
+        "bytes": 41988,
+        "source": "https://static.wixstatic.com/media/19c797_f373fdd28692498a899230b15d759e39~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/18.jpg",
+        "bytes": 35646,
+        "source": "https://static.wixstatic.com/media/19c797_4fdeffbd91d74b86a6cf4b422f970fc0~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/19.jpg",
+        "bytes": 30071,
+        "source": "https://static.wixstatic.com/media/19c797_f27cf19613a34754a5ec399c1ae733a5~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/20.jpg",
+        "bytes": 37526,
+        "source": "https://static.wixstatic.com/media/19c797_d4aaa183240441aa9de48f707ab0a3c4~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-sana/21.jpg",
+        "bytes": 34207,
+        "source": "https://static.wixstatic.com/media/19c797_8afede321873418bbdaa964d144a617b~mv2.jpg"
+      }
+    ]
+  },
+  "mare-extra-aranya": {
+    "page": "https://www.aptourismrajahmundry.com/maredumilli-resorts/aranya-eco-resorts",
+    "images": [
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/01.jpg",
+        "bytes": 116786,
+        "source": "https://static.wixstatic.com/media/19c797_3d1e40ec95d04f41bae43ac9bd09f9b3~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/02.jpg",
+        "bytes": 224841,
+        "source": "https://static.wixstatic.com/media/19c797_89c2fefed7f04efa98562ddcf6b23468~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/03.jpg",
+        "bytes": 59087,
+        "source": "https://static.wixstatic.com/media/19c797_daa183acf3e24b29b0261c5765c942ef~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/04.jpg",
+        "bytes": 74126,
+        "source": "https://static.wixstatic.com/media/19c797_8d41ff878bfe451f876585e9ae85966c~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/05.jpg",
+        "bytes": 68430,
+        "source": "https://static.wixstatic.com/media/19c797_b0c4b2045c0241b884052d5a53452a51~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/06.jpg",
+        "bytes": 158637,
+        "source": "https://static.wixstatic.com/media/19c797_b13e11aac3334550b57729ceb6320616~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/07.jpg",
+        "bytes": 327497,
+        "source": "https://static.wixstatic.com/media/19c797_1ef1821d0ec04ad2a7e8a53eba064c4f~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/08.jpg",
+        "bytes": 269463,
+        "source": "https://static.wixstatic.com/media/19c797_5c3fa1418d5949168e4a59daf7d9a402~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/09.jpg",
+        "bytes": 292330,
+        "source": "https://static.wixstatic.com/media/19c797_084de67de5174483925556273841e65a~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/10.jpg",
+        "bytes": 287699,
+        "source": "https://static.wixstatic.com/media/19c797_aa798cc1b286434f8df47a899d9a6655~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/11.jpg",
+        "bytes": 291289,
+        "source": "https://static.wixstatic.com/media/19c797_a850880fb9fb4e1dbec6a15c52704f06~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/12.jpg",
+        "bytes": 96744,
+        "source": "https://static.wixstatic.com/media/19c797_4ec2e516fae640a29511b31070b35857~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/13.jpg",
+        "bytes": 227442,
+        "source": "https://static.wixstatic.com/media/19c797_125cb5888d3b4bc08e001786d33779d7~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-aranya/14.jpg",
+        "bytes": 177581,
+        "source": "https://static.wixstatic.com/media/19c797_2e5d7aefbdaa482296238e9201ea26b1~mv2.jpg"
+      }
+    ]
+  },
+  "mare-extra-vanam": {
+    "page": "https://www.aptourismrajahmundry.com/maredumilli-resorts/vanam-resorts",
+    "images": [
+      {
+        "file": "images/from-aptourism/mare-extra-vanam/01.jpg",
+        "bytes": 47232,
+        "source": "https://static.wixstatic.com/media/19c797_8d10b84d370b4576ae154616d27bce02~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-vanam/02.jpg",
+        "bytes": 33209,
+        "source": "https://static.wixstatic.com/media/19c797_906a7d7913204fc5b6cfaf253301e9ea~mv2.jpg"
+      },
+      {
+        "file": "images/from-aptourism/mare-extra-vanam/03.jpg",
+        "bytes": 38336,
+        "source": "https://static.wixstatic.com/media/19c797_a2aeb5720e514c6e81ae708e791ef44c~mv2.jpg"
+      }
+    ]
+  }
+}

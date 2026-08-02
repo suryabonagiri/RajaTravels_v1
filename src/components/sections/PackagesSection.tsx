@@ -6,13 +6,23 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import PackageCard from "@/components/ui/PackageCard";
 import { PACKAGES } from "@/lib/constants";
 
+const PAPIKONDALU_PACKAGE_IDS = new Set([
+  "papi-1day",
+  "badra-1day",
+  "badra-papi-1day",
+  "sirivaka-2day",
+  "kolluru-2day",
+  "badra-sirivaka-2day",
+  "badra-hotel",
+]);
+
 export default function PackagesSection() {
   return (
-    <section id="packages" className="py-20 md:py-28 relative overflow-hidden">
+    <section id="packages" className="scroll-mt-[calc(4.5rem+env(safe-area-inset-top,0px))] py-16 sm:py-20 md:py-28 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=40"
+          src="/images/from-aptourism/papi-1day/15.jpeg"
           alt="Background scenery"
           fill
           className="object-cover"
@@ -37,10 +47,18 @@ export default function PackagesSection() {
               title={pkg.title}
               adultPrice={pkg.adultPrice}
               childPrice={pkg.childPrice}
+              childAgeNote={pkg.childAgeNote}
               duration={pkg.duration}
               destination={pkg.destination}
               highlights={pkg.highlights}
               index={index}
+              href={
+                PAPIKONDALU_PACKAGE_IDS.has(pkg.id)
+                  ? `/services/papikondalu#package-${pkg.id}`
+                  : pkg.destination === "Maredumilli"
+                    ? "/services/maredumilli"
+                    : undefined
+              }
             />
           ))}
         </div>

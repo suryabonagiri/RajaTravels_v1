@@ -8,7 +8,7 @@ import { STATS } from "@/lib/constants";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-white relative">
+    <section id="about" className="scroll-mt-[calc(4.5rem+env(safe-area-inset-top,0px))] py-16 sm:py-20 md:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image side */}
@@ -17,7 +17,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            className="relative overflow-x-clip"
           >
             <div className="relative brand-shape overflow-hidden aspect-[4/3]">
               <Image
@@ -36,7 +36,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute -bottom-6 -right-4 md:right-6 bg-white rounded-2xl p-5 card-shadow-lg border border-gold/10"
+              className="absolute -bottom-4 right-2 sm:-bottom-6 sm:right-4 md:right-6 bg-white rounded-2xl p-4 sm:p-5 card-shadow-lg border border-gold/10 max-w-[calc(100%-1rem)]"
             >
               <div className="text-center">
                 <div className="text-3xl font-bold text-gold">10+</div>
@@ -80,7 +80,7 @@ export default function AboutSection() {
                 At Raja Travels, we specialize in three of Andhra Pradesh&apos;s hidden
                 gems:{" "}
                 <strong className="text-primary">
-                  Papikondalu, Maredumilli, and Haritha Resorts
+                  Papikondalu, Maredumilli, and APTDC Haritha Hotels & Resorts
                 </strong>
                 . These destinations offer a unique blend of natural beauty,
                 cultural richness, and adventure, and we are here to help you

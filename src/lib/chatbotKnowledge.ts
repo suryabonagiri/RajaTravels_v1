@@ -1,0 +1,261 @@
+import {
+  BUSINESS,
+  BUS_TYPES,
+  DESTINATIONS,
+  FAQS,
+  HARITHA_RESORTS,
+  PACKAGES,
+  SERVICES,
+} from "./constants";
+import { SERVICE_DETAILS } from "./services";
+
+export type KnowledgeCategory =
+  | "business"
+  | "service"
+  | "package"
+  | "destination"
+  | "bus"
+  | "faq"
+  | "resort"
+  | "booking"
+  | "contact";
+
+export interface KnowledgeItem {
+  id: string;
+  category: KnowledgeCategory;
+  title: string;
+  content: string;
+  keywords: string[];
+}
+
+function tokenize(...parts: string[]): string[] {
+  const raw = parts.join(" ").toLowerCase();
+  return Array.from(
+    new Set(
+      raw
+        .replace(/[^\w\s₹+]/g, " ")
+        .split(/\s+/)
+        .filter((w) => w.length > 2)
+    )
+  );
+}
+
+export function buildKnowledgeBase(): KnowledgeItem[] {
+  const items: KnowledgeItem[] = [];
+
+  items.push({
+    id: "business-overview",
+    category: "business",
+    title: "About Raja Travels",
+    content: `${BUSINESS.name} is an ${BUSINESS.tagline} based in Rajahmundry. ${BUSINESS.description}`,
+    keywords: tokenize(
+      BUSINESS.name,
+      BUSINESS.tagline,
+      "about company authorized agent rajahmundry"
+    ),
+  });
+
+  items.push({
+    id: "contact-info",
+    category: "contact",
+    title: "Contact details",
+    content: `You can reach ${BUSINESS.name} at phone ${BUSINESS.phones.join(", ")}, email ${BUSINESS.email}, or WhatsApp. Address: ${BUSINESS.address}.`,
+    keywords: tokenize(
+      "contact phone call email whatsapp address location office rajahmundry",
+      BUSINESS.email,
+      ...BUSINESS.phones
+    ),
+  });
+
+  items.push({
+    id: "booking-help",
+    category: "booking",
+    title: "How to book",
+    content:
+      "You can book through the booking form on this website, call us, or message us on WhatsApp. Share your dates, pickup point, destination, and group size — we will confirm availability and pricing.",
+    keywords: tokenize(
+      "book booking reserve inquiry enquire how to book availability dates"
+    ),
+  });
+
+  items.push({
+    id: "bus-fleet",
+    category: "bus",
+    title: "Bus rental fleet",
+    content: `We offer premium bus rental in these sizes: ${BUS_TYPES.join(", ")}. Ideal for family trips, marriages, corporate outings, and custom routes across Andhra Pradesh, Telangana, and neighboring states.`,
+    keywords: tokenize(
+      "bus rental hire fleet seater ac coach transport marriage wedding corporate",
+      ...BUS_TYPES
+    ),
+  });
+
+  for (const service of SERVICE_DETAILS) {
+    items.push({
+      id: `service-${service.id}`,
+      category: "service",
+      title: service.title,
+      content: `${service.description}\n\n${service.longDescription}\n\nHighlights: ${service.features.join("; ")}. Ideal for: ${service.idealFor.join(", ")}. More details: /services/${service.id}`,
+      keywords: tokenize(
+        service.title,
+        service.description,
+        service.longDescription,
+        service.subtitle,
+        service.id,
+        "service",
+        ...service.features,
+        ...service.idealFor
+      ),
+    });
+  }
+
+  for (const pkg of PACKAGES) {
+    const visiting = pkg.visitingPlaces?.length
+      ? ` Visiting places: ${pkg.visitingPlaces.join(", ")}.`
+      : "";
+    const facilities = pkg.facilities?.length
+      ? ` Facilities: ${pkg.facilities.join("; ")}.`
+      : "";
+    const reporting =
+      pkg.reportingPlace || pkg.reportingTime
+        ? ` Reporting: ${[pkg.reportingTime, pkg.reportingPlace].filter(Boolean).join(" · ")}.`
+        : "";
+    const itinerary = pkg.itinerary?.length
+      ? ` Tour information: ${pkg.itinerary
+          .map((stop) => `${stop.time} — ${stop.detail}`)
+          .join(" | ")}.`
+      : "";
+    const daySchedule = pkg.daySchedules?.length
+      ? ` Schedule: ${pkg.daySchedules
+          .map(
+            (day) =>
+              `${day.dayLabel}: ${day.stops
+                .map((s) => `${s.time} ${s.detail}`)
+                .join("; ")}`
+          )
+          .join(" || ")}.`
+      : "";
+    const pricingOpts = pkg.pricingOptions?.length
+      ? ` Options: ${pkg.pricingOptions
+          .map(
+            (o) =>
+              `${o.label} Adult ${o.adultPrice} Child ${o.childPrice}${
+                o.childAgeNote ? ` (${o.childAgeNote})` : ""
+              }`
+          )
+          .join("; ")}.`
+      : "";
+    const rooms = pkg.roomRates?.length
+      ? ` Rooms: ${pkg.roomRates
+          .map(
+            (r) =>
+              `${r.label} weekday ${r.weekday} weekend ${r.weekend}`
+          )
+          .join("; ")}.`
+      : "";
+    const notes = pkg.notes?.length ? ` Notes: ${pkg.notes.join("; ")}.` : "";
+    const childNote = pkg.childAgeNote
+      ? ` Child price applies for ages ${pkg.childAgeNote}.`
+      : "";
+    const summary = pkg.summary ? ` ${pkg.summary}` : "";
+
+    items.push({
+      id: `package-${pkg.id}`,
+      category: "package",
+      title: pkg.title,
+      content: `${pkg.title} (${pkg.duration}) to ${pkg.destination}.${summary} Adult ${pkg.adultPrice}, Child ${pkg.childPrice}.${childNote} Includes: ${pkg.highlights.join("; ")}.${reporting}${facilities}${visiting}${itinerary}${daySchedule}${pricingOpts}${rooms}${notes}`,
+      keywords: tokenize(
+        pkg.title,
+        pkg.shortTitle || "",
+        pkg.destination,
+        pkg.duration,
+        pkg.adultPrice,
+        pkg.childPrice,
+        "package tour price cost itinerary schedule places sirivaka kolluru bhadrachalam hotel",
+        ...pkg.highlights,
+        ...(pkg.visitingPlaces ?? []),
+        ...(pkg.facilities ?? []),
+        ...(pkg.itinerary?.flatMap((s) => [s.time, s.detail]) ?? []),
+        ...(pkg.daySchedules?.flatMap((d) =>
+          d.stops.flatMap((s) => [d.dayLabel, s.time, s.detail])
+        ) ?? []),
+        ...(pkg.pricingOptions?.map((o) => o.label) ?? []),
+        ...(pkg.roomRates?.map((r) => r.label) ?? [])
+      ),
+    });
+  }
+
+  for (const dest of DESTINATIONS) {
+    items.push({
+      id: `destination-${dest.id}`,
+      category: "destination",
+      title: dest.title,
+      content: `${dest.title} — ${dest.subtitle}. ${dest.description} Highlights: ${dest.highlights.join(", ")}.`,
+      keywords: tokenize(
+        dest.title,
+        dest.subtitle,
+        dest.description,
+        "destination place visit",
+        ...dest.highlights
+      ),
+    });
+  }
+
+  items.push({
+    id: "haritha-list",
+    category: "resort",
+    title: "APTDC Haritha Hotels & Resorts we can book",
+    content: `As an authorized AP Tourism agent, we help book APTDC (Andhra Pradesh Tourism Development Corporation) Haritha Hotels & Resorts including: ${HARITHA_RESORTS.map((r) => `${r.name} — ${r.location}`).join("; ")}. More APTDC Haritha properties can be requested on inquiry.`,
+    keywords: tokenize(
+      "haritha resort hotel stay accommodation booking aptdc andhra pradesh tourism development corporation",
+      ...HARITHA_RESORTS.flatMap((r) => [r.name, r.shortName, r.location, r.categoryLabel])
+    ),
+  });
+
+  for (const faq of FAQS) {
+    items.push({
+      id: `faq-${tokenize(faq.question)
+        .slice(0, 3)
+        .join("-")}`,
+      category: "faq",
+      title: faq.question,
+      content: faq.answer,
+      keywords: tokenize(faq.question, faq.answer, "faq question"),
+    });
+  }
+
+  items.push({
+    id: "all-packages-summary",
+    category: "package",
+    title: "All tour packages",
+    content: PACKAGES.map((p) => {
+      const child = p.childAgeNote
+        ? `Child ${p.childPrice} (${p.childAgeNote})`
+        : `Child ${p.childPrice}`;
+      return `• ${p.title} (${p.duration}) — Adult ${p.adultPrice}, ${child}`;
+    }).join("\n"),
+    keywords: tokenize(
+      "all packages list tours prices rates package options what packages"
+    ),
+  });
+
+  items.push({
+    id: "all-services-summary",
+    category: "service",
+    title: "All services",
+    content: SERVICES.map((s) => `• ${s.title}: ${s.description}`).join("\n"),
+    keywords: tokenize(
+      "all services list what do you offer options help services"
+    ),
+  });
+
+  return items;
+}
+
+export const QUICK_PROMPTS = [
+  "What services do you offer?",
+  "Show me packages and prices",
+  "Bus rental options",
+  "Papikondalu tour details",
+  "How can I book?",
+  "Contact number",
+];

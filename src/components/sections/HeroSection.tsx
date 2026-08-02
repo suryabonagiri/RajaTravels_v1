@@ -24,7 +24,7 @@ const heroSlides = [
       </>
     ),
     subtitle:
-      "Experience luxury travel across Andhra Pradesh with our premium bus fleet. From corporate events to family celebrations.",
+      "AP Tourism Authorized Agent offering luxury coaches across Andhra Pradesh — for corporate events, marriages, and family celebrations.",
   },
   {
     video: "/videos/boat-hero.mp4",
@@ -43,7 +43,7 @@ const heroSlides = [
 ];
 
 const trustBadges = [
-  { icon: <FaShieldAlt />, text: "AP Tourism Authorized" },
+  { icon: <FaShieldAlt />, text: "AP Tourism Authorized Agent" },
   { icon: <FaBus />, text: "Premium Fleet" },
   { icon: <FaMapMarkedAlt />, text: "10+ Years Experience" },
 ];
@@ -84,7 +84,7 @@ export default function HeroSection() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-dark"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-primary-dark"
     >
       {/* ──────────── VIDEO BACKGROUNDS ──────────── */}
       {heroSlides.map((slide, index) => (
@@ -93,7 +93,6 @@ export default function HeroSection() {
           className="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
           style={{ opacity: activeSlide === index ? 1 : 0 }}
         >
-          {/* Video element with cinematic zoom */}
           <video
             autoPlay
             muted
@@ -102,9 +101,10 @@ export default function HeroSection() {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
             style={{
-              animation: activeSlide === index
-                ? "heroZoom 20s ease-in-out infinite alternate"
-                : "none",
+              animation:
+                activeSlide === index
+                  ? "heroZoom 20s ease-in-out infinite alternate"
+                  : "none",
             }}
           >
             <source src={slide.video} type="video/mp4" />
@@ -112,21 +112,13 @@ export default function HeroSection() {
         </div>
       ))}
 
-      {/* ──────────── CINEMATIC OVERLAYS ──────────── */}
-      {/* Dark gradient overlay for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary/70 to-primary-dark/80 z-[1]" />
-
-      {/* Top vignette */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/60 via-transparent to-primary-dark/50 z-[1]" />
-
-      {/* Subtle animated grain texture */}
       <div className="absolute inset-0 bg-pattern opacity-20 z-[1]" />
-
-      {/* Gold accent line at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent z-[2]" />
 
-      {/* ──────────── SLIDE INDICATORS ──────────── */}
-      <div className="absolute bottom-28 md:bottom-20 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      {/* Slide indicators — tucked near bottom edge */}
+      <div className="absolute bottom-4 md:bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
         {heroSlides.map((_, index) => (
           <button
             key={index}
@@ -134,7 +126,7 @@ export default function HeroSection() {
             className="group relative cursor-pointer"
             aria-label={`Go to slide ${index + 1}`}
           >
-            <div className="w-12 md:w-16 h-1 rounded-full bg-white/20 overflow-hidden">
+            <div className="w-10 md:w-14 h-1 rounded-full bg-white/20 overflow-hidden">
               <motion.div
                 className="h-full bg-gold rounded-full"
                 initial={{ width: "0%" }}
@@ -151,90 +143,81 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* ──────────── MAIN CONTENT ──────────── */}
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[calc(4.5rem+env(safe-area-inset-top,0px))] pb-14 md:pt-24 md:pb-12 w-full"
       >
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* ──── Left: Animated text content ──── */}
+        <div className="grid lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-10 xl:gap-12 items-center">
           <div className="text-center lg:text-left">
-            {/* Slide badge */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={`badge-${activeSlide}`}
-                initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
+                initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 glass rounded-full mb-6 border border-gold/20"
+                exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+                transition={{ duration: 0.45 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 glass rounded-full mb-3 border border-gold/20"
               >
-                <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
-                <span className="text-gold text-xs font-semibold tracking-wider uppercase">
+                <span className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
+                <span className="text-gold text-[10px] sm:text-xs font-semibold tracking-wider uppercase">
                   {currentSlide.badge}
                 </span>
-                <span className="text-gold/60">{currentSlide.badgeIcon}</span>
+                <span className="text-gold/60 text-xs">{currentSlide.badgeIcon}</span>
               </motion.div>
             </AnimatePresence>
 
-            {/* Heading */}
             <AnimatePresence mode="wait">
               <motion.h1
                 key={`heading-${activeSlide}`}
-                initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -20, filter: "blur(6px)" }}
-                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-[family-name:var(--font-heading)] leading-[1.1] mb-6"
+                exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
+                transition={{ duration: 0.55, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-white font-[family-name:var(--font-heading)] leading-[1.12] mb-3"
               >
                 {currentSlide.heading}
               </motion.h1>
             </AnimatePresence>
 
-            {/* Subtitle */}
             <AnimatePresence mode="wait">
               <motion.p
                 key={`subtitle-${activeSlide}`}
-                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-white/55 text-base md:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-8"
+                exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+                transition={{ duration: 0.45, delay: 0.1 }}
+                className="text-white/55 text-sm md:text-base leading-relaxed max-w-md mx-auto lg:mx-0 mb-4"
               >
                 {currentSlide.subtitle}
               </motion.p>
             </AnimatePresence>
 
-            {/* Trust badges - static, always visible */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-3"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 14 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-2"
             >
               {trustBadges.map((badge) => (
                 <div
                   key={badge.text}
-                  className="flex items-center gap-2 px-3.5 py-2 glass rounded-xl text-xs text-white/60 border border-white/5 hover:border-gold/20 hover:text-white/80 transition-all duration-300"
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 glass rounded-lg text-[11px] text-white/60 border border-white/5 hover:border-gold/20 hover:text-white/80 transition-all duration-300"
                 >
-                  <span className="text-gold">{badge.icon}</span>
+                  <span className="text-gold text-xs">{badge.icon}</span>
                   {badge.text}
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* ──── Right: Booking Form ──── */}
-          <div>
+          <div className="w-full max-w-xl mx-auto lg:max-w-none lg:mx-0">
             <BookingForm />
           </div>
         </div>
       </motion.div>
 
-      {/* ──────────── BOTTOM FADE ──────────── */}
-      <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-white via-white/50 to-transparent z-[2]" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 md:h-20 bg-gradient-to-t from-white via-white/40 to-transparent z-[2]" />
 
-      {/* ──────────── CINEMATIC ZOOM KEYFRAMES ──────────── */}
       <style jsx>{`
         @keyframes heroZoom {
           0% {

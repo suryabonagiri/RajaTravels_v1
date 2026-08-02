@@ -13,12 +13,12 @@ import {
   FaArrowUp,
 } from "react-icons/fa";
 import Image from "next/image";
-import { BUSINESS, NAV_LINKS } from "@/lib/constants";
+import Link from "next/link";
+import { BUSINESS, NAV_LINKS, SERVICES } from "@/lib/constants";
 import { smoothScrollTo, generateWhatsAppLink } from "@/lib/utils";
 
 export default function Footer() {
-  const quickLinks = NAV_LINKS.slice(0, 4);
-  const serviceLinks = NAV_LINKS.slice(4);
+  const quickLinks = NAV_LINKS.filter((l) => l.href.startsWith("#"));
 
   return (
     <footer className="bg-white border-t border-gray-100 relative overflow-hidden pt-20 pb-10">
@@ -34,14 +34,12 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="mb-6 relative w-[260px] h-[75px] md:w-[320px] md:h-[90px] group">
+            <div className="mb-6 relative w-[200px] h-[56px] sm:w-[260px] sm:h-[75px] md:w-[320px] md:h-[90px] group">
               <Image
                 src="/Raja_Travels_logo.png"
                 alt="Raja Travels Logo"
-                width={320}
-                height={90}
-                style={{ position: 'absolute', height: '246%', width: '100%', left: '-32px', top: '-69px', right: 0, bottom: 0, color: 'transparent' }}
-                sizes="280px"
+                fill
+                sizes="(max-width: 640px) 200px, 280px"
                 className="object-contain object-left group-hover:scale-[1.02] transition-transform duration-300"
               />
             </div>
@@ -97,19 +95,15 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/services"
+                  className="text-text-secondary hover:text-gold transition-colors duration-200 text-sm"
+                >
+                  Services
+                </Link>
+              </li>
               {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() =>
-                      smoothScrollTo(link.href.replace("#", ""))
-                    }
-                    className="text-text-secondary hover:text-gold transition-colors duration-200 text-sm cursor-pointer"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-              {serviceLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() =>
@@ -135,13 +129,16 @@ export default function Footer() {
               Our Services
             </h4>
             <ul className="space-y-2.5 text-sm text-text-secondary">
-              <li>Bus Rental Services</li>
-              <li>Papikondalu Boat Tourism</li>
-              <li>Maredumilli Eco Tourism</li>
-              <li>Haritha Resort Booking</li>
-              <li>Group & Family Tours</li>
-              <li>Corporate Trips</li>
-              <li>Marriage Trip Buses</li>
+              {SERVICES.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    href={`/services/${service.id}`}
+                    className="hover:text-gold transition-colors duration-200"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 

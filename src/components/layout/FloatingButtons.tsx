@@ -24,11 +24,17 @@ export default function FloatingButtons() {
   );
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
-      {/* Scroll to top */}
+    <div
+      className="fixed z-50 flex flex-col items-center gap-3"
+      style={{
+        bottom: "calc(1.25rem + env(safe-area-inset-bottom, 0px))",
+        right: "calc(1.25rem + env(safe-area-inset-right, 0px))",
+      }}
+    >
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
+            type="button"
             initial={{ opacity: 0, scale: 0, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0, y: 20 }}
@@ -42,7 +48,6 @@ export default function FloatingButtons() {
         )}
       </AnimatePresence>
 
-      {/* WhatsApp */}
       <motion.a
         href={whatsappLink}
         target="_blank"
@@ -52,12 +57,11 @@ export default function FloatingButtons() {
         transition={{ duration: 0.5, delay: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="relative w-14 h-14 rounded-full bg-gradient-to-r from-primary to-primary-light text-white flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.3)] hover:shadow-[0_0_25px_rgba(245,158,11,0.6)] transition-shadow duration-300 cursor-pointer"
+        className="relative w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
         aria-label={`Chat with ${BUSINESS.name} on WhatsApp`}
       >
         <FaWhatsapp className="text-2xl" />
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full bg-gold animate-ping opacity-30" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" />
       </motion.a>
     </div>
   );
