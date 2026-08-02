@@ -29,9 +29,7 @@ export const BUS_TYPES = [
   "17 Seater",
   "32 Seater",
   "40 Seater",
-  "45 Seater",
-  "49 Seater",
-  "Custom Requirement",
+  "42 Seater",
 ];
 
 export const SERVICES = [
@@ -39,7 +37,7 @@ export const SERVICES = [
     id: "bus-rental",
     title: "Premium Bus Rental",
     description:
-      "Luxury and comfortable buses for all occasions — from family trips to corporate events. Choose from 17 to 49 seater options.",
+      "Luxury and comfortable buses for all occasions — from family trips to corporate events. Choose from 17 to 42 seater options.",
     icon: "bus",
   },
   {
@@ -256,7 +254,7 @@ export const FAQS = [
   {
     question: "How can I book a bus for my trip?",
     answer:
-      "You can book a bus by filling out the booking form on our website, calling us directly at 9397912351, or sending a WhatsApp message. We offer 17 to 49 seater buses for all types of trips.",
+      "You can book a bus by filling out the booking form on our website, calling us directly at 9397912351, or sending a WhatsApp message. We offer 17 to 42 seater buses for all types of trips.",
   },
   {
     question: "What is included in the Papikondalu tour package?",
@@ -310,9 +308,9 @@ export const HARITHA_RESORTS = [
 
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "/services" },
+  { label: "Our Premium Services", href: "/services" },
   { label: "Destinations", href: "#destinations" },
   { label: "Packages", href: "#packages" },
   { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "#about" },
 ];

@@ -21,7 +21,7 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
     id: "bus-rental",
     title: "Premium Bus Rental",
     description:
-      "Luxury and comfortable buses for all occasions — from family trips to corporate events. Choose from 17 to 49 seater options.",
+      "Luxury and comfortable buses for all occasions — from family trips to corporate events. Choose from 17 to 42 seater options.",
     icon: "bus",
     subtitle: "Comfortable coaches for every occasion",
     image:
@@ -41,7 +41,6 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
     inclusions: [
       "Vehicle with driver",
       "Fuel as per agreed package",
-      "Basic insurance coverage",
       "On-trip support from our team",
     ],
     idealFor: [
