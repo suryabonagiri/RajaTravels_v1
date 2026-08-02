@@ -24,7 +24,7 @@ const heroSlides = [
       </>
     ),
     subtitle:
-      "Experience luxury travel across Andhra Pradesh with our premium bus fleet. From corporate events to family celebrations.",
+      "AP Tourism Authorized Agent offering luxury coaches across Andhra Pradesh — for corporate events, marriages, and family celebrations.",
   },
   {
     video: "/videos/boat-hero.mp4",
@@ -43,7 +43,7 @@ const heroSlides = [
 ];
 
 const trustBadges = [
-  { icon: <FaShieldAlt />, text: "AP Tourism Authorized" },
+  { icon: <FaShieldAlt />, text: "AP Tourism Authorized Agent" },
   { icon: <FaBus />, text: "Premium Fleet" },
   { icon: <FaMapMarkedAlt />, text: "10+ Years Experience" },
 ];
