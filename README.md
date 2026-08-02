@@ -37,16 +37,31 @@ docker build -t rajatravels .
 docker run -p 8080:8080 -v rajatravels-data:/app/data rajatravels
 ```
 
-## Development
+## Development (fastest local start)
 
-Run backend and frontend separately with hot reload:
+Requirements: **Java 21**, **Maven**, and **Node.js 20+**.
+
+```bash
+git checkout release
+git pull
+chmod +x start-dev.sh
+./start-dev.sh
+```
+
+Then open **http://localhost:3000**
+
+`start-dev.sh` starts:
+- Spring Boot API on `:8080`
+- Angular (with `/api` proxy) on `:3000`
+
+Or run them in two terminals:
 
 ```bash
 # Terminal 1 — API on :8080
-mvn -f backend/pom.xml spring-boot:run
+mvn -f backend/pom.xml spring-boot:run -DskipTests
 
-# Terminal 2 — Angular dev server on :4200 (proxies /api to :8080)
-cd frontend && npm install && npm start
+# Terminal 2 — Angular on :3000 (proxies /api to :8080)
+cd frontend && npm install && npx ng serve --port 3000
 ```
 
 ## Hosting
