@@ -95,7 +95,7 @@ export const DESTINATIONS = [
     description:
       "Discover the untouched beauty of Maredumilli's dense forests, stunning waterfalls, and vibrant tribal heritage. A perfect escape into nature's lap.",
     image:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
     highlights: [
       "Waterfalls",
       "Forest Trails",
@@ -628,30 +628,138 @@ export const PACKAGES: TourPackage[] = [
   },
   {
     id: "mare-1day",
-    title: "Maredumilli 1 Day Tour",
+    title: "Maredumilli 1 Day Eco Tour",
+    shortTitle: "Maredumilli 1 Day",
+    summary:
+      "Day escape into Eastern Ghats forests — waterfalls, tribal trails, and green canopy views from Rajahmundry.",
     adultPrice: "₹1,800",
     childPrice: "₹1,500",
+    childAgeNote: "3–10 years",
     duration: "1 Day",
     destination: "Maredumilli",
+    imagePending: true,
+    imageCaption: "Maredumilli forest & waterfall photo",
+    reportingPlace: "Rajahmundry / Rajamahendravaram",
+    reportingTime: "Morning pickup (as confirmed)",
     highlights: [
       "Jalatarangini waterfalls",
-      "Forest trekking",
+      "Forest trekking / nature walk",
       "Tribal village visit",
       "Lunch included",
+    ],
+    visitingPlaces: [
+      "Jalatarangini Waterfalls",
+      "Maredumilli forest stretch",
+      "Tribal village viewpoints",
+      "Scenic Eastern Ghats canopy",
+    ],
+    facilities: [
+      "Transport from Rajahmundry",
+      "Guide support on tour day",
+      "Vegetarian lunch",
+      "Sightseeing as per itinerary",
+    ],
+    itinerary: [
+      {
+        time: "Morning",
+        detail: "Pickup from Rajahmundry and drive into the Maredumilli forest belt",
+      },
+      {
+        time: "Late morning",
+        detail: "Visit Jalatarangini waterfalls and enjoy forest viewpoints",
+      },
+      {
+        time: "Afternoon",
+        detail: "Lunch, short tribal village / nature walk, then return journey",
+      },
+      {
+        time: "Evening",
+        detail: "Drop back at Rajahmundry",
+      },
+    ],
+    notes: [
+      "Wear comfortable shoes — forest paths can be damp after rain.",
+      "Carry drinking water and light monsoon gear in rainy months.",
     ],
   },
   {
     id: "mare-2day",
-    title: "Maredumilli 2 Days Package",
+    title: "Maredumilli 2 Days Eco Package",
+    shortTitle: "Maredumilli 2 Days",
+    summary:
+      "Overnight forest getaway with resort stay, multiple waterfalls, guided trek, and all meals included.",
     adultPrice: "₹5,000",
     childPrice: "₹4,500",
+    childAgeNote: "3–10 years",
     duration: "2 Days",
     destination: "Maredumilli",
+    imagePending: true,
+    imageCaption: "Maredumilli eco-resort & forest stay photo",
+    reportingPlace: "Rajahmundry / Rajamahendravaram",
+    reportingTime: "Morning Day 1 (as confirmed)",
     highlights: [
-      "Resort accommodation",
+      "Resort / eco-stay accommodation",
       "Multiple waterfall visits",
       "All meals included",
       "Guided forest trek",
+    ],
+    visitingPlaces: [
+      "Jalatarangini Waterfalls",
+      "Additional forest waterfall spots",
+      "Eco-resort surroundings",
+      "Guided forest trek trails",
+      "Tribal culture viewpoints",
+    ],
+    facilities: [
+      "Transport arrangements",
+      "Resort overnight stay",
+      "All meals as per package",
+      "Guided nature walk / trek",
+      "On-trip support",
+    ],
+    daySchedules: [
+      {
+        dayLabel: "Day 1 — Arrival & forest immersion",
+        stops: [
+          {
+            time: "Morning",
+            detail: "Drive from Rajahmundry into Maredumilli",
+          },
+          {
+            time: "Midday",
+            detail: "Waterfall sightseeing and forest viewpoints",
+          },
+          {
+            time: "Afternoon",
+            detail: "Check-in at eco-resort / stay",
+          },
+          {
+            time: "Evening",
+            detail: "Nature walk around the property",
+          },
+        ],
+      },
+      {
+        dayLabel: "Day 2 — Trek, waterfalls & return",
+        stops: [
+          {
+            time: "Morning",
+            detail: "Guided forest trek",
+          },
+          {
+            time: "Midday",
+            detail: "Additional waterfall / scenic spots with meals as per package",
+          },
+          {
+            time: "Afternoon",
+            detail: "Checkout and return to Rajahmundry",
+          },
+        ],
+      },
+    ],
+    notes: [
+      "Ideal for couples, families, and nature groups seeking a quiet forest stay.",
+      "Room type and resort allotment confirmed based on availability for your dates.",
     ],
   },
 ];

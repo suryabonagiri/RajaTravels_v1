@@ -13,6 +13,7 @@ import {
 import { generateWhatsAppLink } from "@/lib/utils";
 import PackageDetailBlock from "@/components/services/PackageDetailBlock";
 import RiverPackageJourney from "@/components/services/RiverPackageJourney";
+import ForestPackageJourney from "@/components/services/ForestPackageJourney";
 
 export default function ServiceDetailContent({
   service,
@@ -23,14 +24,26 @@ export default function ServiceDetailContent({
   const packages = getRelatedPackages(service);
   const resorts = getResortsForService(service);
   const isPapikondalu = service.id === "papikondalu";
+  const isMaredumilli = service.id === "maredumilli";
+  const usesJourneyLayout = isPapikondalu || isMaredumilli;
 
   const whatsappLink = generateWhatsAppLink(
     `Hi! I'm interested in *${service.title}*. Please share more details and availability.`
   );
 
+  const heroCopy = isPapikondalu
+    ? "Explore every Godavari package on the river route below — day tours, night stays, and hotel options."
+    : isMaredumilli
+      ? "Follow the forest trail below — day tours and overnight eco stays deep in Maredumilli greenery."
+      : service.description;
+
   return (
-    <article className="bg-white">
-      <section className="relative min-h-[36vh] md:min-h-[42vh] flex items-end overflow-hidden bg-primary-dark">
+    <article className={isMaredumilli ? "bg-[#F1FAEE]" : "bg-white"}>
+      <section
+        className={`relative min-h-[36vh] md:min-h-[42vh] flex items-end overflow-hidden ${
+          isMaredumilli ? "bg-[#081C15]" : "bg-primary-dark"
+        }`}
+      >
         <Image
           src={service.image}
           alt={service.title}
@@ -39,43 +52,89 @@ export default function ServiceDetailContent({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/65 to-primary-dark/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-primary-dark/40" />
+        {isMaredumilli ? (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#081C15]/92 via-[#1B4332]/70 to-[#2D6A4F]/25" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#081C15] via-transparent to-[#1B4332]/45" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(149,213,178,0.18),transparent_45%)]" />
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/65 to-primary-dark/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-primary-dark/40" />
+          </>
+        )}
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-10 md:pb-14">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-gold transition-colors mb-5"
+            className={`inline-flex items-center gap-2 text-sm transition-colors mb-5 ${
+              isMaredumilli
+                ? "text-[#B7E4C7]/80 hover:text-[#D8F3DC]"
+                : "text-white/70 hover:text-gold"
+            }`}
           >
             <FaArrowLeft className="text-xs" />
             All services
           </Link>
-          <p className="text-gold text-xs font-semibold tracking-[0.18em] uppercase mb-3">
+          <p
+            className={`text-xs font-semibold tracking-[0.18em] uppercase mb-3 ${
+              isMaredumilli ? "text-[#95D5B2]" : "text-gold"
+            }`}
+          >
             {service.subtitle}
           </p>
           <h1 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl text-white max-w-3xl leading-tight mb-3">
             {service.title}
           </h1>
-          <p className="text-white/70 text-base md:text-lg max-w-2xl leading-relaxed">
-            {isPapikondalu
-              ? "Explore every Godavari package on the river route below — day tours, night stays, and hotel options."
-              : service.description}
+          <p
+            className={`text-base md:text-lg max-w-2xl leading-relaxed ${
+              isMaredumilli ? "text-[#D8F3DC]/85" : "text-white/70"
+            }`}
+          >
+            {heroCopy}
           </p>
         </div>
       </section>
 
-      {isPapikondalu ? (
+      {usesJourneyLayout ? (
         <>
-          <RiverPackageJourney packages={packages} />
+          {isPapikondalu ? (
+            <RiverPackageJourney packages={packages} />
+          ) : (
+            <ForestPackageJourney packages={packages} />
+          )}
 
-          <section className="border-t border-gray-100 bg-white">
+          <section
+            className={`border-t ${
+              isMaredumilli
+                ? "border-[#2D6A4F]/15 bg-[#E9F5EC]"
+                : "border-gray-100 bg-white"
+            }`}
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
-              <div className="rounded-2xl border border-gray-100 bg-surface p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div
+                className={`rounded-2xl border p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${
+                  isMaredumilli
+                    ? "border-[#2D6A4F]/20 bg-white/90"
+                    : "border-gray-100 bg-surface"
+                }`}
+              >
                 <div>
-                  <p className="font-semibold text-primary mb-1">
-                    Ready to book a Papikondalu package?
+                  <p
+                    className={`font-semibold mb-1 ${
+                      isMaredumilli ? "text-[#1B4332]" : "text-primary"
+                    }`}
+                  >
+                    {isPapikondalu
+                      ? "Ready to book a Papikondalu package?"
+                      : "Ready for a Maredumilli forest getaway?"}
                   </p>
-                  <p className="text-sm text-text-secondary">
+                  <p
+                    className={`text-sm ${
+                      isMaredumilli ? "text-[#52796F]" : "text-text-secondary"
+                    }`}
+                  >
                     Raja Travels is an AP Tourism authorized agent in Rajahmundry.
                     Share your dates and group size — we&apos;ll confirm the best option.
                   </p>
@@ -92,7 +151,9 @@ export default function ServiceDetailContent({
                   </a>
                   <a
                     href={`tel:${BUSINESS.primaryPhone}`}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-white font-semibold text-sm"
+                    className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-white font-semibold text-sm ${
+                      isMaredumilli ? "bg-[#1B4332] hover:bg-[#2D6A4F]" : "bg-primary"
+                    }`}
                   >
                     <FaPhoneAlt className="text-xs" />
                     Call {BUSINESS.primaryPhone}

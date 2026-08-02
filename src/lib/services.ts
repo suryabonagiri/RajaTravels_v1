@@ -101,7 +101,7 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
     icon: "forest",
     subtitle: "Forests, waterfalls & tribal trails",
     image:
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1400&q=80",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=80",
     longDescription:
       "Discover Maredumilli’s dense forests, Jalatarangini and other waterfalls, and vibrant tribal heritage. We arrange day trips and multi-day eco packages with resort stays, guided treks, and comfortable transport from Rajahmundry.",
     features: [
