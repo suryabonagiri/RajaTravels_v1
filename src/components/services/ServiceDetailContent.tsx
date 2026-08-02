@@ -38,10 +38,22 @@ export default function ServiceDetailContent({
       : service.description;
 
   return (
-    <article className={isMaredumilli ? "bg-[#F1FAEE]" : "bg-white"}>
+    <article
+      className={
+        isMaredumilli
+          ? "bg-[#F1FAEE]"
+          : isPapikondalu
+            ? "bg-[#E8F7FC]"
+            : "bg-white"
+      }
+    >
       <section
         className={`relative min-h-[36vh] md:min-h-[42vh] flex items-end overflow-hidden ${
-          isMaredumilli ? "bg-[#081C15]" : "bg-primary-dark"
+          isMaredumilli
+            ? "bg-[#081C15]"
+            : isPapikondalu
+              ? "bg-[#023E8A]"
+              : "bg-primary-dark"
         }`}
       >
         <Image
@@ -58,6 +70,12 @@ export default function ServiceDetailContent({
             <div className="absolute inset-0 bg-gradient-to-t from-[#081C15] via-transparent to-[#1B4332]/45" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(149,213,178,0.18),transparent_45%)]" />
           </>
+        ) : isPapikondalu ? (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#023E8A]/90 via-[#0077B6]/65 to-[#00B4D8]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#023E8A] via-transparent to-[#48CAE4]/25" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_15%,rgba(144,224,239,0.28),transparent_45%)]" />
+          </>
         ) : (
           <>
             <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/65 to-primary-dark/30" />
@@ -71,7 +89,9 @@ export default function ServiceDetailContent({
             className={`inline-flex items-center gap-2 text-sm transition-colors mb-5 ${
               isMaredumilli
                 ? "text-[#B7E4C7]/80 hover:text-[#D8F3DC]"
-                : "text-white/70 hover:text-gold"
+                : isPapikondalu
+                  ? "text-[#CAF0F8]/85 hover:text-white"
+                  : "text-white/70 hover:text-gold"
             }`}
           >
             <FaArrowLeft className="text-xs" />
@@ -79,7 +99,11 @@ export default function ServiceDetailContent({
           </Link>
           <p
             className={`text-xs font-semibold tracking-[0.18em] uppercase mb-3 ${
-              isMaredumilli ? "text-[#95D5B2]" : "text-gold"
+              isMaredumilli
+                ? "text-[#95D5B2]"
+                : isPapikondalu
+                  ? "text-[#90E0EF]"
+                  : "text-gold"
             }`}
           >
             {service.subtitle}
@@ -89,7 +113,11 @@ export default function ServiceDetailContent({
           </h1>
           <p
             className={`text-base md:text-lg max-w-2xl leading-relaxed ${
-              isMaredumilli ? "text-[#D8F3DC]/85" : "text-white/70"
+              isMaredumilli
+                ? "text-[#D8F3DC]/85"
+                : isPapikondalu
+                  ? "text-[#CAF0F8]/90"
+                  : "text-white/70"
             }`}
           >
             {heroCopy}
@@ -109,7 +137,9 @@ export default function ServiceDetailContent({
             className={`border-t ${
               isMaredumilli
                 ? "border-[#2D6A4F]/15 bg-[#E9F5EC]"
-                : "border-gray-100 bg-white"
+                : isPapikondalu
+                  ? "border-[#0077B6]/12 bg-[#D6EBFA]"
+                  : "border-gray-100 bg-white"
             }`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
@@ -117,13 +147,19 @@ export default function ServiceDetailContent({
                 className={`rounded-2xl border p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${
                   isMaredumilli
                     ? "border-[#2D6A4F]/20 bg-white/90"
-                    : "border-gray-100 bg-surface"
+                    : isPapikondalu
+                      ? "border-[#48CAE4]/35 bg-white/90"
+                      : "border-gray-100 bg-surface"
                 }`}
               >
                 <div>
                   <p
                     className={`font-semibold mb-1 ${
-                      isMaredumilli ? "text-[#1B4332]" : "text-primary"
+                      isMaredumilli
+                        ? "text-[#1B4332]"
+                        : isPapikondalu
+                          ? "text-[#023E8A]"
+                          : "text-primary"
                     }`}
                   >
                     {isPapikondalu
@@ -132,7 +168,11 @@ export default function ServiceDetailContent({
                   </p>
                   <p
                     className={`text-sm ${
-                      isMaredumilli ? "text-[#52796F]" : "text-text-secondary"
+                      isMaredumilli
+                        ? "text-[#52796F]"
+                        : isPapikondalu
+                          ? "text-[#5B8BA8]"
+                          : "text-text-secondary"
                     }`}
                   >
                     Raja Travels is an AP Tourism authorized agent in Rajahmundry.
@@ -152,7 +192,11 @@ export default function ServiceDetailContent({
                   <a
                     href={`tel:${BUSINESS.primaryPhone}`}
                     className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-white font-semibold text-sm ${
-                      isMaredumilli ? "bg-[#1B4332] hover:bg-[#2D6A4F]" : "bg-primary"
+                      isMaredumilli
+                        ? "bg-[#1B4332] hover:bg-[#2D6A4F]"
+                        : isPapikondalu
+                          ? "bg-[#0077B6] hover:bg-[#023E8A]"
+                          : "bg-primary"
                     }`}
                   >
                     <FaPhoneAlt className="text-xs" />

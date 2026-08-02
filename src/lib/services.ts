@@ -60,7 +60,7 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
     icon: "boat",
     subtitle: "Godavari river paradise",
     image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80",
+      "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1400&q=80",
     longDescription:
       "Cruise through the majestic Papikondalu hills on the Godavari with AP Tourism authorized boat packages. Our flagship Papikondalu 1 Day Tour Package (Adult ₹1,250 / Child ₹1,050 for ages 3–10) includes road transfer from Rajamahendravaram, boat check-in at Pattiseema / Polavaram / Purushothapatnam revu, breakfast and vegetarian lunch on the boat, darshan at GandiPochamma Temple, scenic Papi hills views, and a visit to Perantapalli Ashramam & Veereswara Swamy Temple before returning by evening.",
     features: [

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaShip, FaChevronDown } from "react-icons/fa";
+import { FaShip, FaChevronDown, FaWater } from "react-icons/fa";
 import type { TourPackage } from "@/lib/constants";
 import PackageDetailBlock from "@/components/services/PackageDetailBlock";
 
@@ -38,10 +38,10 @@ function PackageStopCard({
         align === "right" ? "md:text-right" : ""
       } ${
         isSelected
-          ? "bg-primary text-white border-gold shadow-[0_12px_40px_rgba(0,71,158,0.28)] scale-[1.02]"
+          ? "bg-[#023E8A] text-white border-[#90E0EF] shadow-[0_12px_40px_rgba(2,62,138,0.28)] scale-[1.02]"
           : isHovered
-            ? "bg-white border-gold/70 shadow-[0_12px_32px_rgba(245,158,11,0.22)] scale-[1.03]"
-            : "bg-white border-primary/10 shadow-md hover:border-gold/40"
+            ? "bg-white border-[#48CAE4] shadow-[0_12px_32px_rgba(72,202,228,0.3)] scale-[1.03]"
+            : "bg-white/95 border-[#0077B6]/12 shadow-md hover:border-[#48CAE4]/50"
       }`}
       whileTap={{ scale: 0.985 }}
     >
@@ -53,10 +53,10 @@ function PackageStopCard({
         <span
           className={`mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold ${
             isSelected
-              ? "bg-gold text-primary-dark"
+              ? "bg-[#90E0EF] text-[#023E8A]"
               : isHovered
-                ? "bg-gold/15 text-gold-dark"
-                : "bg-primary/5 text-primary"
+                ? "bg-[#CAF0F8] text-[#0077B6]"
+                : "bg-[#E0F7FA] text-[#0077B6]"
           }`}
         >
           {String(index + 1).padStart(2, "0")}
@@ -64,21 +64,21 @@ function PackageStopCard({
         <div className="min-w-0 flex-1">
           <p
             className={`text-[10px] uppercase tracking-[0.16em] font-semibold mb-1 ${
-              isSelected ? "text-gold-light" : "text-gold-dark"
+              isSelected ? "text-[#CAF0F8]" : "text-[#0096C7]"
             }`}
           >
             {pkg.duration} · {pkg.destination}
           </p>
           <p
             className={`font-[family-name:var(--font-heading)] text-xl md:text-2xl leading-snug ${
-              isSelected ? "text-white" : "text-primary"
+              isSelected ? "text-white" : "text-[#023E8A]"
             }`}
           >
             {pkg.shortTitle || pkg.title}
           </p>
           <p
             className={`text-sm mt-2 leading-relaxed ${
-              isSelected ? "text-white/80" : "text-text-secondary"
+              isSelected ? "text-white/85" : "text-[#5B8BA8]"
             }`}
           >
             {pkg.summary ||
@@ -91,7 +91,7 @@ function PackageStopCard({
           <p
             className={`mt-3 inline-flex items-center gap-1.5 text-xs font-bold ${
               align === "right" ? "md:flex-row-reverse" : ""
-            } ${isSelected ? "text-gold-light" : "text-gold-dark"}`}
+            } ${isSelected ? "text-[#CAF0F8]" : "text-[#0077B6]"}`}
           >
             {isSelected ? "Open below — full details & photos" : "Click to open full details"}
             <FaChevronDown
@@ -119,12 +119,12 @@ function RiverMarker({
     <span
       className={`relative z-20 flex items-center justify-center rounded-full transition-all duration-300 ${box} ${
         active
-          ? "bg-gold border-white scale-110 shadow-[0_0_22px_rgba(245,158,11,0.75)]"
-          : "bg-white border-primary/25 shadow-md"
+          ? "bg-[#90E0EF] border-white scale-110 shadow-[0_0_22px_rgba(144,224,239,0.9)]"
+          : "bg-[#F0FBFF] border-[#48CAE4]/45 shadow-md"
       }`}
     >
       <FaShip
-        className={`${icon} ${active ? "text-primary-dark" : "text-primary/50"}`}
+        className={`${icon} ${active ? "text-[#023E8A]" : "text-[#0077B6]/65"}`}
       />
     </span>
   );
@@ -183,26 +183,35 @@ export default function RiverPackageJourney({
 
   return (
     <section className="relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#e8f3fb] via-white to-[#f8fafc]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(0,71,158,0.07),transparent_45%),radial-gradient(ellipse_at_80%_90%,rgba(245,158,11,0.08),transparent_45%)]" />
+      {/* Soft watery atmosphere */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#CAF0F8] via-[#E8F7FC] to-[#F0FBFF]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_5%,rgba(0,180,216,0.22),transparent_42%),radial-gradient(ellipse_at_85%_25%,rgba(144,224,239,0.35),transparent_40%),radial-gradient(ellipse_at_50%_100%,rgba(2,62,138,0.08),transparent_50%)]" />
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg width='80' height='40' viewBox='0 0 80 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q20 8 40 20 T80 20' fill='none' stroke='%230077B6' stroke-width='2'/%3E%3Cpath d='M0 30 Q20 18 40 30 T80 30' fill='none' stroke='%2348CAE4' stroke-width='1.5'/%3E%3C/svg%3E\")",
+          backgroundSize: "80px 40px",
+        }}
+      />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-          <p className="text-gold font-semibold tracking-[0.2em] text-xs uppercase mb-3">
+          <p className="text-[#0096C7] font-semibold tracking-[0.2em] text-xs uppercase mb-3 inline-flex items-center gap-2 justify-center">
+            <FaWater className="text-sm" />
             Godavari package route
           </p>
-          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-primary mb-3">
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-[#023E8A] mb-3">
             Follow the river. Pick your package.
           </h2>
-          <p className="text-text-secondary text-sm md:text-base leading-relaxed">
+          <p className="text-[#5B8BA8] text-sm md:text-base leading-relaxed">
             Hover a stop to highlight it. Click any package to open complete
             information, pricing, schedule, and photos.
           </p>
         </div>
 
-        {/* Desktop: document-flow zigzag — no absolute stacking, so cards never overlap */}
+        {/* Desktop: document-flow zigzag river */}
         <div className="hidden md:block relative">
-          {/* Curvy river drawn behind the stops; height follows content */}
           <svg
             className="pointer-events-none absolute inset-y-4 left-1/2 z-0 h-[calc(100%-2rem)] w-[120px] -translate-x-1/2"
             viewBox="0 0 120 1000"
@@ -211,11 +220,26 @@ export default function RiverPackageJourney({
           >
             <defs>
               <linearGradient id="riverFillDesktop" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#1A63BF" stopOpacity="0.45" />
-                <stop offset="50%" stopColor="#00479E" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.45" />
+                <stop offset="0%" stopColor="#48CAE4" stopOpacity="0.65" />
+                <stop offset="40%" stopColor="#00B4D8" stopOpacity="0.7" />
+                <stop offset="75%" stopColor="#0077B6" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#90E0EF" stopOpacity="0.55" />
               </linearGradient>
             </defs>
+            {/* Soft water halo */}
+            <path
+              d="M 60 0
+                 C 92 80, 98 140, 60 210
+                 C 18 290, 10 360, 60 440
+                 C 108 520, 112 600, 60 680
+                 C 12 760, 20 840, 60 920
+                 C 84 960, 72 980, 60 1000"
+              fill="none"
+              stroke="#CAF0F8"
+              strokeWidth="42"
+              strokeLinecap="round"
+              strokeOpacity="0.7"
+            />
             <path
               d="M 60 0
                  C 92 80, 98 140, 60 210
@@ -225,7 +249,7 @@ export default function RiverPackageJourney({
                  C 84 960, 72 980, 60 1000"
               fill="none"
               stroke="url(#riverFillDesktop)"
-              strokeWidth="28"
+              strokeWidth="26"
               strokeLinecap="round"
             />
             <path
@@ -236,10 +260,10 @@ export default function RiverPackageJourney({
                  C 12 760, 20 840, 60 920
                  C 84 960, 72 980, 60 1000"
               fill="none"
-              stroke="#FBBF24"
-              strokeWidth="2.2"
-              strokeDasharray="10 12"
-              strokeOpacity="0.95"
+              stroke="#FFFFFF"
+              strokeWidth="2"
+              strokeDasharray="8 12"
+              strokeOpacity="0.85"
             />
           </svg>
 
@@ -255,7 +279,6 @@ export default function RiverPackageJourney({
                   key={pkg.id}
                   className="grid grid-cols-[minmax(0,1fr)_4.5rem_minmax(0,1fr)] items-center gap-x-3 lg:gap-x-5"
                 >
-                  {/* Left column */}
                   <div className={isLeft ? "justify-self-end w-full max-w-md" : ""}>
                     {isLeft ? (
                       <PackageStopCard
@@ -271,12 +294,10 @@ export default function RiverPackageJourney({
                     ) : null}
                   </div>
 
-                  {/* Center marker on the river */}
                   <div className="flex justify-center">
                     <RiverMarker active={isActive} />
                   </div>
 
-                  {/* Right column */}
                   <div className={!isLeft ? "justify-self-start w-full max-w-md" : ""}>
                     {!isLeft ? (
                       <PackageStopCard
@@ -297,10 +318,10 @@ export default function RiverPackageJourney({
           </ol>
         </div>
 
-        {/* Mobile: vertical waterway with stacked cards */}
+        {/* Mobile: vertical waterway */}
         <div className="md:hidden relative pl-11">
-          <div className="absolute left-4 top-3 bottom-3 w-2.5 rounded-full bg-gradient-to-b from-primary-light via-primary to-gold overflow-hidden">
-            <div className="absolute inset-0 bg-[repeating-linear-gradient(180deg,transparent,transparent_10px,rgba(255,255,255,0.35)_10px,rgba(255,255,255,0.35)_14px)]" />
+          <div className="absolute left-4 top-3 bottom-3 w-2.5 rounded-full bg-gradient-to-b from-[#48CAE4] via-[#00B4D8] to-[#0077B6] overflow-hidden">
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(180deg,transparent,transparent_10px,rgba(255,255,255,0.45)_10px,rgba(255,255,255,0.45)_14px)]" />
           </div>
 
           <div className="space-y-5">
@@ -327,10 +348,9 @@ export default function RiverPackageJourney({
           </div>
         </div>
 
-        {/* Detail panel — clear separation below the full river */}
         <div
           id="package-detail-panel"
-          className="scroll-mt-28 mt-16 md:mt-20 pt-10 md:pt-12 border-t border-primary/10"
+          className="scroll-mt-28 mt-16 md:mt-20 pt-10 md:pt-12 border-t border-[#0077B6]/15"
         >
           <AnimatePresence mode="wait">
             {selected ? (
@@ -341,14 +361,14 @@ export default function RiverPackageJourney({
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="mb-5 flex items-center gap-2 text-sm text-text-secondary">
-                  <FaShip className="text-gold" />
+                <div className="mb-5 flex items-center gap-2 text-sm text-[#5B8BA8]">
+                  <FaShip className="text-[#00B4D8]" />
                   Selected package — full details & photos
                 </div>
                 <PackageDetailBlock pkg={selected} />
               </motion.div>
             ) : (
-              <p className="text-center text-text-secondary text-sm py-8">
+              <p className="text-center text-[#5B8BA8] text-sm py-8">
                 Click any package on the river to view full details and photos.
               </p>
             )}
