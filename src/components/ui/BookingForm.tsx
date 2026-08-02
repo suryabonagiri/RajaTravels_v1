@@ -67,7 +67,6 @@ export default function BookingForm() {
     setSending(true);
 
     try {
-      // EmailJS integration - replace with your actual credentials
       const emailjs = await import("@emailjs/browser");
       await emailjs.send(
         BUSINESS.emailjs.serviceId,
@@ -87,7 +86,6 @@ export default function BookingForm() {
       setEmailSent(true);
       setTimeout(() => setEmailSent(false), 4000);
     } catch {
-      // Fallback: open mailto link
       const subject = encodeURIComponent(
         `Bus Booking Request - ${formData.customerName}`
       );
@@ -99,35 +97,35 @@ export default function BookingForm() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:border-gold/80 focus:ring-1 focus:ring-gold/50 focus:bg-white/10 transition-all duration-300 text-sm backdrop-blur-md outline-none shadow-inner";
-  const labelClasses = "block text-white/80 text-xs font-semibold mb-2 tracking-wider uppercase";
+    "w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:border-gold/80 focus:ring-1 focus:ring-gold/50 focus:bg-white/10 transition-all duration-300 text-sm backdrop-blur-md outline-none";
+  const labelClasses =
+    "block text-white/75 text-[10px] font-semibold mb-1 tracking-wider uppercase";
 
   return (
     <motion.form
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className="relative bg-white/5 backdrop-blur-2xl rounded-3xl p-6 md:p-10 max-w-2xl mx-auto border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden"
+      transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      className="relative bg-white/5 backdrop-blur-2xl rounded-2xl p-4 sm:p-5 max-w-xl mx-auto border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden"
       onSubmit={(e) => e.preventDefault()}
     >
-      {/* Premium Glow effect */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/30 rounded-full blur-[100px] pointer-events-none" />
-      <div className="text-center mb-10 relative z-10">
-        <span className="inline-block py-1.5 px-4 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
+      <div className="absolute -top-32 -right-32 w-64 h-64 bg-gold/15 rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-primary/25 rounded-full blur-[90px] pointer-events-none" />
+
+      <div className="text-center mb-3 relative z-10">
+        <span className="inline-block py-0.5 px-2.5 rounded-full bg-gold/10 border border-gold/20 text-gold text-[10px] font-bold tracking-[0.18em] uppercase mb-1.5">
           Reserve Your Experience
         </span>
-        <h3 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/60 font-[family-name:var(--font-heading)] mb-4 tracking-tight">
+        <h3 className="text-xl sm:text-2xl font-bold text-white font-[family-name:var(--font-heading)] tracking-tight leading-tight">
           Book Your Journey
         </h3>
-        <p className="text-white/60 text-sm max-w-md mx-auto leading-relaxed">
-          Experience luxury travel across Andhra Pradesh. Select your service below and let us handle every detail.
+        <p className="text-white/55 text-xs mt-1 max-w-sm mx-auto leading-snug">
+          Select your service and we&apos;ll handle every detail.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Service Type */}
-        <div className="md:col-span-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 relative z-10">
+        <div className="sm:col-span-2">
           <label htmlFor="serviceType" className={labelClasses}>
             Service Required
           </label>
@@ -137,24 +135,34 @@ export default function BookingForm() {
             value={formData.serviceType}
             onChange={(e) => {
               handleChange(e);
-              // Reset bus type when changing service
               if (e.target.value !== "Bus Rental") {
-                setFormData(prev => ({ ...prev, busType: "" }));
+                setFormData((prev) => ({ ...prev, busType: "" }));
               }
             }}
             className={`${inputClasses} appearance-none cursor-pointer`}
             required
           >
-            <option value="" className="text-gray-900">Select Service Type</option>
-            <option value="Bus Rental" className="text-gray-900">Premium Bus Rental</option>
-            <option value="Papikondalu Package" className="text-gray-900">Papikondalu Luxury Tour</option>
-            <option value="Maredumilli Package" className="text-gray-900">Maredumilli Eco Tour</option>
-            <option value="Bhadrachalam Package" className="text-gray-900">Bhadrachalam Divine Tour</option>
-            <option value="Other Service" className="text-gray-900">Other Custom Travel</option>
+            <option value="" className="text-gray-900">
+              Select Service Type
+            </option>
+            <option value="Bus Rental" className="text-gray-900">
+              Premium Bus Rental
+            </option>
+            <option value="Papikondalu Package" className="text-gray-900">
+              Papikondalu Luxury Tour
+            </option>
+            <option value="Maredumilli Package" className="text-gray-900">
+              Maredumilli Eco Tour
+            </option>
+            <option value="Bhadrachalam Package" className="text-gray-900">
+              Bhadrachalam Divine Tour
+            </option>
+            <option value="Other Service" className="text-gray-900">
+              Other Custom Travel
+            </option>
           </select>
         </div>
 
-        {/* Start Point */}
         <div>
           <label htmlFor="startPoint" className={labelClasses}>
             Pickup Location
@@ -171,7 +179,6 @@ export default function BookingForm() {
           />
         </div>
 
-        {/* Destination */}
         <div>
           <label htmlFor="destination" className={labelClasses}>
             Destination
@@ -188,7 +195,6 @@ export default function BookingForm() {
           />
         </div>
 
-        {/* Journey Date */}
         <div>
           <label htmlFor="journeyDate" className={labelClasses}>
             Journey Date
@@ -204,8 +210,7 @@ export default function BookingForm() {
           />
         </div>
 
-        {/* Bus Type (Conditional) */}
-        {formData.serviceType === "Bus Rental" && (
+        {formData.serviceType === "Bus Rental" ? (
           <div>
             <label htmlFor="busType" className={labelClasses}>
               Bus Type (Seater)
@@ -216,7 +221,7 @@ export default function BookingForm() {
               value={formData.busType}
               onChange={handleChange}
               className={`${inputClasses} appearance-none cursor-pointer`}
-              required={formData.serviceType === "Bus Rental"}
+              required
             >
               <option value="" className="text-gray-900">
                 Select Bus Type
@@ -228,9 +233,10 @@ export default function BookingForm() {
               ))}
             </select>
           </div>
+        ) : (
+          <div className="hidden sm:block" aria-hidden="true" />
         )}
 
-        {/* Customer Name */}
         <div>
           <label htmlFor="customerName" className={labelClasses}>
             Your Name
@@ -247,7 +253,6 @@ export default function BookingForm() {
           />
         </div>
 
-        {/* Phone */}
         <div>
           <label htmlFor="phone" className={labelClasses}>
             Phone Number
@@ -264,32 +269,30 @@ export default function BookingForm() {
           />
         </div>
 
-        {/* Message */}
-        <div className="md:col-span-2">
+        <div className="sm:col-span-2">
           <label htmlFor="message" className={labelClasses}>
             Message (Optional)
           </label>
-          <textarea
+          <input
             id="message"
+            type="text"
             name="message"
             placeholder="Any special requirements..."
             value={formData.message}
             onChange={handleChange}
-            className={`${inputClasses} resize-none h-20`}
-            rows={2}
+            className={inputClasses}
           />
         </div>
       </div>
 
-      {/* Buttons */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 relative z-10">
         <button
           type="button"
           onClick={handleWhatsApp}
           disabled={!isFormValid()}
-          className="relative z-10 flex items-center justify-center gap-2 py-4 px-6 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(37,211,102,0.4)] hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 shimmer cursor-pointer text-sm tracking-wide"
+          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-xs tracking-wide"
         >
-          <FaWhatsapp className="text-xl" />
+          <FaWhatsapp className="text-base" />
           WhatsApp Booking
         </button>
 
@@ -297,12 +300,12 @@ export default function BookingForm() {
           type="button"
           onClick={handleEmail}
           disabled={!isFormValid() || sending}
-          className="relative z-10 flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 shimmer cursor-pointer text-sm tracking-wide border border-white/10"
+          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,158,11,0.35)] disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-xs tracking-wide border border-white/10"
         >
           {sending ? (
-            <FaSpinner className="text-xl animate-spin" />
+            <FaSpinner className="text-base animate-spin" />
           ) : (
-            <FaEnvelope className="text-xl" />
+            <FaEnvelope className="text-base" />
           )}
           {emailSent ? "Sent Successfully ✓" : "Email Booking"}
         </button>
@@ -310,9 +313,9 @@ export default function BookingForm() {
 
       {emailSent && (
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-emerald-light text-center text-sm mt-3"
+          className="text-emerald-light text-center text-xs mt-2 relative z-10"
         >
           ✓ Booking details sent successfully!
         </motion.p>
