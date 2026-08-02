@@ -120,19 +120,89 @@ export const DESTINATIONS = [
   },
 ];
 
-export const PACKAGES = [
+export type TourItineraryStop = {
+  time: string;
+  detail: string;
+};
+
+export type TourPackage = {
+  id: string;
+  title: string;
+  adultPrice: string;
+  childPrice: string;
+  childAgeNote?: string;
+  duration: string;
+  destination: string;
+  highlights: string[];
+  visitingPlaces?: string[];
+  itinerary?: TourItineraryStop[];
+};
+
+export const PACKAGES: TourPackage[] = [
   {
     id: "papi-1day",
-    title: "Papikondalu 1 Day Tour",
+    title: "Papikondalu 1 Day Tour Package",
     adultPrice: "₹1,250",
     childPrice: "₹1,050",
+    childAgeNote: "3–10 years",
     duration: "1 Day",
     destination: "Papikondalu",
     highlights: [
-      "Boat ride on Godavari",
-      "Papikondalu hill views",
-      "Lunch included",
-      "Transport from Rajahmundry",
+      "Boat ride on Holy River Godavari",
+      "Breakfast & vegetarian lunch in the boat",
+      "Temple darshan & Papi hills scenic views",
+      "Road journey from / to Rajamahendravaram",
+    ],
+    visitingPlaces: [
+      "Gandipochamma Temple",
+      "Papi hills",
+      "Perantapalli Ashramam and Temple",
+      "Polavaram Project Area",
+      "Devipatnam",
+      "Koruturu Cottages",
+      "Sirivaka Bamboo huts",
+    ],
+    itinerary: [
+      {
+        time: "7:30 AM",
+        detail:
+          "Road journey to Pattiseema revu / Polavaram revu / Purushothapatnam revu to check in Boat",
+      },
+      {
+        time: "9:00 AM",
+        detail:
+          "Breakfast in the Boat, then journey starts on Holy River Godavari",
+      },
+      {
+        time: "10:30 AM",
+        detail: "Reach GandiPochamma Temple and darshan",
+      },
+      {
+        time: "1:00 PM",
+        detail: "Vegetarian lunch in the Boat while on journey",
+      },
+      {
+        time: "2:00 PM",
+        detail:
+          'Reach Papihills — journey in between "Papi hills", enjoy the scenic beauty',
+      },
+      {
+        time: "3:00 PM",
+        detail:
+          'Reach Perantapalli village of Khammam district. Visit "Ramakrishna muni vatika" (Ashramam) and Veereswara Swamy Temple and darshan of god Shiva',
+      },
+      {
+        time: "3:30 PM",
+        detail: "Return journey by Boat to Gandipochamma Temple",
+      },
+      {
+        time: "5:30 PM",
+        detail: "Road journey to Rajamahendravaram",
+      },
+      {
+        time: "7:30 PM",
+        detail: "Reach Rajamahendravaram",
+      },
     ],
   },
   {
@@ -259,7 +329,7 @@ export const FAQS = [
   {
     question: "What is included in the Papikondalu tour package?",
     answer:
-      "Our Papikondalu tour packages include boat ride on the Godavari river, meals (breakfast and lunch), transport from Rajahmundry, and guide services. Night stay packages also include accommodation.",
+      "Our Papikondalu 1 Day Tour Package is Adult ₹1,250 and Child ₹1,050 (3–10 years). Visiting places include Gandipochamma Temple, Papi hills, Perantapalli Ashramam and Temple, Polavaram Project Area, Devipatnam, Koruturu Cottages, and Sirivaka Bamboo huts. The day runs from about 7:30 AM road pickup to boat check-in, Godavari cruise with breakfast and vegetarian lunch, temple darshan, Papi hills views, Perantapalli ashramam visit, and return to Rajamahendravaram by about 7:30 PM. Night-stay packages also include accommodation.",
   },
   {
     question: "Do you provide buses for marriages and corporate events?",

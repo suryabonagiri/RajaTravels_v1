@@ -17,6 +17,7 @@ import {
   type ServiceInfo,
 } from "@/lib/services";
 import { generateWhatsAppLink, formatPackageInquiry } from "@/lib/utils";
+import PackageDetailBlock from "@/components/services/PackageDetailBlock";
 
 export default function ServiceDetailContent({
   service,
@@ -156,35 +157,42 @@ export default function ServiceDetailContent({
             {packages.length > 0 && (
               <div>
                 <h2 className="font-[family-name:var(--font-heading)] text-2xl text-primary mb-4">
-                  Related packages
+                  Packages & tour details
                 </h2>
-                <div className="space-y-3">
-                  {packages.map((pkg) => (
-                    <div
-                      key={pkg.id}
-                      className="rounded-xl border border-gray-100 p-4 md:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
-                    >
-                      <div>
-                        <p className="font-semibold text-primary">{pkg.title}</p>
-                        <p className="text-xs text-text-secondary mt-1">
-                          {pkg.duration} · Adult {pkg.adultPrice} · Child{" "}
-                          {pkg.childPrice}
-                        </p>
-                        <p className="text-xs text-text-secondary mt-2">
-                          {pkg.highlights.join(" · ")}
-                        </p>
-                      </div>
-                      <a
-                        href={generateWhatsAppLink(formatPackageInquiry(pkg.title))}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-primary-dark bg-gold hover:bg-gold-light px-4 py-2.5 rounded-lg transition-colors shrink-0"
+                <div className="space-y-5">
+                  {packages.map((pkg) =>
+                    pkg.itinerary || pkg.visitingPlaces ? (
+                      <PackageDetailBlock key={pkg.id} pkg={pkg} />
+                    ) : (
+                      <div
+                        key={pkg.id}
+                        className="rounded-xl border border-gray-100 p-4 md:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
                       >
-                        <FaWhatsapp />
-                        Inquire
-                      </a>
-                    </div>
-                  ))}
+                        <div>
+                          <p className="font-semibold text-primary">{pkg.title}</p>
+                          <p className="text-xs text-text-secondary mt-1">
+                            {pkg.duration} · Adult {pkg.adultPrice} · Child{" "}
+                            {pkg.childPrice}
+                            {pkg.childAgeNote ? ` (${pkg.childAgeNote})` : ""}
+                          </p>
+                          <p className="text-xs text-text-secondary mt-2">
+                            {pkg.highlights.join(" · ")}
+                          </p>
+                        </div>
+                        <a
+                          href={generateWhatsAppLink(
+                            formatPackageInquiry(pkg.title)
+                          )}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-primary-dark bg-gold hover:bg-gold-light px-4 py-2.5 rounded-lg transition-colors shrink-0"
+                        >
+                          <FaWhatsapp />
+                          Inquire
+                        </a>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             )}

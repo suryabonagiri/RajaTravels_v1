@@ -109,19 +109,35 @@ export function buildKnowledgeBase(): KnowledgeItem[] {
   }
 
   for (const pkg of PACKAGES) {
+    const visiting =
+      pkg.visitingPlaces?.length
+        ? ` Visiting places: ${pkg.visitingPlaces.join(", ")}.`
+        : "";
+    const itinerary =
+      pkg.itinerary?.length
+        ? ` Tour information: ${pkg.itinerary
+            .map((stop) => `${stop.time} — ${stop.detail}`)
+            .join(" | ")}.`
+        : "";
+    const childNote = pkg.childAgeNote
+      ? ` Child price applies for ages ${pkg.childAgeNote}.`
+      : "";
+
     items.push({
       id: `package-${pkg.id}`,
       category: "package",
       title: pkg.title,
-      content: `${pkg.title} (${pkg.duration}) to ${pkg.destination}. Adult price ${pkg.adultPrice}, child price ${pkg.childPrice}. Includes: ${pkg.highlights.join("; ")}.`,
+      content: `${pkg.title} (${pkg.duration}) to ${pkg.destination}. Adult ${pkg.adultPrice}, Child ${pkg.childPrice}.${childNote} Includes: ${pkg.highlights.join("; ")}.${visiting}${itinerary}`,
       keywords: tokenize(
         pkg.title,
         pkg.destination,
         pkg.duration,
         pkg.adultPrice,
         pkg.childPrice,
-        "package tour price cost",
-        ...pkg.highlights
+        "package tour price cost itinerary schedule places",
+        ...pkg.highlights,
+        ...(pkg.visitingPlaces ?? []),
+        ...(pkg.itinerary?.flatMap((s) => [s.time, s.detail]) ?? [])
       ),
     });
   }
@@ -169,10 +185,12 @@ export function buildKnowledgeBase(): KnowledgeItem[] {
     id: "all-packages-summary",
     category: "package",
     title: "All tour packages",
-    content: PACKAGES.map(
-      (p) =>
-        `• ${p.title} (${p.duration}) — Adult ${p.adultPrice}, Child ${p.childPrice}`
-    ).join("\n"),
+    content: PACKAGES.map((p) => {
+      const child = p.childAgeNote
+        ? `Child ${p.childPrice} (${p.childAgeNote})`
+        : `Child ${p.childPrice}`;
+      return `• ${p.title} (${p.duration}) — Adult ${p.adultPrice}, ${child}`;
+    }).join("\n"),
     keywords: tokenize(
       "all packages list tours prices rates package options what packages"
     ),

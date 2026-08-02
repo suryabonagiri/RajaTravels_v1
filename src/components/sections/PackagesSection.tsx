@@ -37,10 +37,18 @@ export default function PackagesSection() {
               title={pkg.title}
               adultPrice={pkg.adultPrice}
               childPrice={pkg.childPrice}
+              childAgeNote={pkg.childAgeNote}
               duration={pkg.duration}
               destination={pkg.destination}
               highlights={pkg.highlights}
               index={index}
+              href={
+                pkg.id === "papi-1day"
+                  ? "/services/papikondalu"
+                  : pkg.destination === "Maredumilli"
+                    ? "/services/maredumilli"
+                    : undefined
+              }
             />
           ))}
         </div>
