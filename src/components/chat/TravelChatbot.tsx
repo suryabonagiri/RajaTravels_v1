@@ -53,7 +53,8 @@ function renderRichText(text: string) {
 }
 
 const STORAGE_KEY = "raja-chatbot-pos";
-const DEFAULT_POS = { x: 24, y: 24 };
+// Sit above the fixed WhatsApp button (bottom-6 + 56px + gap)
+const DEFAULT_POS = { x: 24, y: 96 };
 
 function readStoredPos(): { x: number; y: number } {
   if (typeof window === "undefined") return DEFAULT_POS;
