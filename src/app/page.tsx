@@ -2,9 +2,9 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import DestinationsSection from "@/components/sections/DestinationsSection";
+import IntroStrip from "@/components/sections/IntroStrip";
+import RoadJourneySection from "@/components/sections/RoadJourneySection";
+import DestinationStorySection from "@/components/sections/DestinationStorySection";
 import PackagesSection from "@/components/sections/PackagesSection";
 import BusRentalSection from "@/components/sections/BusRentalSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -17,9 +17,9 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <DestinationsSection />
+        <IntroStrip />
+        <RoadJourneySection />
+        <DestinationStorySection />
         <PackagesSection />
         <BusRentalSection />
         <TestimonialsSection />

@@ -308,10 +308,18 @@ export const HARITHA_RESORTS = [
   { name: "Srisailam Hotels", location: "Srisailam" },
 ];
 
+export const JOURNEY_CTA: Record<string, { href: string; label: string }> = {
+  "bus-rental": { href: "bus-rental", label: "View fleet" },
+  papikondalu: { href: "packages", label: "See packages" },
+  maredumilli: { href: "destinations", label: "Explore destination" },
+  haritha: { href: "destinations", label: "View resorts" },
+  "group-tours": { href: "contact", label: "Plan a trip" },
+  corporate: { href: "bus-rental", label: "Book transport" },
+};
+
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "Journey", href: "#journey" },
   { label: "Destinations", href: "#destinations" },
   { label: "Packages", href: "#packages" },
   { label: "Bus Rental", href: "#bus-rental" },

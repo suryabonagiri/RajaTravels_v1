@@ -18,7 +18,7 @@ export default function Navbar() {
   }, []);
 
   const handleNavClick = (href: string) => {
-    const id = href.replace("#", "");
+    const id = href.replace(/^#/, "");
     smoothScrollTo(id);
     setMobileOpen(false);
   };

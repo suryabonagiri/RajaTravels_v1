@@ -255,3 +255,46 @@ textarea:focus {
   background-size: 200% 100%;
   animation: shimmerLoad 1.5s infinite;
 }
+
+/* Hero still-image ken burns */
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.hero-kenburns {
+  animation: heroKenBurns 18s ease-in-out infinite alternate;
+}
+
+/* Road-journey bus sway */
+.journey-bus {
+  animation: journey-bus-sway 0.55s ease-in-out infinite;
+}
+
+@keyframes journey-bus-sway {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(1.2px);
+  }
+  75% {
+    transform: translateX(-1.2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns,
+  .journey-bus {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,68 +1,38 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect, useCallback } from "react";
-import BookingForm from "@/components/ui/BookingForm";
-import { FaShieldAlt, FaBus, FaMapMarkedAlt, FaShip } from "react-icons/fa";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { FaBus, FaShip, FaArrowDown, FaPhoneAlt } from "react-icons/fa";
+import { BUSINESS } from "@/lib/constants";
+import { smoothScrollTo } from "@/lib/utils";
 
-/**
- * Hero video slides configuration.
- * Place your videos in /public/videos/ folder:
- *   - bus-hero.mp4
- *   - boat-hero.mp4
- */
 const heroSlides = [
   {
-    video: "/videos/bus-hero.mp4",
+    image: "/images/bus-hero.jpg",
+    alt: "Raja Travels premium bus on the road",
     badge: "Premium Bus Travel",
-    badgeIcon: <FaBus className="text-sm" />,
-    heading: (
-      <>
-        Your Journey
-        <br />
-        <span className="text-gradient-gold">Begins Here</span>
-      </>
-    ),
-    subtitle:
-      "Experience luxury travel across Andhra Pradesh with our premium bus fleet. From corporate events to family celebrations.",
+    badgeIcon: FaBus,
+    headline: "Charter the road.",
+    support:
+      "Luxury coaches across Andhra Pradesh — family trips, weddings, and corporate journeys.",
   },
   {
-    video: "/videos/boat-hero.mp4",
+    image: "/images/boat-hero.jpg",
+    alt: "Scenic boat journey on the Godavari river",
     badge: "Papikondalu Boat Tourism",
-    badgeIcon: <FaShip className="text-sm" />,
-    heading: (
-      <>
-        Explore the
-        <br />
-        <span className="text-gradient-gold">Godavari Magic</span>
-      </>
-    ),
-    subtitle:
-      "Cruise through the majestic Papikondalu hills on the Godavari river. AP Tourism authorized boat tours and eco adventures.",
+    badgeIcon: FaShip,
+    headline: "Cruise the Godavari.",
+    support:
+      "AP Tourism authorized boat tours through Papikondalu hills and river gorges.",
   },
 ];
 
-const trustBadges = [
-  { icon: <FaShieldAlt />, text: "AP Tourism Authorized" },
-  { icon: <FaBus />, text: "Premium Fleet" },
-  { icon: <FaMapMarkedAlt />, text: "10+ Years Experience" },
-];
-
-const SLIDE_DURATION = 8000; // 8 seconds per slide
+const SLIDE_DURATION = 7000;
 
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-
-  // Auto-rotate slides
   const nextSlide = useCallback(() => {
     setActiveSlide((prev) => (prev + 1) % heroSlides.length);
   }, []);
@@ -72,179 +42,113 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
-  // Mark loaded after mount
-  useEffect(() => {
-    const t = setTimeout(() => setIsLoaded(true), 300);
-    return () => clearTimeout(t);
-  }, []);
-
-  const currentSlide = heroSlides[activeSlide];
+  const current = heroSlides[activeSlide];
+  const BadgeIcon = current.badgeIcon;
 
   return (
     <section
       id="home"
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-dark"
+      className="relative min-h-[100dvh] flex items-end md:items-center overflow-hidden bg-primary-dark"
     >
-      {/* ──────────── VIDEO BACKGROUNDS ──────────── */}
       {heroSlides.map((slide, index) => (
         <div
-          key={slide.video}
-          className="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
+          key={slide.image}
+          className="absolute inset-0 transition-opacity duration-[1400ms] ease-in-out"
           style={{ opacity: activeSlide === index ? 1 : 0 }}
         >
-          {/* Video element with cinematic zoom */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{
-              animation: activeSlide === index
-                ? "heroZoom 20s ease-in-out infinite alternate"
-                : "none",
-            }}
-          >
-            <source src={slide.video} type="video/mp4" />
-          </video>
+          <Image
+            src={slide.image}
+            alt={slide.alt}
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className={`object-cover ${
+              activeSlide === index ? "hero-kenburns" : ""
+            }`}
+          />
         </div>
       ))}
 
-      {/* ──────────── CINEMATIC OVERLAYS ──────────── */}
-      {/* Dark gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary/70 to-primary-dark/80 z-[1]" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-primary-dark/92 via-primary-dark/55 to-primary-dark/35" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary-dark via-transparent to-primary-dark/45" />
 
-      {/* Top vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/60 via-transparent to-primary-dark/50 z-[1]" />
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:py-32">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white tracking-tight mb-4 md:mb-6"
+        >
+          Raja Travels
+        </motion.p>
 
-      {/* Subtle animated grain texture */}
-      <div className="absolute inset-0 bg-pattern opacity-20 z-[1]" />
-
-      {/* Gold accent line at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent z-[2]" />
-
-      {/* ──────────── SLIDE INDICATORS ──────────── */}
-      <div className="absolute bottom-28 md:bottom-20 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {heroSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveSlide(index)}
-            className="group relative cursor-pointer"
-            aria-label={`Go to slide ${index + 1}`}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSlide}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-xl"
           >
-            <div className="w-12 md:w-16 h-1 rounded-full bg-white/20 overflow-hidden">
+            <div className="inline-flex items-center gap-2 text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              <BadgeIcon className="text-sm" />
+              {current.badge}
+            </div>
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl text-white/95 leading-snug mb-4">
+              {current.headline}
+            </h1>
+            <p className="text-white/65 text-base md:text-lg leading-relaxed mb-8 max-w-md">
+              {current.support}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35, duration: 0.6 }}
+          className="flex flex-wrap items-center gap-3"
+        >
+          <button
+            type="button"
+            onClick={() => smoothScrollTo("journey")}
+            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-primary-dark font-semibold px-5 py-3 rounded-xl transition-colors shimmer cursor-pointer"
+          >
+            Explore the route
+            <FaArrowDown className="text-xs" />
+          </button>
+          <a
+            href={`tel:${BUSINESS.primaryPhone}`}
+            className="inline-flex items-center gap-2 border border-white/25 hover:border-gold/50 text-white px-5 py-3 rounded-xl transition-colors"
+          >
+            <FaPhoneAlt className="text-xs text-gold" />
+            Call {BUSINESS.primaryPhone}
+          </a>
+        </motion.div>
+
+        <div className="mt-10 flex gap-2">
+          {heroSlides.map((slide, index) => (
+            <button
+              key={slide.image}
+              type="button"
+              onClick={() => setActiveSlide(index)}
+              aria-label={`Show ${slide.badge}`}
+              className="relative h-1 w-12 md:w-16 rounded-full bg-white/20 overflow-hidden cursor-pointer"
+            >
               <motion.div
-                className="h-full bg-gold rounded-full"
+                className="absolute inset-y-0 left-0 bg-gold rounded-full"
                 initial={{ width: "0%" }}
-                animate={{
-                  width: activeSlide === index ? "100%" : "0%",
-                }}
+                animate={{ width: activeSlide === index ? "100%" : "0%" }}
                 transition={{
                   duration: activeSlide === index ? SLIDE_DURATION / 1000 : 0.3,
                   ease: "linear",
                 }}
               />
-            </div>
-          </button>
-        ))}
-      </div>
-
-      {/* ──────────── MAIN CONTENT ──────────── */}
-      <motion.div
-        style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full"
-      >
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* ──── Left: Animated text content ──── */}
-          <div className="text-center lg:text-left">
-            {/* Slide badge */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`badge-${activeSlide}`}
-                initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 glass rounded-full mb-6 border border-gold/20"
-              >
-                <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
-                <span className="text-gold text-xs font-semibold tracking-wider uppercase">
-                  {currentSlide.badge}
-                </span>
-                <span className="text-gold/60">{currentSlide.badgeIcon}</span>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Heading */}
-            <AnimatePresence mode="wait">
-              <motion.h1
-                key={`heading-${activeSlide}`}
-                initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -20, filter: "blur(6px)" }}
-                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-[family-name:var(--font-heading)] leading-[1.1] mb-6"
-              >
-                {currentSlide.heading}
-              </motion.h1>
-            </AnimatePresence>
-
-            {/* Subtitle */}
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={`subtitle-${activeSlide}`}
-                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-white/55 text-base md:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-8"
-              >
-                {currentSlide.subtitle}
-              </motion.p>
-            </AnimatePresence>
-
-            {/* Trust badges - static, always visible */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-3"
-            >
-              {trustBadges.map((badge) => (
-                <div
-                  key={badge.text}
-                  className="flex items-center gap-2 px-3.5 py-2 glass rounded-xl text-xs text-white/60 border border-white/5 hover:border-gold/20 hover:text-white/80 transition-all duration-300"
-                >
-                  <span className="text-gold">{badge.icon}</span>
-                  {badge.text}
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* ──── Right: Booking Form ──── */}
-          <div>
-            <BookingForm />
-          </div>
+            </button>
+          ))}
         </div>
-      </motion.div>
-
-      {/* ──────────── BOTTOM FADE ──────────── */}
-      <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-white via-white/50 to-transparent z-[2]" />
-
-      {/* ──────────── CINEMATIC ZOOM KEYFRAMES ──────────── */}
-      <style jsx>{`
-        @keyframes heroZoom {
-          0% {
-            transform: scale(1);
-          }
-          100% {
-            transform: scale(1.12);
-          }
-        }
-      `}</style>
+      </div>
     </section>
   );
 }
