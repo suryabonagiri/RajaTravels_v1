@@ -341,7 +341,7 @@ export default function TravelChatbot() {
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about packages, buses, booking..."
+                placeholder="Ask about packages or booking…"
                 className="flex-1 min-w-0 rounded-xl border border-gray-200 bg-surface px-3 py-2.5 text-base sm:text-sm text-text-primary placeholder:text-text-light"
                 aria-label="Type your question"
               />
