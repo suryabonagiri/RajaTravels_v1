@@ -18,19 +18,39 @@ import {
 import type { HarithaResort } from "@/lib/constants";
 import { generateWhatsAppLink } from "@/lib/utils";
 
-function categoryIcon(category: HarithaResort["category"]) {
-  switch (category) {
-    case "beach":
-      return FaUmbrellaBeach;
-    case "hill":
-      return FaMountain;
-    case "jungle":
-      return FaTree;
-    case "island":
-      return FaWater;
-    default:
-      return FaHotel;
-  }
+function StayMarker({
+  active,
+  category,
+  size = "md",
+}: {
+  active: boolean;
+  category: HarithaResort["category"];
+  size?: "sm" | "md";
+}) {
+  const box = size === "sm" ? "h-8 w-8 border-2" : "h-10 w-10 border-[3px]";
+  const icon = size === "sm" ? "text-[11px]" : "text-sm";
+  const iconClass = `${icon} ${active ? "text-[#134E4A]" : "text-[#0F766E]/70"}`;
+  return (
+    <span
+      className={`relative z-20 flex items-center justify-center rounded-full transition-all duration-300 ${box} ${
+        active
+          ? "bg-[#E8C547] border-white scale-110 shadow-[0_0_22px_rgba(232,197,71,0.85)]"
+          : "bg-[#F0FDFA] border-[#0F766E]/25 shadow-md"
+      }`}
+    >
+      {category === "beach" ? (
+        <FaUmbrellaBeach className={iconClass} />
+      ) : category === "hill" ? (
+        <FaMountain className={iconClass} />
+      ) : category === "jungle" ? (
+        <FaTree className={iconClass} />
+      ) : category === "island" ? (
+        <FaWater className={iconClass} />
+      ) : (
+        <FaHotel className={iconClass} />
+      )}
+    </span>
+  );
 }
 
 function ResortStopCard({
@@ -125,33 +145,6 @@ function ResortStopCard({
         </div>
       </div>
     </motion.button>
-  );
-}
-
-function StayMarker({
-  active,
-  category,
-  size = "md",
-}: {
-  active: boolean;
-  category: HarithaResort["category"];
-  size?: "sm" | "md";
-}) {
-  const Icon = categoryIcon(category);
-  const box = size === "sm" ? "h-8 w-8 border-2" : "h-10 w-10 border-[3px]";
-  const icon = size === "sm" ? "text-[11px]" : "text-sm";
-  return (
-    <span
-      className={`relative z-20 flex items-center justify-center rounded-full transition-all duration-300 ${box} ${
-        active
-          ? "bg-[#E8C547] border-white scale-110 shadow-[0_0_22px_rgba(232,197,71,0.85)]"
-          : "bg-[#F0FDFA] border-[#0F766E]/25 shadow-md"
-      }`}
-    >
-      <Icon
-        className={`${icon} ${active ? "text-[#134E4A]" : "text-[#0F766E]/70"}`}
-      />
-    </span>
   );
 }
 
