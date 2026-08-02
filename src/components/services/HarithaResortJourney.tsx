@@ -5,7 +5,6 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FaHotel,
-  FaChevronDown,
   FaUmbrellaBeach,
   FaMountain,
   FaTree,
@@ -14,138 +13,23 @@ import {
   FaWhatsapp,
   FaCheck,
   FaImage,
+  FaChevronRight,
 } from "react-icons/fa";
 import type { HarithaResort } from "@/lib/constants";
 import { generateWhatsAppLink } from "@/lib/utils";
 
-function StayMarker({
-  active,
+function CategoryIcon({
   category,
-  size = "md",
+  className,
 }: {
-  active: boolean;
   category: HarithaResort["category"];
-  size?: "sm" | "md";
+  className?: string;
 }) {
-  const box = size === "sm" ? "h-8 w-8 border-2" : "h-10 w-10 border-[3px]";
-  const icon = size === "sm" ? "text-[11px]" : "text-sm";
-  const iconClass = `${icon} ${active ? "text-[#134E4A]" : "text-[#0F766E]/70"}`;
-  return (
-    <span
-      className={`relative z-20 flex items-center justify-center rounded-full transition-all duration-300 ${box} ${
-        active
-          ? "bg-[#E8C547] border-white scale-110 shadow-[0_0_22px_rgba(232,197,71,0.85)]"
-          : "bg-[#F0FDFA] border-[#0F766E]/25 shadow-md"
-      }`}
-    >
-      {category === "beach" ? (
-        <FaUmbrellaBeach className={iconClass} />
-      ) : category === "hill" ? (
-        <FaMountain className={iconClass} />
-      ) : category === "jungle" ? (
-        <FaTree className={iconClass} />
-      ) : category === "island" ? (
-        <FaWater className={iconClass} />
-      ) : (
-        <FaHotel className={iconClass} />
-      )}
-    </span>
-  );
-}
-
-function ResortStopCard({
-  resort,
-  index,
-  isSelected,
-  isHovered,
-  onHover,
-  onLeave,
-  onSelect,
-  align = "left",
-}: {
-  resort: HarithaResort;
-  index: number;
-  isSelected: boolean;
-  isHovered: boolean;
-  onHover: () => void;
-  onLeave: () => void;
-  onSelect: () => void;
-  align?: "left" | "right";
-}) {
-  return (
-    <motion.button
-      type="button"
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
-      onFocus={onHover}
-      onBlur={onLeave}
-      onClick={onSelect}
-      aria-pressed={isSelected}
-      className={`relative z-10 w-full text-left rounded-2xl border px-4 py-4 md:px-5 md:py-5 transition-all duration-300 cursor-pointer ${
-        align === "right" ? "md:text-right" : ""
-      } ${
-        isSelected
-          ? "bg-[#0F766E] text-white border-[#E8C547] shadow-[0_12px_40px_rgba(15,118,110,0.3)] scale-[1.02]"
-          : isHovered
-            ? "bg-white border-[#C9A227] shadow-[0_12px_32px_rgba(201,162,39,0.28)] scale-[1.03]"
-            : "bg-white/95 border-[#0F766E]/12 shadow-md hover:border-[#C9A227]/50"
-      }`}
-      whileTap={{ scale: 0.985 }}
-    >
-      <div
-        className={`flex items-start gap-3 ${
-          align === "right" ? "md:flex-row-reverse" : ""
-        }`}
-      >
-        <span
-          className={`mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold ${
-            isSelected
-              ? "bg-[#E8C547] text-[#134E4A]"
-              : isHovered
-                ? "bg-[#FEF6D8] text-[#0F766E]"
-                : "bg-[#ECFDF5] text-[#0F766E]"
-          }`}
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <div className="min-w-0 flex-1">
-          <p
-            className={`text-[10px] uppercase tracking-[0.16em] font-semibold mb-1 ${
-              isSelected ? "text-[#FEF6D8]" : "text-[#C9A227]"
-            }`}
-          >
-            {resort.categoryLabel} · {resort.location}
-          </p>
-          <p
-            className={`font-[family-name:var(--font-heading)] text-xl md:text-2xl leading-snug ${
-              isSelected ? "text-white" : "text-[#134E4A]"
-            }`}
-          >
-            {resort.shortName}
-          </p>
-          <p
-            className={`text-sm mt-2 leading-relaxed ${
-              isSelected ? "text-white/85" : "text-[#5F7A76]"
-            }`}
-          >
-            {resort.summary}
-          </p>
-          <p
-            className={`mt-3 inline-flex items-center gap-1.5 text-xs font-bold ${
-              align === "right" ? "md:flex-row-reverse" : ""
-            } ${isSelected ? "text-[#FEF6D8]" : "text-[#0F766E]"}`}
-          >
-            {isSelected ? "Open below — stay details" : "Click to open stay details"}
-            <FaChevronDown
-              className={`text-[10px] transition-transform ${
-                isSelected ? "rotate-180" : ""
-              }`}
-            />
-          </p>
-        </div>
-      </div>
-    </motion.button>
-  );
+  if (category === "beach") return <FaUmbrellaBeach className={className} />;
+  if (category === "hill") return <FaMountain className={className} />;
+  if (category === "jungle") return <FaTree className={className} />;
+  if (category === "island") return <FaWater className={className} />;
+  return <FaHotel className={className} />;
 }
 
 function ResortDetailPanel({ resort }: { resort: HarithaResort }) {
@@ -271,7 +155,7 @@ function readInitialResortId(
     const hash = window.location.hash.replace("#resort-", "");
     if (hash && resorts.some((r) => r.id === hash)) return hash;
   }
-  return resorts[0]?.id ?? null;
+  return null;
 }
 
 export default function HarithaResortJourney({
@@ -281,7 +165,6 @@ export default function HarithaResortJourney({
   resorts: HarithaResort[];
   initialResortId?: string;
 }) {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(() =>
     readInitialResortId(resorts, initialResortId)
   );
@@ -300,205 +183,147 @@ export default function HarithaResortJourney({
   const selected = resorts.find((r) => r.id === selectedId) ?? null;
 
   const selectResort = (id: string) => {
-    setSelectedId(id);
+    const next = selectedId === id ? null : id;
+    setSelectedId(next);
     if (typeof window !== "undefined") {
-      window.history.replaceState(null, "", `#resort-${id}`);
-      window.setTimeout(() => {
-        document
-          .getElementById("resort-detail-panel")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 80);
+      if (next) {
+        window.history.replaceState(null, "", `#resort-${next}`);
+        window.setTimeout(() => {
+          document
+            .getElementById("resort-detail-panel")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 80);
+      } else {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
     }
   };
 
   return (
     <section className="relative">
       <div className="absolute inset-0 bg-gradient-to-b from-[#D1FAE5] via-[#F0FDFA] to-[#F8FAF9]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_5%,rgba(201,162,39,0.18),transparent_42%),radial-gradient(ellipse_at_85%_20%,rgba(20,184,166,0.2),transparent_40%),radial-gradient(ellipse_at_50%_100%,rgba(15,118,110,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(201,162,39,0.12),transparent_40%),radial-gradient(ellipse_at_80%_10%,rgba(20,184,166,0.14),transparent_42%)]" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
           <p className="text-[#C9A227] font-semibold tracking-[0.2em] text-xs uppercase mb-3 inline-flex items-center gap-2 justify-center">
             <FaHotel className="text-sm" />
-            APTDC Haritha stay map
+            APTDC Haritha properties
           </p>
           <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-[#134E4A] mb-3">
-            Explore stays. Book the right Haritha property.
+            Choose a stay. Open the details.
           </h2>
           <p className="text-[#5F7A76] text-sm md:text-base leading-relaxed">
-            Hover a stop to highlight it. Click any APTDC Haritha Hotel or Resort
-            to open stay details — beaches, hills, jungle cottages, islands, and
-            temple-town hotels.
+            Each box is a separate APTDC Haritha Hotel or Resort. Click any one
+            to view stay details and enquire for availability.
           </p>
         </div>
 
-        <div className="hidden md:block relative">
-          <svg
-            className="pointer-events-none absolute inset-y-4 left-1/2 z-0 h-[calc(100%-2rem)] w-[120px] -translate-x-1/2"
-            viewBox="0 0 120 1000"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <defs>
-              <linearGradient id="harithaPathFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.65" />
-                <stop offset="40%" stopColor="#0F766E" stopOpacity="0.7" />
-                <stop offset="75%" stopColor="#C9A227" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="#E8C547" stopOpacity="0.55" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M 60 0
-                 C 88 70, 98 130, 60 200
-                 C 20 280, 12 360, 60 440
-                 C 108 520, 112 600, 60 680
-                 C 18 760, 22 840, 60 920
-                 C 84 960, 72 980, 60 1000"
-              fill="none"
-              stroke="#D1FAE5"
-              strokeWidth="40"
-              strokeLinecap="round"
-              strokeOpacity="0.85"
-            />
-            <path
-              d="M 60 0
-                 C 88 70, 98 130, 60 200
-                 C 20 280, 12 360, 60 440
-                 C 108 520, 112 600, 60 680
-                 C 18 760, 22 840, 60 920
-                 C 84 960, 72 980, 60 1000"
-              fill="none"
-              stroke="url(#harithaPathFill)"
-              strokeWidth="22"
-              strokeLinecap="round"
-            />
-            <path
-              d="M 60 0
-                 C 88 70, 98 130, 60 200
-                 C 20 280, 12 360, 60 440
-                 C 108 520, 112 600, 60 680
-                 C 18 760, 22 840, 60 920
-                 C 84 960, 72 980, 60 1000"
-              fill="none"
-              stroke="#FFFFFF"
-              strokeWidth="2"
-              strokeDasharray="6 10"
-              strokeOpacity="0.9"
-            />
-          </svg>
-
-          <ol className="relative z-10 space-y-10 lg:space-y-12">
-            {resorts.map((resort, index) => {
-              const isLeft = index % 2 === 0;
-              const isSelected = selectedId === resort.id;
-              const isHovered = hoveredId === resort.id;
-              const isActive = isSelected || isHovered;
-
-              return (
-                <li
-                  key={resort.id}
-                  className="grid grid-cols-[minmax(0,1fr)_4.5rem_minmax(0,1fr)] items-center gap-x-3 lg:gap-x-5"
-                >
-                  <div className={isLeft ? "justify-self-end w-full max-w-md" : ""}>
-                    {isLeft ? (
-                      <ResortStopCard
-                        resort={resort}
-                        index={index}
-                        isSelected={isSelected}
-                        isHovered={isHovered}
-                        align="right"
-                        onHover={() => setHoveredId(resort.id)}
-                        onLeave={() => setHoveredId(null)}
-                        onSelect={() => selectResort(resort.id)}
-                      />
-                    ) : null}
-                  </div>
-
-                  <div className="flex justify-center">
-                    <StayMarker active={isActive} category={resort.category} />
-                  </div>
-
-                  <div className={!isLeft ? "justify-self-start w-full max-w-md" : ""}>
-                    {!isLeft ? (
-                      <ResortStopCard
-                        resort={resort}
-                        index={index}
-                        isSelected={isSelected}
-                        isHovered={isHovered}
-                        align="left"
-                        onHover={() => setHoveredId(resort.id)}
-                        onLeave={() => setHoveredId(null)}
-                        onSelect={() => selectResort(resort.id)}
-                      />
-                    ) : null}
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-        </div>
-
-        <div className="md:hidden relative pl-11">
-          <div className="absolute left-4 top-3 bottom-3 w-2.5 rounded-full bg-gradient-to-b from-[#14B8A6] via-[#0F766E] to-[#C9A227] overflow-hidden">
-            <div className="absolute inset-0 bg-[repeating-linear-gradient(180deg,transparent,transparent_10px,rgba(255,255,255,0.4)_10px,rgba(255,255,255,0.4)_14px)]" />
-          </div>
-
-          <div className="space-y-5">
-            {resorts.map((resort, index) => {
-              const isSelected = selectedId === resort.id;
-              const isHovered = hoveredId === resort.id;
-              return (
-                <div key={resort.id} className="relative">
-                  <span className="absolute -left-[2.05rem] top-5 z-10">
-                    <StayMarker
-                      size="sm"
-                      active={isSelected || isHovered}
-                      category={resort.category}
-                    />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          {resorts.map((resort, index) => {
+            const isSelected = selectedId === resort.id;
+            return (
+              <motion.button
+                key={resort.id}
+                type="button"
+                onClick={() => selectResort(resort.id)}
+                aria-pressed={isSelected}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.28) }}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.985 }}
+                className={`text-left rounded-2xl border p-5 transition-all duration-300 cursor-pointer ${
+                  isSelected
+                    ? "bg-[#0F766E] border-[#E8C547] text-white shadow-[0_12px_36px_rgba(15,118,110,0.28)]"
+                    : "bg-white border-[#0F766E]/12 hover:border-[#C9A227]/55 hover:shadow-lg"
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <span
+                    className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${
+                      isSelected
+                        ? "bg-[#E8C547] text-[#134E4A]"
+                        : "bg-[#ECFDF5] text-[#0F766E]"
+                    }`}
+                  >
+                    <CategoryIcon category={resort.category} className="text-lg" />
                   </span>
-                  <ResortStopCard
-                    resort={resort}
-                    index={index}
-                    isSelected={isSelected}
-                    isHovered={isHovered}
-                    onHover={() => setHoveredId(resort.id)}
-                    onLeave={() => setHoveredId(null)}
-                    onSelect={() => selectResort(resort.id)}
-                  />
+                  <span
+                    className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
+                      isSelected
+                        ? "bg-white/15 text-[#FEF6D8]"
+                        : "bg-[#FEF6D8] text-[#C9A227]"
+                    }`}
+                  >
+                    {resort.categoryLabel}
+                  </span>
                 </div>
-              );
-            })}
-          </div>
+
+                <h3
+                  className={`font-[family-name:var(--font-heading)] text-xl leading-snug mb-2 ${
+                    isSelected ? "text-white" : "text-[#134E4A]"
+                  }`}
+                >
+                  {resort.shortName}
+                </h3>
+                <p
+                  className={`text-xs font-semibold mb-2 flex items-center gap-1.5 ${
+                    isSelected ? "text-[#CCFBF1]" : "text-[#0F766E]"
+                  }`}
+                >
+                  <FaMapMarkerAlt className="text-[10px] shrink-0" />
+                  {resort.location}
+                </p>
+                <p
+                  className={`text-sm leading-relaxed line-clamp-3 ${
+                    isSelected ? "text-white/80" : "text-[#5F7A76]"
+                  }`}
+                >
+                  {resort.summary}
+                </p>
+                <p
+                  className={`mt-4 inline-flex items-center gap-1.5 text-xs font-bold ${
+                    isSelected ? "text-[#E8C547]" : "text-[#0F766E]"
+                  }`}
+                >
+                  {isSelected ? "Selected — details below" : "View stay details"}
+                  <FaChevronRight className="text-[10px]" />
+                </p>
+              </motion.button>
+            );
+          })}
         </div>
 
-        <p className="mt-10 text-center text-xs md:text-sm text-[#5F7A76] max-w-2xl mx-auto leading-relaxed">
-          Showing popular APTDC Haritha Hotels & Resorts. Need another property
-          (Kalahasti, Gandikota, Ahobilam, Lepakshi, and more)? Tell us the
-          destination — we&apos;ll check availability.
+        <p className="mt-8 text-center text-xs md:text-sm text-[#5F7A76] max-w-2xl mx-auto leading-relaxed">
+          Need another APTDC Haritha property (Kalahasti, Gandikota, Ahobilam,
+          Lepakshi, and more)? Tell us the destination — we&apos;ll check
+          availability.
         </p>
 
         <div
           id="resort-detail-panel"
-          className="scroll-mt-28 mt-12 md:mt-16 pt-10 md:pt-12 border-t border-[#0F766E]/15"
+          className="scroll-mt-28 mt-12 md:mt-14 pt-10 border-t border-[#0F766E]/15"
         >
           <AnimatePresence mode="wait">
             {selected ? (
               <motion.div
                 key={selected.id}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="mb-5 flex items-center gap-2 text-sm text-[#5F7A76]">
                   <FaHotel className="text-[#C9A227]" />
-                  Selected APTDC Haritha stay — details & booking help
+                  Selected stay — details & booking help
                 </div>
                 <ResortDetailPanel resort={selected} />
               </motion.div>
             ) : (
-              <p className="text-center text-[#5F7A76] text-sm py-8">
-                Click any stay on the map to view full details.
+              <p className="text-center text-[#5F7A76] text-sm py-6">
+                Click any resort box above to open full stay details.
               </p>
             )}
           </AnimatePresence>

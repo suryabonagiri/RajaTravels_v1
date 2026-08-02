@@ -85,7 +85,7 @@ const THEME = {
     ctaBody: "text-[#5F7A76]",
     callBtn: "bg-[#0F766E] hover:bg-[#134E4A]",
     heroCopy:
-      "Explore APTDC Haritha Hotels & Resorts on the stay map below — beaches, hills, jungle cottages, islands, and temple towns.",
+      "Pick any APTDC Haritha Hotel or Resort below — each stay is independent. Click a box to open details and enquire.",
     ctaHeading: "Ready to book an APTDC Haritha stay?",
   },
 } as const;
