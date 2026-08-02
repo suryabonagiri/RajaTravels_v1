@@ -43,7 +43,7 @@ export default function PackagesSection() {
               highlights={pkg.highlights}
               index={index}
               href={
-                pkg.id === "papi-1day"
+                pkg.id === "papi-1day" || pkg.id === "badra-1day"
                   ? "/services/papikondalu"
                   : pkg.destination === "Maredumilli"
                     ? "/services/maredumilli"

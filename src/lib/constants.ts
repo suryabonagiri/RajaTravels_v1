@@ -207,16 +207,59 @@ export const PACKAGES: TourPackage[] = [
   },
   {
     id: "badra-1day",
-    title: "Bhadrachalam 1 Day Tour",
+    title: "Bhadrachalam 1 Day Tour Package",
     adultPrice: "₹2,500",
     childPrice: "₹2,200",
     duration: "1 Day",
     destination: "Bhadrachalam",
     highlights: [
-      "Bhadrachalam temple visit",
-      "Boat ride",
-      "Breakfast & Lunch",
-      "AC Transport",
+      "Starts every day at 7 AM from Rajamahendravaram",
+      "Breakfast & vegetarian lunch in the boat",
+      "A/C to non A/C boat shift at Perantapalli",
+      "Road transfer by TATA Magics to Bhadrachalam temple",
+    ],
+    visitingPlaces: [
+      "Pattiseema",
+      "Polavaram Project",
+      "Gandhi Posamma Temple",
+      "Papihills",
+      "Perantalapalli Temple",
+      "Bhadrachalam",
+    ],
+    itinerary: [
+      {
+        time: "7:00 AM",
+        detail: "Tour starts every day from Rajamahendravaram",
+      },
+      {
+        time: "Morning",
+        detail:
+          "Visiting places en route / on river: Polavaram project site, Gandipochamma Temple, Papikondalu, and Perantapalli temple",
+      },
+      {
+        time: "On the boat",
+        detail: "Breakfast and vegetarian lunch will be provided in the boat",
+      },
+      {
+        time: "3:00 PM",
+        detail:
+          "A/C boat to non A/C boat shifting at Perantapalli Temple",
+      },
+      {
+        time: "After 3:00 PM",
+        detail:
+          "Perantapalli to Pochavaram in non A/C boat (about 1 hour)",
+      },
+      {
+        time: "Road transfer",
+        detail:
+          "Pochavaram to Bhadrachalam temple — about 2 hours by road on our vehicles (TATA Magics only)",
+      },
+      {
+        time: "7:00 PM",
+        detail:
+          "Finally reaching Bhadrachalam temple. Temple darshan closing time is 9:00 PM",
+      },
     ],
   },
   {
