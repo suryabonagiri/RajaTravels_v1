@@ -93,7 +93,12 @@ function PackageStopCard({
               align === "right" ? "md:flex-row-reverse" : ""
             } ${isSelected ? "text-[#B7E4C7]" : "text-[#2D6A4F]"}`}
           >
-            {isSelected ? "Open below — full details & photos" : "Click to open full details"}
+            {isSelected ? "Open below — full details & photos" : (
+              <>
+                <span className="md:hidden">Tap to open full details</span>
+                <span className="hidden md:inline">Click to open full details</span>
+              </>
+            )}
             <FaChevronDown
               className={`text-[10px] transition-transform ${
                 isSelected ? "rotate-180" : ""
@@ -205,8 +210,8 @@ export default function ForestPackageJourney({
             Walk the forest. Pick your package.
           </h2>
           <p className="text-[#52796F] text-sm md:text-base leading-relaxed">
-            Hover a trail stop to highlight it. Click any package to open complete
-            information, pricing, schedule, and photos.
+            <span className="md:hidden">Tap a trail stop to open complete information, pricing, schedule, and photos.</span>
+            <span className="hidden md:inline">Hover a trail stop to highlight it. Click any package to open complete information, pricing, schedule, and photos.</span>
           </p>
         </div>
 

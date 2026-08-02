@@ -127,6 +127,13 @@
     ],
     "count": 7
   },
+  "lambasingi": {
+    "cover": "/images/from-aptourism/lambasingi/cms-01.jpg",
+    "gallery": [
+      "/images/from-aptourism/lambasingi/cms-01.jpg"
+    ],
+    "count": 1
+  },
   "mare-1day": {
     "cover": "/images/from-aptourism/mare-1day/08.jpeg",
     "gallery": [
@@ -258,8 +265,9 @@
     "gallery": [
       "/images/from-aptourism/tyda-jungle-bells/cms-01.jpg",
       "/images/from-aptourism/tyda-jungle-bells/cms-02.jpeg",
+      "/images/from-aptourism/tyda-jungle-bells/cms-01.jpeg",
       "/images/from-aptourism/tyda-jungle-bells/01.jpeg"
     ],
-    "count": 3
+    "count": 4
   }
 }

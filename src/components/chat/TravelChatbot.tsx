@@ -53,8 +53,8 @@ function renderRichText(text: string) {
 }
 
 const STORAGE_KEY = "raja-chatbot-pos";
-// Sit above the fixed WhatsApp button (bottom-6 + 56px + gap)
-const DEFAULT_POS = { x: 24, y: 96 };
+// Sit above the fixed WhatsApp button (bottom + 56px + gap + safe area)
+const DEFAULT_POS = { x: 20, y: 100 };
 
 function readStoredPos(): { x: number; y: number } {
   if (typeof window === "undefined") return DEFAULT_POS;
@@ -78,11 +78,13 @@ function readStoredPos(): { x: number; y: number } {
 
 function clampToViewport(x: number, y: number) {
   if (typeof window === "undefined") return { x, y };
-  const maxX = Math.max(12, window.innerWidth - 72);
-  const maxY = Math.max(12, window.innerHeight - 72);
+  const safeRight = 12;
+  const safeBottom = 12;
+  const maxX = Math.max(safeRight, window.innerWidth - 72);
+  const maxY = Math.max(safeBottom, window.innerHeight - 72);
   return {
-    x: Math.min(Math.max(12, x), maxX),
-    y: Math.min(Math.max(12, y), maxY),
+    x: Math.min(Math.max(safeRight, x), maxX),
+    y: Math.min(Math.max(safeBottom, y), maxY),
   };
 }
 
@@ -96,6 +98,7 @@ export default function TravelChatbot() {
   ]);
   const [pos, setPos] = useState(readStoredPos);
   const [dragging, setDragging] = useState(false);
+  const [isNarrow, setIsNarrow] = useState(false);
   const posRef = useRef(pos);
   const dragOffset = useRef({ x: 0, y: 0 });
   const movedDuringDrag = useRef(false);
@@ -113,6 +116,14 @@ export default function TravelChatbot() {
   useEffect(() => {
     posRef.current = pos;
   }, [pos]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setIsNarrow(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -193,10 +204,16 @@ export default function TravelChatbot() {
     pushBotReply(question);
   };
 
-  const panelStyle = {
-    right: pos.x,
-    bottom: pos.y + 72,
-  } as const;
+  const panelStyle = isNarrow
+    ? ({
+        left: 12,
+        right: 12,
+        bottom: Math.max(pos.y + 72, 88),
+      } as const)
+    : ({
+        right: pos.x,
+        bottom: pos.y + 72,
+      } as const);
 
   const launcherStyle = {
     right: pos.x,
@@ -216,7 +233,7 @@ export default function TravelChatbot() {
             exit={{ opacity: 0, y: 12, scale: 0.96 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             style={panelStyle}
-            className="pointer-events-auto absolute w-[min(380px,calc(100vw-24px))] h-[min(560px,calc(100dvh-120px))] flex flex-col rounded-2xl overflow-hidden border border-white/15 bg-white shadow-[0_20px_60px_rgba(0,45,102,0.28)]"
+            className="pointer-events-auto absolute w-auto sm:w-[min(380px,calc(100vw-24px))] h-[min(560px,calc(100dvh-8rem-env(safe-area-inset-bottom,0px)))] sm:h-[min(560px,calc(100dvh-120px))] flex flex-col rounded-2xl overflow-hidden border border-white/15 bg-white shadow-[0_20px_60px_rgba(0,45,102,0.28)]"
           >
             {/* Header — also draggable feel via grip note */}
             <div className="shrink-0 bg-gradient-to-r from-primary-dark via-primary to-primary-light px-4 py-3 text-white">
@@ -325,7 +342,7 @@ export default function TravelChatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about packages, buses, booking..."
-                className="flex-1 min-w-0 rounded-xl border border-gray-200 bg-surface px-3 py-2.5 text-sm text-text-primary placeholder:text-text-light"
+                className="flex-1 min-w-0 rounded-xl border border-gray-200 bg-surface px-3 py-2.5 text-base sm:text-sm text-text-primary placeholder:text-text-light"
                 aria-label="Type your question"
               />
               <button

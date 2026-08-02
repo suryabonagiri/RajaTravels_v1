@@ -8,7 +8,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-surface relative">
+    <section id="services" className="scroll-mt-[calc(4.5rem+env(safe-area-inset-top,0px))] py-16 sm:py-20 md:py-28 bg-surface relative">
       <div className="absolute inset-0 bg-pattern opacity-40" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

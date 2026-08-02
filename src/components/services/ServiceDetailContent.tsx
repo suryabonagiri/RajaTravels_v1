@@ -151,7 +151,7 @@ export default function ServiceDetailContent({
           </>
         )}
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-10 md:pb-14">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[calc(5.5rem+env(safe-area-inset-top,0px))] pb-10 md:pt-28 md:pb-14">
           <Link
             href="/services"
             className={`inline-flex items-center gap-2 text-sm transition-colors mb-5 ${

@@ -43,8 +43,8 @@ export const PACKAGE_MEDIA: Record<string, MediaSet> = {
     imagePending: false,
   },
   "mare-2day": {
-    image: "/images/from-aptourism/mare-2day/01.jpg",
-    images: ["/images/from-aptourism/mare-2day/01.jpg", "/images/from-aptourism/mare-2day/11.jpeg", "/images/from-aptourism/mare-2day/15.jpeg", "/images/from-aptourism/mare-2day/16.jpeg", "/images/from-aptourism/mare-2day/13.jpeg", "/images/from-aptourism/mare-2day/12.jpeg", "/images/from-aptourism/mare-2day/14.jpeg", "/images/from-aptourism/mare-2day/06.jpeg", "/images/from-aptourism/mare-2day/03.jpeg", "/images/from-aptourism/mare-2day/09.jpeg"],
+    image: "/images/from-aptourism/mare-2day/11.jpeg",
+    images: ["/images/from-aptourism/mare-2day/11.jpeg", "/images/from-aptourism/mare-2day/01.jpg", "/images/from-aptourism/mare-2day/15.jpeg", "/images/from-aptourism/mare-2day/16.jpeg", "/images/from-aptourism/mare-2day/13.jpeg", "/images/from-aptourism/mare-2day/12.jpeg", "/images/from-aptourism/mare-2day/14.jpeg", "/images/from-aptourism/mare-2day/06.jpeg", "/images/from-aptourism/mare-2day/03.jpeg", "/images/from-aptourism/mare-2day/09.jpeg"],
     imagePending: false,
   },
   "family-godavari-day": {
@@ -54,7 +54,7 @@ export const PACKAGE_MEDIA: Record<string, MediaSet> = {
   },
   "family-eco-weekend": {
     image: "/images/from-aptourism/mare-2day/01.jpg",
-    images: ["/images/from-aptourism/mare-2day/01.jpg", "/images/from-aptourism/mare-2day/11.jpeg", "/images/from-aptourism/mare-2day/15.jpeg", "/images/from-aptourism/mare-2day/16.jpeg", "/images/from-aptourism/mare-2day/13.jpeg", "/images/from-aptourism/mare-2day/12.jpeg", "/images/from-aptourism/mare-2day/14.jpeg", "/images/from-aptourism/mare-2day/06.jpeg", "/images/from-aptourism/mare-2day/03.jpeg", "/images/from-aptourism/mare-2day/09.jpeg", "/images/from-aptourism/mare-extra-sana/03.jpeg", "/images/from-aptourism/mare-extra-sana/01.jpeg", "/images/from-aptourism/mare-extra-sana/02.jpeg", "/images/from-aptourism/mare-extra-sana/05.jpeg", "/images/from-aptourism/mare-extra-aranya/07.jpg", "/images/from-aptourism/mare-extra-aranya/09.jpg", "/images/from-aptourism/mare-extra-aranya/11.jpg", "/images/from-aptourism/mare-extra-aranya/10.jpg"],
+    images: ["/images/from-aptourism/mare-2day/01.jpg", "/images/from-aptourism/mare-2day/11.jpeg", "/images/from-aptourism/mare-2day/15.jpeg", "/images/from-aptourism/mare-2day/16.jpeg", "/images/from-aptourism/mare-2day/13.jpeg", "/images/from-aptourism/mare-2day/12.jpeg", "/images/from-aptourism/mare-2day/14.jpeg", "/images/from-aptourism/mare-2day/06.jpeg", "/images/from-aptourism/mare-2day/03.jpeg", "/images/from-aptourism/mare-2day/09.jpeg"],
     imagePending: false,
   },
   "family-temple-river": {
@@ -92,7 +92,7 @@ export const HARITHA_MEDIA: Record<string, MediaSet> = {
   },
   "tyda-jungle-bells": {
     image: "/images/from-aptourism/tyda-jungle-bells/cms-01.jpg",
-    images: ["/images/from-aptourism/tyda-jungle-bells/cms-01.jpg", "/images/from-aptourism/tyda-jungle-bells/cms-02.jpeg", "/images/from-aptourism/tyda-jungle-bells/01.jpeg"],
+    images: ["/images/from-aptourism/tyda-jungle-bells/cms-01.jpg", "/images/from-aptourism/tyda-jungle-bells/cms-02.jpeg", "/images/from-aptourism/tyda-jungle-bells/cms-01.jpeg", "/images/from-aptourism/tyda-jungle-bells/01.jpeg"],
     imagePending: false,
   },
   "ananthagiri-hill": {
@@ -111,8 +111,8 @@ export const HARITHA_MEDIA: Record<string, MediaSet> = {
     imagePending: false,
   },
   "lambasingi": {
-    image: "/images/from-aptourism/ananthagiri-hill/cms-01.jpeg",
-    images: ["/images/from-aptourism/ananthagiri-hill/cms-01.jpeg", "/images/from-aptourism/ananthagiri-hill/01.jpeg"],
+    image: "/images/from-aptourism/lambasingi/cms-01.jpg",
+    images: ["/images/from-aptourism/lambasingi/cms-01.jpg"],
     imagePending: false,
   },
   "horsley-hills": {

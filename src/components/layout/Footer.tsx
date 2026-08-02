@@ -34,14 +34,12 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="mb-6 relative w-[260px] h-[75px] md:w-[320px] md:h-[90px] group">
+            <div className="mb-6 relative w-[200px] h-[56px] sm:w-[260px] sm:h-[75px] md:w-[320px] md:h-[90px] group">
               <Image
                 src="/Raja_Travels_logo.png"
                 alt="Raja Travels Logo"
-                width={320}
-                height={90}
-                style={{ position: 'absolute', height: '246%', width: '100%', left: '-32px', top: '-69px', right: 0, bottom: 0, color: 'transparent' }}
-                sizes="280px"
+                fill
+                sizes="(max-width: 640px) 200px, 280px"
                 className="object-contain object-left group-hover:scale-[1.02] transition-transform duration-300"
               />
             </div>

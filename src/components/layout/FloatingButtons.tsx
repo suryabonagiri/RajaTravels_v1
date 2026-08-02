@@ -24,11 +24,17 @@ export default function FloatingButtons() {
   );
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
-      {/* Scroll to top */}
+    <div
+      className="fixed z-50 flex flex-col items-center gap-3"
+      style={{
+        bottom: "calc(1.25rem + env(safe-area-inset-bottom, 0px))",
+        right: "calc(1.25rem + env(safe-area-inset-right, 0px))",
+      }}
+    >
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
+            type="button"
             initial={{ opacity: 0, scale: 0, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0, y: 20 }}
@@ -42,7 +48,6 @@ export default function FloatingButtons() {
         )}
       </AnimatePresence>
 
-      {/* WhatsApp — bottom-right for easy thumb access */}
       <motion.a
         href={whatsappLink}
         target="_blank"

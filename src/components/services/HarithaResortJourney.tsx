@@ -236,7 +236,9 @@ export default function HarithaResortJourney({
             Choose a stay. Open the details.
           </h2>
           <p className="text-[#5F7A76] text-sm md:text-base leading-relaxed">
-            Each box is a separate APTDC Haritha Hotel or Resort. Click any one
+            Each box is a separate APTDC Haritha Hotel or Resort.{" "}
+            <span className="md:hidden">Tap any one</span>
+            <span className="hidden md:inline">Click any one</span>{" "}
             to view stay details and enquire for availability.
           </p>
         </div>
@@ -256,35 +258,53 @@ export default function HarithaResortJourney({
                 transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.28) }}
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.985 }}
-                className={`text-left rounded-2xl border p-5 transition-all duration-300 cursor-pointer ${
+                className={`text-left rounded-2xl border overflow-hidden transition-all duration-300 cursor-pointer ${
                   isSelected
                     ? "bg-[#0F766E] border-[#E8C547] text-white shadow-[0_12px_36px_rgba(15,118,110,0.28)]"
                     : "bg-white border-[#0F766E]/12 hover:border-[#C9A227]/55 hover:shadow-lg"
                 }`}
               >
-                <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="relative aspect-[16/10] bg-gradient-to-br from-[#134E4A] to-[#0F766E]">
+                  {resort.image ? (
+                    <Image
+                      src={resort.image}
+                      alt={resort.imageCaption || resort.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-white/40">
+                      <FaImage className="text-2xl" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
                   <span
-                    className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${
+                    className={`absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
                       isSelected
                         ? "bg-[#E8C547] text-[#134E4A]"
-                        : "bg-[#ECFDF5] text-[#0F766E]"
-                    }`}
-                  >
-                    <CategoryIcon category={resort.category} className="text-lg" />
-                  </span>
-                  <span
-                    className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                      isSelected
-                        ? "bg-white/15 text-[#FEF6D8]"
-                        : "bg-[#FEF6D8] text-[#C9A227]"
+                        : "bg-white/90 text-[#C9A227]"
                     }`}
                   >
                     {resort.categoryLabel}
                   </span>
                 </div>
 
+                <div className="p-4 sm:p-5">
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <span
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-xl ${
+                      isSelected
+                        ? "bg-[#E8C547] text-[#134E4A]"
+                        : "bg-[#ECFDF5] text-[#0F766E]"
+                    }`}
+                  >
+                    <CategoryIcon category={resort.category} className="text-base" />
+                  </span>
+                </div>
+
                 <h3
-                  className={`font-[family-name:var(--font-heading)] text-xl leading-snug mb-2 ${
+                  className={`font-[family-name:var(--font-heading)] text-lg sm:text-xl leading-snug mb-2 ${
                     isSelected ? "text-white" : "text-[#134E4A]"
                   }`}
                 >
@@ -310,9 +330,15 @@ export default function HarithaResortJourney({
                     isSelected ? "text-[#E8C547]" : "text-[#0F766E]"
                   }`}
                 >
-                  {isSelected ? "Selected — details below" : "View stay details"}
+                  {isSelected ? "Selected — details below" : (
+                    <>
+                      <span className="md:hidden">Tap for stay details</span>
+                      <span className="hidden md:inline">View stay details</span>
+                    </>
+                  )}
                   <FaChevronRight className="text-[10px]" />
                 </p>
+                </div>
               </motion.button>
             );
           })}

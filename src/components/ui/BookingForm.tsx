@@ -97,7 +97,7 @@ export default function BookingForm() {
   };
 
   const inputClasses =
-    "w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:border-gold/80 focus:ring-1 focus:ring-gold/50 focus:bg-white/10 transition-all duration-300 text-sm backdrop-blur-md outline-none";
+    "w-full px-3 py-2.5 min-h-11 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:border-gold/80 focus:ring-1 focus:ring-gold/50 focus:bg-white/10 transition-all duration-300 text-base sm:text-sm backdrop-blur-md outline-none";
   const labelClasses =
     "block text-white/75 text-[10px] font-semibold mb-1 tracking-wider uppercase";
 
@@ -290,7 +290,7 @@ export default function BookingForm() {
           type="button"
           onClick={handleWhatsApp}
           disabled={!isFormValid()}
-          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-xs tracking-wide"
+          className="flex items-center justify-center gap-2 min-h-12 py-3 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-sm tracking-wide"
         >
           <FaWhatsapp className="text-base" />
           WhatsApp Booking
@@ -300,7 +300,7 @@ export default function BookingForm() {
           type="button"
           onClick={handleEmail}
           disabled={!isFormValid() || sending}
-          className="flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,158,11,0.35)] disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-xs tracking-wide border border-white/10"
+          className="flex items-center justify-center gap-2 min-h-12 py-3 px-4 bg-gradient-to-r from-primary to-primary-light text-white font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,158,11,0.35)] disabled:opacity-40 disabled:cursor-not-allowed shimmer cursor-pointer text-sm tracking-wide border border-white/10"
         >
           {sending ? (
             <FaSpinner className="text-base animate-spin" />

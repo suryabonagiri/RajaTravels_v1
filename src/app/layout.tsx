@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -13,6 +13,13 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#00479E",
+};
 
 export const metadata: Metadata = {
   title: "Raja Travels | AP Tourism Authorized Agent | Bus Rental & Papikondalu Tourism",
@@ -39,6 +46,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     siteName: "Raja Travels",
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Raja Travels",
+  },
+  formatDetection: {
+    telephone: true,
+  },
   robots: {
     index: true,
     follow: true,
@@ -53,7 +68,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        <meta name="theme-color" content="#0c1a3a" />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="min-h-screen font-[family-name:var(--font-inter)] antialiased">

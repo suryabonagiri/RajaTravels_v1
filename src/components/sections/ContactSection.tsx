@@ -8,7 +8,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaClock } from "rea
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 md:py-28 bg-white">
+    <section id="contact" className="scroll-mt-[calc(4.5rem+env(safe-area-inset-top,0px))] py-16 sm:py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Get in Touch"
@@ -26,17 +26,19 @@ export default function ContactSection() {
           >
             {/* Phone Cards */}
             <h3 className="text-lg font-bold text-primary mb-4">Call Us Directly</h3>
-            <div className="grid grid-cols-2 gap-3 mb-8">
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-3 mb-8">
               {BUSINESS.phones.map((phone) => (
                 <a
                   key={phone}
                   href={`tel:${phone}`}
-                  className="flex items-center gap-3 p-4 bg-surface rounded-xl border border-gray-100 hover:border-gold/30 hover:bg-gold/5 transition-all duration-300 group"
+                  className="flex items-center gap-3 p-4 min-h-14 bg-surface rounded-xl border border-gray-100 hover:border-gold/30 hover:bg-gold/5 transition-all duration-300 group"
                 >
                   <div className="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-all duration-300 shrink-0">
                     <FaPhoneAlt className="text-xs" />
                   </div>
-                  <span className="text-sm font-semibold text-primary">{phone}</span>
+                  <span className="text-sm font-semibold text-primary tracking-wide">
+                    {phone}
+                  </span>
                 </a>
               ))}
             </div>

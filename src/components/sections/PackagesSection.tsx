@@ -18,7 +18,7 @@ const PAPIKONDALU_PACKAGE_IDS = new Set([
 
 export default function PackagesSection() {
   return (
-    <section id="packages" className="py-20 md:py-28 relative overflow-hidden">
+    <section id="packages" className="scroll-mt-[calc(4.5rem+env(safe-area-inset-top,0px))] py-16 sm:py-20 md:py-28 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <Image

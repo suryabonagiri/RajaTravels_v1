@@ -1351,6 +1351,6 @@ export const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Destinations", href: "#destinations" },
   { label: "Packages", href: "#packages" },
-  { label: "Contact", href: "#contact" },
   { label: "About Us", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];

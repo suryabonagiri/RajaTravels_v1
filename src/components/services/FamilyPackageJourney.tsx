@@ -93,7 +93,12 @@ function PackageStopCard({
               align === "right" ? "md:flex-row-reverse" : ""
             } ${isSelected ? "text-[#FFD6A5]" : "text-[#C1121F]"}`}
           >
-            {isSelected ? "Open below — full details & photos" : "Click to open full details"}
+            {isSelected ? "Open below — full details & photos" : (
+              <>
+                <span className="md:hidden">Tap to open full details</span>
+                <span className="hidden md:inline">Click to open full details</span>
+              </>
+            )}
             <FaChevronDown
               className={`text-[10px] transition-transform ${
                 isSelected ? "rotate-180" : ""
@@ -205,9 +210,12 @@ export default function FamilyPackageJourney({
             Travel together. Pick your package.
           </h2>
           <p className="text-[#8B5E4B] text-sm md:text-base leading-relaxed">
-            Hover a stop to highlight it. Click any package to open complete
-            information, pricing, schedule, and photos — planned for kids, elders,
-            and everyone in between.
+            <span className="md:hidden">
+              Tap a stop to open complete information, pricing, schedule, and photos — planned for kids, elders, and everyone in between.
+            </span>
+            <span className="hidden md:inline">
+              Hover a stop to highlight it. Click any package to open complete information, pricing, schedule, and photos — planned for kids, elders, and everyone in between.
+            </span>
           </p>
         </div>
 
