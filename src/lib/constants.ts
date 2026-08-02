@@ -311,9 +311,8 @@ export const HARITHA_RESORTS = [
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/services" },
   { label: "Destinations", href: "#destinations" },
   { label: "Packages", href: "#packages" },
-  { label: "Bus Rental", href: "#bus-rental" },
   { label: "Contact", href: "#contact" },
 ];

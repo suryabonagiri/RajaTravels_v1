@@ -7,7 +7,6 @@ import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import DestinationsSection from "@/components/sections/DestinationsSection";
 import PackagesSection from "@/components/sections/PackagesSection";
-import BusRentalSection from "@/components/sections/BusRentalSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -22,7 +21,6 @@ export default function Home() {
         <ServicesSection />
         <DestinationsSection />
         <PackagesSection />
-        <BusRentalSection />
         <TestimonialsSection />
         <FAQSection />
         <ContactSection />

@@ -13,12 +13,12 @@ import {
   FaArrowUp,
 } from "react-icons/fa";
 import Image from "next/image";
-import { BUSINESS, NAV_LINKS } from "@/lib/constants";
+import Link from "next/link";
+import { BUSINESS, NAV_LINKS, SERVICES } from "@/lib/constants";
 import { smoothScrollTo, generateWhatsAppLink } from "@/lib/utils";
 
 export default function Footer() {
-  const quickLinks = NAV_LINKS.slice(0, 4);
-  const serviceLinks = NAV_LINKS.slice(4);
+  const quickLinks = NAV_LINKS.filter((l) => l.href.startsWith("#"));
 
   return (
     <footer className="bg-white border-t border-gray-100 relative overflow-hidden pt-20 pb-10">
@@ -97,19 +97,15 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/services"
+                  className="text-text-secondary hover:text-gold transition-colors duration-200 text-sm"
+                >
+                  Services
+                </Link>
+              </li>
               {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() =>
-                      smoothScrollTo(link.href.replace("#", ""))
-                    }
-                    className="text-text-secondary hover:text-gold transition-colors duration-200 text-sm cursor-pointer"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-              {serviceLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() =>
@@ -135,13 +131,16 @@ export default function Footer() {
               Our Services
             </h4>
             <ul className="space-y-2.5 text-sm text-text-secondary">
-              <li>Bus Rental Services</li>
-              <li>Papikondalu Boat Tourism</li>
-              <li>Maredumilli Eco Tourism</li>
-              <li>Haritha Resort Booking</li>
-              <li>Group & Family Tours</li>
-              <li>Corporate Trips</li>
-              <li>Marriage Trip Buses</li>
+              {SERVICES.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    href={`/services/${service.id}`}
+                    className="hover:text-gold transition-colors duration-200"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 

@@ -7,6 +7,7 @@ import {
   PACKAGES,
   SERVICES,
 } from "./constants";
+import { SERVICE_DETAILS } from "./services";
 
 export type KnowledgeCategory =
   | "business"
@@ -88,13 +89,22 @@ export function buildKnowledgeBase(): KnowledgeItem[] {
     ),
   });
 
-  for (const service of SERVICES) {
+  for (const service of SERVICE_DETAILS) {
     items.push({
       id: `service-${service.id}`,
       category: "service",
       title: service.title,
-      content: service.description,
-      keywords: tokenize(service.title, service.description, service.id, "service"),
+      content: `${service.description}\n\n${service.longDescription}\n\nHighlights: ${service.features.join("; ")}. Ideal for: ${service.idealFor.join(", ")}. More details: /services/${service.id}`,
+      keywords: tokenize(
+        service.title,
+        service.description,
+        service.longDescription,
+        service.subtitle,
+        service.id,
+        "service",
+        ...service.features,
+        ...service.idealFor
+      ),
     });
   }
 
