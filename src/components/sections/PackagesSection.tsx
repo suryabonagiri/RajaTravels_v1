@@ -22,7 +22,7 @@ export default function PackagesSection() {
       {/* Background */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=40"
+          src="/images/from-aptourism/papi-1day/15.jpeg"
           alt="Background scenery"
           fill
           className="object-cover"

@@ -1,3 +1,5 @@
+import { HARITHA_MEDIA, PACKAGE_MEDIA } from "./aptourismMedia";
+
 // Business Information Constants
 export const BUSINESS = {
   name: "Raja Travels",
@@ -84,8 +86,7 @@ export const DESTINATIONS = [
     subtitle: "Godavari River Paradise",
     description:
       "Cruise through the majestic Papikondalu hills on the Godavari river. Witness breathtaking gorges, lush green hills, and serene backwaters on this unforgettable boat journey.",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image: "/images/from-aptourism/papi-1day/05.png",
     highlights: ["Boat Cruise", "Hill Views", "River Safari", "Tribal Culture"],
   },
   {
@@ -94,8 +95,7 @@ export const DESTINATIONS = [
     subtitle: "Eco Tourism Haven",
     description:
       "Discover the untouched beauty of Maredumilli's dense forests, stunning waterfalls, and vibrant tribal heritage. A perfect escape into nature's lap.",
-    image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+    image: "/images/from-aptourism/mare-1day/08.jpeg",
     highlights: [
       "Waterfalls",
       "Forest Trails",
@@ -109,8 +109,7 @@ export const DESTINATIONS = [
     subtitle: "Official Andhra Pradesh Tourism hotels & resorts",
     description:
       "Stay at APTDC Haritha Hotels & Resorts across beaches, hill stations, islands, and temple towns — booked through an authorized agent.",
-    image:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
+    image: "/images/from-aptourism/tyda-jungle-bells/cms-01.jpg",
     highlights: [
       "Beach Resorts",
       "Hill Stations",
@@ -167,9 +166,11 @@ export type TourPackage = {
   imagePending?: boolean;
   image?: string;
   imageCaption?: string;
+  /** Additional gallery photos for the package detail view */
+  images?: string[];
 };
 
-export const PACKAGES: TourPackage[] = [
+const RAW_PACKAGES: TourPackage[] = [
   {
     id: "papi-1day",
     title: "Papikondalu 1 Day Tour Package",
@@ -1076,10 +1077,11 @@ export type HarithaResort = {
   imagePending?: boolean;
   image?: string;
   imageCaption?: string;
+  images?: string[];
 };
 
 /** APTDC (Andhra Pradesh Tourism Development Corporation) Haritha Hotels & Resorts */
-export const HARITHA_RESORTS: HarithaResort[] = [
+const RAW_HARITHA_RESORTS: HarithaResort[] = [
   {
     id: "rushikonda-beach",
     name: "Haritha Beach Resort, Rushikonda",
@@ -1333,6 +1335,16 @@ export const HARITHA_RESORTS: HarithaResort[] = [
     imageCaption: "Srisailam Haritha Hotel",
   },
 ];
+
+export const PACKAGES: TourPackage[] = RAW_PACKAGES.map((pkg) => {
+  const media = PACKAGE_MEDIA[pkg.id];
+  return media ? { ...pkg, ...media } : pkg;
+});
+
+export const HARITHA_RESORTS: HarithaResort[] = RAW_HARITHA_RESORTS.map((resort) => {
+  const media = HARITHA_MEDIA[resort.id];
+  return media ? { ...resort, ...media } : resort;
+});
 
 export const NAV_LINKS = [
   { label: "Home", href: "#home" },

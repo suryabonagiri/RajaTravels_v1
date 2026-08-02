@@ -68,6 +68,28 @@ export default function PackageDetailBlock({ pkg }: { pkg: TourPackage }) {
       </div>
 
       <div className="p-5 md:p-6 space-y-6">
+        {pkg.images && pkg.images.length > 1 ? (
+          <div>
+            <h4 className="text-sm font-bold text-primary mb-3">Package photos</h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              {pkg.images.slice(0, 9).map((src) => (
+                <div
+                  key={src}
+                  className="relative aspect-[4/3] overflow-hidden rounded-xl border border-gray-100 bg-surface"
+                >
+                  <Image
+                    src={src}
+                    alt={`${pkg.shortTitle || pkg.title} photo`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, 220px"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         {(pkg.reportingPlace || pkg.reportingTime) && (
           <div className="rounded-xl border border-gold/20 bg-gold/5 px-4 py-3">
             <p className="text-[10px] uppercase tracking-wider text-gold-dark font-semibold mb-1">

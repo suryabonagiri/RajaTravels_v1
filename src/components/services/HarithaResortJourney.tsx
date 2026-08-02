@@ -86,6 +86,28 @@ function ResortDetailPanel({ resort }: { resort: HarithaResort }) {
       </div>
 
       <div className="p-5 md:p-6 space-y-6">
+        {resort.images && resort.images.length > 1 ? (
+          <div>
+            <h4 className="text-sm font-bold text-[#134E4A] mb-3">Stay photos</h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              {resort.images.slice(0, 9).map((src) => (
+                <div
+                  key={src}
+                  className="relative aspect-[4/3] overflow-hidden rounded-xl border border-[#0F766E]/10 bg-[#F0FDFA]"
+                >
+                  <Image
+                    src={src}
+                    alt={`${resort.shortName} photo`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, 220px"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <div>
           <h4 className="text-sm font-bold text-[#134E4A] mb-3">Stay highlights</h4>
           <ul className="grid sm:grid-cols-2 gap-2.5">

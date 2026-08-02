@@ -1,4 +1,9 @@
 import { BUS_TYPES, HARITHA_RESORTS, PACKAGES } from "./constants";
+import {
+  HARITHA_MEDIA,
+  PACKAGE_MEDIA,
+  SERVICE_HERO_MEDIA,
+} from "./aptourismMedia";
 
 export interface ServiceInfo {
   id: string;
@@ -233,20 +238,42 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
 ];
 
 export function getAllServices(): ServiceInfo[] {
-  return SERVICE_DETAILS;
+  return SERVICE_DETAILS.map(withServiceHero);
 }
 
 export function getServiceById(id: string): ServiceInfo | undefined {
-  return SERVICE_DETAILS.find((s) => s.id === id);
+  const service = SERVICE_DETAILS.find((s) => s.id === id);
+  return service ? withServiceHero(service) : undefined;
 }
 
 export function getServiceSlugs(): string[] {
   return SERVICE_DETAILS.map((s) => s.id);
 }
 
+function withServiceHero(service: ServiceInfo): ServiceInfo {
+  const hero =
+    SERVICE_HERO_MEDIA[service.id as keyof typeof SERVICE_HERO_MEDIA];
+  if (!hero) return service;
+  return { ...service, image: hero };
+}
+
+function withPackageMedia<T extends { id: string }>(pkg: T): T {
+  const media = PACKAGE_MEDIA[pkg.id];
+  if (!media) return pkg;
+  return { ...pkg, ...media };
+}
+
+function withHarithaMedia<T extends { id: string }>(resort: T): T {
+  const media = HARITHA_MEDIA[resort.id];
+  if (!media) return resort;
+  return { ...resort, ...media };
+}
+
 export function getRelatedPackages(service: ServiceInfo) {
   if (!service.relatedPackageIds?.length) return [];
-  return PACKAGES.filter((p) => service.relatedPackageIds?.includes(p.id));
+  return PACKAGES.filter((p) => service.relatedPackageIds?.includes(p.id)).map(
+    withPackageMedia
+  );
 }
 
 export function getBusTypesForService(service: ServiceInfo) {
@@ -254,5 +281,5 @@ export function getBusTypesForService(service: ServiceInfo) {
 }
 
 export function getResortsForService(service: ServiceInfo) {
-  return service.resortList ? HARITHA_RESORTS : [];
+  return service.resortList ? HARITHA_RESORTS.map(withHarithaMedia) : [];
 }
