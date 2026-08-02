@@ -762,6 +762,216 @@ export const PACKAGES: TourPackage[] = [
       "Room type and resort allotment confirmed based on availability for your dates.",
     ],
   },
+  {
+    id: "family-godavari-day",
+    title: "Family Godavari Day Out",
+    shortTitle: "Family Godavari Day",
+    summary:
+      "Easy day cruise for kids and elders — boat ride, temple stops, meals on board, and scenic Papi hills views.",
+    adultPrice: "₹1,250",
+    childPrice: "₹1,050",
+    childAgeNote: "3–10 years",
+    duration: "1 Day",
+    destination: "Papikondalu",
+    imagePending: true,
+    imageCaption: "Family boat day on Godavari",
+    reportingPlace: "Rajahmundry / Rajamahendravaram",
+    reportingTime: "Morning pickup (as confirmed)",
+    highlights: [
+      "Kid-friendly Godavari boat cruise",
+      "Breakfast & lunch on the boat",
+      "Temple darshan with scenic views",
+      "Comfortable road transfer round trip",
+    ],
+    visitingPlaces: [
+      "GandiPochamma Temple",
+      "Papi hills",
+      "Perantapalli Ashramam",
+      "Godavari river views",
+    ],
+    facilities: [
+      "Family seating support on boat",
+      "Vegetarian meals as per package",
+      "Life jackets & safety briefing",
+      "Pickup & drop from Rajahmundry",
+    ],
+    itinerary: [
+      {
+        time: "Morning",
+        detail: "Family pickup from Rajahmundry and transfer to boat check-in",
+      },
+      {
+        time: "Late morning",
+        detail: "Cruise on Godavari with breakfast and temple darshan",
+      },
+      {
+        time: "Afternoon",
+        detail: "Lunch on board, Papi hills views, return journey",
+      },
+      {
+        time: "Evening",
+        detail: "Drop back at Rajahmundry — relaxed pace suited for all ages",
+      },
+    ],
+    notes: [
+      "Ideal for joint families and first-time Godavari visitors with children.",
+      "Share ages of kids when booking so we plan seating and meal counts.",
+    ],
+  },
+  {
+    id: "family-eco-weekend",
+    title: "Family Eco Weekend Getaway",
+    shortTitle: "Family Eco Weekend",
+    summary:
+      "2-day Maredumilli escape with resort stay, waterfalls, soft forest walks, and all meals — great for families.",
+    adultPrice: "₹5,000",
+    childPrice: "₹4,500",
+    childAgeNote: "3–10 years",
+    duration: "2 Days",
+    destination: "Maredumilli",
+    imagePending: true,
+    imageCaption: "Family eco resort weekend",
+    reportingPlace: "Rajahmundry / Rajamahendravaram",
+    reportingTime: "Morning Day 1 (as confirmed)",
+    highlights: [
+      "Overnight eco-resort stay",
+      "Waterfall sightseeing",
+      "Gentle nature walks",
+      "All meals included",
+    ],
+    visitingPlaces: [
+      "Jalatarangini Waterfalls",
+      "Forest viewpoints",
+      "Eco-resort surroundings",
+      "Family-friendly nature trails",
+    ],
+    facilities: [
+      "Transport arrangements",
+      "Family room / stay support",
+      "All meals as per package",
+      "On-trip coordinator support",
+    ],
+    daySchedules: [
+      {
+        dayLabel: "Day 1 — Arrive & explore together",
+        stops: [
+          {
+            time: "Morning",
+            detail: "Drive from Rajahmundry into Maredumilli with the family",
+          },
+          {
+            time: "Afternoon",
+            detail: "Waterfall visit, check-in, and easy evening stroll",
+          },
+        ],
+      },
+      {
+        dayLabel: "Day 2 — Nature & return",
+        stops: [
+          {
+            time: "Morning",
+            detail: "Soft forest walk / viewpoints suited for mixed ages",
+          },
+          {
+            time: "Afternoon",
+            detail: "Meals, checkout, and return to Rajahmundry",
+          },
+        ],
+      },
+    ],
+    notes: [
+      "Tell us elder or toddler needs — we keep the pace comfortable.",
+      "Room allotment confirmed based on availability for your dates.",
+    ],
+  },
+  {
+    id: "family-temple-river",
+    title: "Temple & River Family Tour",
+    shortTitle: "Temple + River Family",
+    summary:
+      "Combine sacred temple darshan with a scenic Godavari stretch — popular for multi-generation family groups.",
+    adultPrice: "₹2,500",
+    childPrice: "₹2,200",
+    duration: "1 Day",
+    destination: "Bhadrachalam",
+    imagePending: true,
+    imageCaption: "Family temple and river tour",
+    reportingPlace: "Rajahmundry / Rajamahendravaram",
+    reportingTime: "Around 7:00 AM (as confirmed)",
+    highlights: [
+      "Godavari boat journey",
+      "Bhadrachalam temple darshan",
+      "Meals on the boat",
+      "Suited for elders & children",
+    ],
+    visitingPlaces: [
+      "Papi hills stretch",
+      "Perantapalli",
+      "Bhadrachalam temple",
+      "Godavari riverside views",
+    ],
+    facilities: [
+      "Round-trip coordination from Rajahmundry",
+      "Boat + road transfer as per package",
+      "Breakfast & lunch support",
+      "Family group seating planning",
+    ],
+    itinerary: [
+      {
+        time: "Morning",
+        detail: "Start from Rajahmundry; boat journey with breakfast",
+      },
+      {
+        time: "Afternoon",
+        detail: "Scenic stops, lunch, and transfer toward Bhadrachalam",
+      },
+      {
+        time: "Evening",
+        detail: "Temple darshan and return arrangements as confirmed",
+      },
+    ],
+    notes: [
+      "Share approximate group size early — temple days can be busy on weekends.",
+      "We help plan elder-friendly timing wherever possible.",
+    ],
+  },
+  {
+    id: "family-custom-group",
+    title: "Custom Group & Celebration Tour",
+    shortTitle: "Custom Family Group",
+    summary:
+      "Fully tailored trip for joint families, friend circles, or celebrations — transport, stay, meals, and sightseeing planned together.",
+    adultPrice: "On request",
+    childPrice: "On request",
+    duration: "Flexible",
+    destination: "Custom itinerary",
+    imagePending: true,
+    imageCaption: "Custom family / group celebration tour",
+    reportingPlace: "As per your pickup point",
+    reportingTime: "As planned with you",
+    highlights: [
+      "Itinerary built around your group",
+      "Bus / vehicle sized to your headcount",
+      "Stay & meal planning support",
+      "Dedicated trip coordinator",
+    ],
+    visitingPlaces: [
+      "Papikondalu / Godavari options",
+      "Maredumilli eco spots",
+      "Temple circuits",
+      "Haritha resort stays (on request)",
+    ],
+    facilities: [
+      "Trip planning consultation",
+      "Vehicle arrangement",
+      "Stay booking support",
+      "On-trip assistance",
+    ],
+    notes: [
+      "Share dates, headcount (adults + children), and preferred destinations — we quote a clear plan.",
+      "Ideal for birthdays, family reunions, community associations, and friend getaways.",
+    ],
+  },
 ];
 
 export const TESTIMONIALS = [

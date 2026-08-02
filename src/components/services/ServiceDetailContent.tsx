@@ -14,6 +14,64 @@ import { generateWhatsAppLink } from "@/lib/utils";
 import PackageDetailBlock from "@/components/services/PackageDetailBlock";
 import RiverPackageJourney from "@/components/services/RiverPackageJourney";
 import ForestPackageJourney from "@/components/services/ForestPackageJourney";
+import FamilyPackageJourney from "@/components/services/FamilyPackageJourney";
+
+type JourneyTheme = "river" | "forest" | "family";
+
+function getJourneyTheme(serviceId: string): JourneyTheme | null {
+  if (serviceId === "papikondalu") return "river";
+  if (serviceId === "maredumilli") return "forest";
+  if (serviceId === "group-tours") return "family";
+  return null;
+}
+
+const THEME = {
+  river: {
+    articleBg: "bg-[#E8F7FC]",
+    heroBg: "bg-[#023E8A]",
+    backLink: "text-[#CAF0F8]/85 hover:text-white",
+    eyebrow: "text-[#90E0EF]",
+    heroText: "text-[#CAF0F8]/90",
+    ctaSection: "border-[#0077B6]/12 bg-[#D6EBFA]",
+    ctaCard: "border-[#48CAE4]/35 bg-white/90",
+    ctaTitle: "text-[#023E8A]",
+    ctaBody: "text-[#5B8BA8]",
+    callBtn: "bg-[#0077B6] hover:bg-[#023E8A]",
+    heroCopy:
+      "Explore every Godavari package on the river route below — day tours, night stays, and hotel options.",
+    ctaHeading: "Ready to book a Papikondalu package?",
+  },
+  forest: {
+    articleBg: "bg-[#F1FAEE]",
+    heroBg: "bg-[#081C15]",
+    backLink: "text-[#B7E4C7]/80 hover:text-[#D8F3DC]",
+    eyebrow: "text-[#95D5B2]",
+    heroText: "text-[#D8F3DC]/85",
+    ctaSection: "border-[#2D6A4F]/15 bg-[#E9F5EC]",
+    ctaCard: "border-[#2D6A4F]/20 bg-white/90",
+    ctaTitle: "text-[#1B4332]",
+    ctaBody: "text-[#52796F]",
+    callBtn: "bg-[#1B4332] hover:bg-[#2D6A4F]",
+    heroCopy:
+      "Follow the forest trail below — day tours and overnight eco stays deep in Maredumilli greenery.",
+    ctaHeading: "Ready for a Maredumilli forest getaway?",
+  },
+  family: {
+    articleBg: "bg-[#FFF5EE]",
+    heroBg: "bg-[#43140F]",
+    backLink: "text-[#FFD6A5]/90 hover:text-white",
+    eyebrow: "text-[#F4A261]",
+    heroText: "text-[#FFE8D6]/90",
+    ctaSection: "border-[#E76F51]/15 bg-[#FFE8D6]",
+    ctaCard: "border-[#F4A261]/40 bg-white/90",
+    ctaTitle: "text-[#43140F]",
+    ctaBody: "text-[#8B5E4B]",
+    callBtn: "bg-[#C1121F] hover:bg-[#9B2226]",
+    heroCopy:
+      "Follow the family celebration route below — day outs, weekends, temple trips, and custom group plans.",
+    ctaHeading: "Ready to plan a family or group trip?",
+  },
+} as const;
 
 export default function ServiceDetailContent({
   service,
@@ -23,37 +81,18 @@ export default function ServiceDetailContent({
   const busTypes = getBusTypesForService(service);
   const packages = getRelatedPackages(service);
   const resorts = getResortsForService(service);
-  const isPapikondalu = service.id === "papikondalu";
-  const isMaredumilli = service.id === "maredumilli";
-  const usesJourneyLayout = isPapikondalu || isMaredumilli;
+  const journeyTheme = getJourneyTheme(service.id);
+  const theme = journeyTheme ? THEME[journeyTheme] : null;
 
   const whatsappLink = generateWhatsAppLink(
     `Hi! I'm interested in *${service.title}*. Please share more details and availability.`
   );
 
-  const heroCopy = isPapikondalu
-    ? "Explore every Godavari package on the river route below — day tours, night stays, and hotel options."
-    : isMaredumilli
-      ? "Follow the forest trail below — day tours and overnight eco stays deep in Maredumilli greenery."
-      : service.description;
-
   return (
-    <article
-      className={
-        isMaredumilli
-          ? "bg-[#F1FAEE]"
-          : isPapikondalu
-            ? "bg-[#E8F7FC]"
-            : "bg-white"
-      }
-    >
+    <article className={theme?.articleBg ?? "bg-white"}>
       <section
         className={`relative min-h-[36vh] md:min-h-[42vh] flex items-end overflow-hidden ${
-          isMaredumilli
-            ? "bg-[#081C15]"
-            : isPapikondalu
-              ? "bg-[#023E8A]"
-              : "bg-primary-dark"
+          theme?.heroBg ?? "bg-primary-dark"
         }`}
       >
         <Image
@@ -64,17 +103,23 @@ export default function ServiceDetailContent({
           className="object-cover"
           sizes="100vw"
         />
-        {isMaredumilli ? (
+        {journeyTheme === "forest" ? (
           <>
             <div className="absolute inset-0 bg-gradient-to-r from-[#081C15]/92 via-[#1B4332]/70 to-[#2D6A4F]/25" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#081C15] via-transparent to-[#1B4332]/45" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(149,213,178,0.18),transparent_45%)]" />
           </>
-        ) : isPapikondalu ? (
+        ) : journeyTheme === "river" ? (
           <>
             <div className="absolute inset-0 bg-gradient-to-r from-[#023E8A]/90 via-[#0077B6]/65 to-[#00B4D8]/30" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#023E8A] via-transparent to-[#48CAE4]/25" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_15%,rgba(144,224,239,0.28),transparent_45%)]" />
+          </>
+        ) : journeyTheme === "family" ? (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#43140F]/92 via-[#9B2226]/65 to-[#E76F51]/35" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#43140F] via-transparent to-[#F4A261]/25" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_15%,rgba(244,162,97,0.28),transparent_45%)]" />
           </>
         ) : (
           <>
@@ -87,11 +132,7 @@ export default function ServiceDetailContent({
           <Link
             href="/services"
             className={`inline-flex items-center gap-2 text-sm transition-colors mb-5 ${
-              isMaredumilli
-                ? "text-[#B7E4C7]/80 hover:text-[#D8F3DC]"
-                : isPapikondalu
-                  ? "text-[#CAF0F8]/85 hover:text-white"
-                  : "text-white/70 hover:text-gold"
+              theme?.backLink ?? "text-white/70 hover:text-gold"
             }`}
           >
             <FaArrowLeft className="text-xs" />
@@ -99,11 +140,7 @@ export default function ServiceDetailContent({
           </Link>
           <p
             className={`text-xs font-semibold tracking-[0.18em] uppercase mb-3 ${
-              isMaredumilli
-                ? "text-[#95D5B2]"
-                : isPapikondalu
-                  ? "text-[#90E0EF]"
-                  : "text-gold"
+              theme?.eyebrow ?? "text-gold"
             }`}
           >
             {service.subtitle}
@@ -113,68 +150,34 @@ export default function ServiceDetailContent({
           </h1>
           <p
             className={`text-base md:text-lg max-w-2xl leading-relaxed ${
-              isMaredumilli
-                ? "text-[#D8F3DC]/85"
-                : isPapikondalu
-                  ? "text-[#CAF0F8]/90"
-                  : "text-white/70"
+              theme?.heroText ?? "text-white/70"
             }`}
           >
-            {heroCopy}
+            {theme?.heroCopy ?? service.description}
           </p>
         </div>
       </section>
 
-      {usesJourneyLayout ? (
+      {journeyTheme && theme ? (
         <>
-          {isPapikondalu ? (
+          {journeyTheme === "river" ? (
             <RiverPackageJourney packages={packages} />
-          ) : (
+          ) : journeyTheme === "forest" ? (
             <ForestPackageJourney packages={packages} />
+          ) : (
+            <FamilyPackageJourney packages={packages} />
           )}
 
-          <section
-            className={`border-t ${
-              isMaredumilli
-                ? "border-[#2D6A4F]/15 bg-[#E9F5EC]"
-                : isPapikondalu
-                  ? "border-[#0077B6]/12 bg-[#D6EBFA]"
-                  : "border-gray-100 bg-white"
-            }`}
-          >
+          <section className={`border-t ${theme.ctaSection}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
               <div
-                className={`rounded-2xl border p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${
-                  isMaredumilli
-                    ? "border-[#2D6A4F]/20 bg-white/90"
-                    : isPapikondalu
-                      ? "border-[#48CAE4]/35 bg-white/90"
-                      : "border-gray-100 bg-surface"
-                }`}
+                className={`rounded-2xl border p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${theme.ctaCard}`}
               >
                 <div>
-                  <p
-                    className={`font-semibold mb-1 ${
-                      isMaredumilli
-                        ? "text-[#1B4332]"
-                        : isPapikondalu
-                          ? "text-[#023E8A]"
-                          : "text-primary"
-                    }`}
-                  >
-                    {isPapikondalu
-                      ? "Ready to book a Papikondalu package?"
-                      : "Ready for a Maredumilli forest getaway?"}
+                  <p className={`font-semibold mb-1 ${theme.ctaTitle}`}>
+                    {theme.ctaHeading}
                   </p>
-                  <p
-                    className={`text-sm ${
-                      isMaredumilli
-                        ? "text-[#52796F]"
-                        : isPapikondalu
-                          ? "text-[#5B8BA8]"
-                          : "text-text-secondary"
-                    }`}
-                  >
+                  <p className={`text-sm ${theme.ctaBody}`}>
                     Raja Travels is an AP Tourism authorized agent in Rajahmundry.
                     Share your dates and group size — we&apos;ll confirm the best option.
                   </p>
@@ -191,13 +194,7 @@ export default function ServiceDetailContent({
                   </a>
                   <a
                     href={`tel:${BUSINESS.primaryPhone}`}
-                    className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-white font-semibold text-sm ${
-                      isMaredumilli
-                        ? "bg-[#1B4332] hover:bg-[#2D6A4F]"
-                        : isPapikondalu
-                          ? "bg-[#0077B6] hover:bg-[#023E8A]"
-                          : "bg-primary"
-                    }`}
+                    className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-white font-semibold text-sm ${theme.callBtn}`}
                   >
                     <FaPhoneAlt className="text-xs" />
                     Call {BUSINESS.primaryPhone}

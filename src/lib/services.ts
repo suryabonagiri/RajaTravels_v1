@@ -165,9 +165,9 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
     description:
       "Customized group tours for families, friends, and communities. Complete trip planning with accommodation and transport.",
     icon: "group",
-    subtitle: "Custom trips for every group",
+    subtitle: "Warm trips for every family",
     image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80",
+      "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1400&q=80",
     longDescription:
       "Tell us your group size, dates, and interests — we design a complete tour covering transport, stays, sightseeing, and meals. Ideal for joint families, friend circles, community associations, and celebration trips.",
     features: [
@@ -190,7 +190,12 @@ export const SERVICE_DETAILS: ServiceInfo[] = [
       "Community associations",
       "Celebration tours",
     ],
-    relatedPackageIds: ["papi-1day", "mare-2day", "sirivaka-2day"],
+    relatedPackageIds: [
+      "family-godavari-day",
+      "family-eco-weekend",
+      "family-temple-river",
+      "family-custom-group",
+    ],
   },
   {
     id: "corporate",
