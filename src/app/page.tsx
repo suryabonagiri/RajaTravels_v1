@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
+import TravelChatbot from "@/components/chat/TravelChatbot";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
@@ -28,6 +29,7 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingButtons />
+      <TravelChatbot />
     </>
   );
 }
